@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bel Learning Lab</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Salesforce+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Salesforce Lightning Design System Colors */
+  --slds-brand: #1589ee;
+  --slds-brand-dark: #0176d3;
+  --slds-brand-light: #5eb4ff;
+  --slds-success: #04844b;
+  --slds-warning: #fe9339;
+  --slds-error: #ea001e;
+  --slds-info: #0176d3;
+  
+  /* Text Colors */
+  --slds-text-default: #181818;
+  --slds-text-weak: #706e6b;
+  --slds-text-placeholder: #706e6b;
+  --slds-text-inverse: #ffffff;
+  
+  /* Background Colors */
+  --slds-color-background: #f3f2f2;
+  --slds-color-background-alt: #ffffff;
+  --slds-color-background-shade: #ecebea;
+  
+  /* Border Colors */
+  --slds-color-border: #dddbda;
+  --slds-color-border-strong: #c9c7c5;
+  
+  /* Shadows */
+  --slds-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  --slds-shadow-2: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --slds-shadow-4: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  --slds-shadow-8: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
+  
+  /* Spacing */
+  --slds-spacing-xxx-small: 0.125rem;
+  --slds-spacing-xx-small: 0.25rem;
+  --slds-spacing-x-small: 0.5rem;
+  --slds-spacing-small: 0.75rem;
+  --slds-spacing-medium: 1rem;
+  --slds-spacing-large: 1.5rem;
+  --slds-spacing-x-large: 2rem;
+}
+
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body { 
+  font-family: 'Salesforce Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--slds-color-background);
+  color: var(--slds-text-default);
+  line-height: 1.5;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: var(--slds-spacing-large) var(--slds-spacing-medium);
+}
+
+.header { 
+  text-align: center; 
+  margin-bottom: var(--slds-spacing-x-large);
+  background-color: var(--slds-color-background-alt);
+  padding: var(--slds-spacing-x-large) var(--slds-spacing-large);
+  border-radius: 0.5rem;
+  border: 1px solid var(--slds-color-border);
+  box-shadow: var(--slds-shadow-2);
+}
+
+.logo { 
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; 
+  color: var(--slds-brand);
+  margin-bottom: var(--slds-spacing-small);
+  letter-spacing: -0.025em;
+}
+
+.subtitle { 
+  color: var(--slds-text-default);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: var(--slds-spacing-x-small);
+}
+
+.header p {
+  color: var(--slds-text-weak);
+  font-size: 1rem;
+}
+
+.tabs { 
+  display: flex;
+  background-color: var(--slds-color-background-alt);
+  border-radius: 0.5rem;
+  border: 1px solid var(--slds-color-border);
+  padding: var(--slds-spacing-xx-small);
+  margin-bottom: var(--slds-spacing-large);
+  flex-wrap: wrap;
+  gap: var(--slds-spacing-xx-small);
+  box-shadow: var(--slds-shadow-1);
+}
+
+.tab { 
+  flex: 1;
+  min-width: 120px;
+  padding: var(--slds-spacing-small) var(--slds-spacing-medium);
+  background: transparent;
+  border: none;
+  color: var(--slds-text-weak);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  background-color: var(--slds-color-background-shade);
+  color: var(--slds-text-default);
+}
+
+.tab.active { 
+  background-color: var(--slds-brand);
+  color: var(--slds-text-inverse);
+  box-shadow: var(--slds-shadow-2);
+}
+
+.panel { 
+  background-color: var(--slds-color-background-alt);
+  border-radius: 0.5rem;
+  padding: var(--slds-spacing-x-large);
+  border: 1px solid var(--slds-color-border);
+  box-shadow: var(--slds-shadow-4);
+}
+
+.panel h3 {
+  color: var(--slds-text-default);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--slds-spacing-medium);
+}
+
+.panel p {
+  color: var(--slds-text-weak);
+  margin-bottom: var(--slds-spacing-small);
+}
+
+.auth-chain { 
+  display: flex; 
+  align-items: center; 
+  gap: var(--slds-spacing-medium);
+  margin: var(--slds-spacing-x-large) 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.auth-module { 
+  background-color: var(--slds-color-background-alt);
+  border: 2px solid var(--slds-color-border);
+  padding: var(--slds-spacing-large);
+  border-radius: 0.5rem;
+  min-width: 200px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--slds-shadow-2);
+  position: relative;
+}
+
+.auth-module.pending {
+  border-color: var(--slds-color-border-strong);
+  background-color: var(--slds-color-background-shade);
+}
+
+.auth-module.active { 
+  border-color: var(--slds-info);
+  background-color: #e3f3ff;
+  box-shadow: var(--slds-shadow-4);
+  animation: pulse 2s infinite;
+}
+
+.auth-module.success {
+  border-color: var(--slds-success);
+  background-color: #ecf9f4;
+}
+
+.auth-module.failed { 
+  border-color: var(--slds-error);
+  background-color: #fee;
+}
+
+.auth-module.skipped {
+  border-color: var(--slds-color-border);
+  background-color: var(--slds-color-background-shade);
+  opacity: 0.6;
+}
+
+.auth-module > div:first-child {
+  font-weight: 600;
+  color: var(--slds-text-default);
+  margin-bottom: var(--slds-spacing-x-small);
+  font-size: 1rem;
+}
+
+.auth-module > div:nth-child(2) {
+  font-size: 0.75rem;
+  color: var(--slds-text-weak);
+  margin-bottom: var(--slds-spacing-x-small);
+}
+
+.auth-module > div:nth-child(3) {
+  display: inline-block;
+  padding: var(--slds-spacing-xxx-small) var(--slds-spacing-x-small);
+  background-color: var(--slds-color-background);
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--slds-text-weak);
+}
+
+.auth-module > div:last-child {
+  font-size: 1.5rem;
+  margin-top: var(--slds-spacing-small);
+}
+
+.arrow { 
+  font-size: 1.25rem;
+  color: var(--slds-brand);
+  font-weight: bold;
+}
+
+.login-form { 
+  display: grid; 
+  gap: var(--slds-spacing-large);
+  max-width: 32rem;
+  margin: var(--slds-spacing-x-large) auto;
+  background-color: var(--slds-color-background-alt);
+  padding: var(--slds-spacing-x-large);
+  border-radius: 0.5rem;
+  border: 1px solid var(--slds-color-border);
+  box-shadow: var(--slds-shadow-2);
+}
+
+.input-group { 
+  display: flex; 
+  flex-direction: column; 
+  gap: var(--slds-spacing-x-small);
+}
+
+.input-group label {
+  font-weight: 600;
+  color: var(--slds-text-default);
+  font-size: 0.875rem;
+}
+
+.input, select { 
+  padding: var(--slds-spacing-small) var(--slds-spacing-medium);
+  border: 2px solid var(--slds-color-border);
+  border-radius: 0.25rem;
+  background-color: var(--slds-color-background-alt);
+  color: var(--slds-text-default);
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.input:focus, select:focus {
+  outline: none;
+  border-color: var(--slds-brand);
+  box-shadow: 0 0 0 1px var(--slds-brand);
+}
+
+.input::placeholder { 
+  color: var(--slds-text-placeholder);
+}
+
+.btn { 
+  padding: var(--slds-spacing-medium) var(--slds-spacing-x-large);
+  background-color: var(--slds-brand);
+  border: 1px solid var(--slds-brand);
+  border-radius: 0.25rem;
+  color: var(--slds-text-inverse);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  font-family: inherit;
+  box-shadow: var(--slds-shadow-1);
+}
+
+.btn:hover { 
+  background-color: var(--slds-brand-dark);
+  border-color: var(--slds-brand-dark);
+  box-shadow: var(--slds-shadow-2);
+}
+
+.btn:disabled { 
+  opacity: 0.5; 
+  cursor: not-allowed;
+}
+
+.status { 
+  text-align: center; 
+  padding: var(--slds-spacing-medium) var(--slds-spacing-large);
+  border-radius: 0.5rem;
+  margin: var(--slds-spacing-large) 0;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.status.success { 
+  background-color: #ecf9f4;
+  border-color: var(--slds-success);
+  color: #027639;
+}
+
+.status.error { 
+  background-color: #fee;
+  border-color: var(--slds-error);
+  color: #c23934;
+}
+
+.status.warning { 
+  background-color: #fef5e7;
+  border-color: var(--slds-warning);
+  color: #b45506;
+}
+
+.concept-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+  gap: var(--slds-spacing-large);
+}
+
+.concept-card { 
+  background-color: var(--slds-color-background-alt);
+  padding: var(--slds-spacing-large);
+  border-radius: 0.5rem;
+  border: 1px solid var(--slds-color-border);
+  transition: all 0.3s ease;
+  box-shadow: var(--slds-shadow-2);
+}
+
+.concept-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--slds-shadow-8);
+  border-color: var(--slds-brand-light);
+}
+
+.concept-title { 
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--slds-spacing-small);
+  color: var(--slds-brand);
+}
+
+.concept-card p {
+  color: var(--slds-text-weak);
+  margin-bottom: var(--slds-spacing-medium);
+  font-size: 0.875rem;
+}
+
+.step-list { 
+  list-style: none;
+}
+
+.step-list li { 
+  padding: var(--slds-spacing-small) 0;
+  border-bottom: 1px solid var(--slds-color-border);
+  color: var(--slds-text-default);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+}
+
+.step-list li:last-child {
+  border-bottom: none;
+}
+
+.step-list li::before { 
+  content: "→";
+  color: var(--slds-brand);
+  font-weight: 600;
+  margin-right: var(--slds-spacing-small);
+  font-size: 1rem;
+}
+
+/* Status indicators */
+.status-badge {
+  display: inline-block;
+  padding: var(--slds-spacing-xxx-small) var(--slds-spacing-x-small);
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status-badge.success {
+  background-color: var(--slds-success);
+  color: var(--slds-text-inverse);
+}
+
+.status-badge.error {
+  background-color: var(--slds-error);
+  color: var(--slds-text-inverse);
+}
+
+.status-badge.warning {
+  background-color: var(--slds-warning);
+  color: var(--slds-text-inverse);
+}
+
+.status-badge.info {
+  background-color: var(--slds-info);
+  color: var(--slds-text-inverse);
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin-right: var(--slds-spacing-x-small);
+  accent-color: var(--slds-brand);
+}
+
+@keyframes pulse { 
+  0%, 100% { transform: scale(1); } 
+  50% { transform: scale(1.02); } 
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--slds-spacing-medium);
+  }
+  
+  .panel, .login-form {
+    padding: var(--slds-spacing-large);
+  }
+  
+  .auth-chain {
+    flex-direction: column;
+    gap: var(--slds-spacing-small);
+  }
+  
+  .auth-module {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .arrow {
+    transform: rotate(90deg);
+  }
+  
+  .tabs {
+    flex-direction: column;
+  }
+  
+  .tab {
+    min-width: auto;
+  }
+}
+
+/* Additional Salesforce-style components */
+.slds-section {
+  background-color: var(--slds-color-background-alt);
+  border: 1px solid var(--slds-color-border);
+  border-radius: 0.5rem;
+  margin-bottom: var(--slds-spacing-large);
+}
+
+.slds-section-header {
+  background-color: var(--slds-color-background-shade);
+  padding: var(--slds-spacing-medium) var(--slds-spacing-large);
+  border-bottom: 1px solid var(--slds-color-border);
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-weight: 600;
+  color: var(--slds-text-default);
+}
+
+.slds-section-content {
+  padding: var(--slds-spacing-large);
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+// Simulated ForgeRock concepts
+const authChains = {
+  basic: [
+    { name: "Username/Password", type: "REQUIRED", status: "pending", description: "Primary authentication" },
+    { name: "Account Status", type: "REQUIRED", status: "pending", description: "Check if account is active" },
+    { name: "Policy Validation", type: "REQUIRED", status: "pending", description: "Apply security policies" }
+  ],
+  sms_mfa: [
+    { name: "Primary Auth", type: "REQUIRED", status: "pending", description: "Username & password validation" },
+    { name: "SMS Challenge", type: "REQUIRED", status: "pending", description: "Send SMS verification code" },
+    { name: "Code Verification", type: "REQUIRED", status: "pending", description: "Validate SMS code" },
+    { name: "Session Creation", type: "REQUIRED", status: "pending", description: "Create authenticated session" }
+  ],
+  totp_mfa: [
+    { name: "Primary Auth", type: "REQUIRED", status: "pending", description: "Username & password validation" },
+    { name: "TOTP Challenge", type: "REQUIRED", status: "pending", description: "Time-based OTP from authenticator app" },
+    { name: "Backup Code Check", type: "OPTIONAL", status: "pending", description: "Allow backup recovery codes" },
+    { name: "Device Registration", type: "OPTIONAL", status: "pending", description: "Remember trusted device" }
+  ],
+  adaptive: [
+    { name: "Identity Check", type: "REQUIRED", status: "pending", description: "Verify user credentials" },
+    { name: "Risk Assessment", type: "REQUIRED", status: "pending", description: "Analyze login context" },
+    { name: "Conditional MFA", type: "CONDITIONAL", status: "pending", description: "Require MFA if high risk" },
+    { name: "Device Trust", type: "OPTIONAL", status: "pending", description: "Check device reputation" },
+    { name: "Geolocation", type: "OPTIONAL", status: "pending", description: "Verify login location" },
+    { name: "Final Authorization", type: "REQUIRED", status: "pending", description: "Grant or deny access" }
+  ],
+  step_up: [
+    { name: "Basic Auth", type: "REQUIRED", status: "pending", description: "Standard login" },
+    { name: "Resource Request", type: "REQUIRED", status: "pending", description: "User requests sensitive resource" },
+    { name: "Step-up Trigger", type: "CONDITIONAL", status: "pending", description: "Determine if additional auth needed" },
+    { name: "Additional MFA", type: "REQUIRED", status: "pending", description: "Biometric or hardware token" },
+    { name: "Elevated Session", type: "REQUIRED", status: "pending", description: "Create privileged session" }
+  ]
+};
+
+const concepts = [
+  {
+    title: "Authentication Chains",
+    description: "Sequence of auth modules executed in order",
+    steps: [
+      "User initiates login request",
+      "ForgeRock AM evaluates auth chain",
+      "Modules execute based on flags & conditions",
+      "Success/failure determines next step",
+      "Session created on successful completion"
+    ]
+  },
+  {
+    title: "Multi-Factor Authentication (MFA)",
+    description: "Additional security layers beyond passwords",
+    steps: [
+      "Something you know (password)",
+      "Something you have (phone, token)",
+      "Something you are (biometrics)",
+      "Contextual factors (location, device)",
+      "Reduces risk of account compromise"
+    ]
+  },
+  {
+    title: "MFA Methods in ForgeRock",
+    description: "Various MFA options supported",
+    steps: [
+      "SMS/Voice OTP - Codes sent to phone",
+      "TOTP - Time-based codes (Google Auth)",
+      "Push Notifications - Approve on mobile",
+      "Hardware Tokens - FIDO2, YubiKey",
+      "Biometrics - Fingerprint, face recognition"
+    ]
+  },
+  {
+    title: "Adaptive Authentication",
+    description: "Smart auth based on risk assessment",
+    steps: [
+      "Analyze user behavior patterns",
+      "Check device & location context",
+      "Calculate risk score in real-time",
+      "Adjust auth requirements dynamically",
+      "Step-up auth for high-risk scenarios"
+    ]
+  },
+  {
+    title: "Step-up Authentication",
+    description: "Additional auth for sensitive resources",
+    steps: [
+      "User accesses protected resource",
+      "System evaluates resource sensitivity",
+      "Triggers additional authentication",
+      "User proves identity again",
+      "Grants elevated session privileges"
+    ]
+  },
+  {
+    title: "Session & Token Management",
+    description: "Managing authenticated sessions",
+    steps: [
+      "Create session tokens on auth success",
+      "Store user attributes & permissions",
+      "Handle session timeouts & renewal",
+      "Support SSO across applications",
+      "Secure logout & token cleanup"
+    ]
+  }
+];
+
+function LoginSimulator({ chain, onComplete }) {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [chainState, setChainState] = useState(authChains[chain].map(m => ({...m})));
+  const [formData, setFormData] = useState({ 
+    username: '', 
+    password: '', 
+    smsCode: '', 
+    totpCode: '', 
+    backupCode: '', 
+    trustDevice: false,
+    location: 'New York, US'
+  });
+  const [isRunning, setIsRunning] = useState(false);
+  const [message, setMessage] = useState('');
+  const [riskScore, setRiskScore] = useState(null);
+
+  const calculateRiskScore = () => {
+    let score = 0;
+    if (formData.username === 'suspicious') score += 40;
+    if (formData.location.includes('Unknown')) score += 30;
+    if (!formData.trustDevice) score += 20;
+    if (formData.username === 'admin') score += 30;
+    return Math.min(score + Math.floor(Math.random() * 20), 100);
+  };
+
+  const runAuthChain = async () => {
+    setIsRunning(true);
+    setMessage('Starting authentication chain...');
+    
+    for (let i = 0; i < chainState.length; i++) {
+      setCurrentStep(i);
+      setMessage(`Executing: ${chainState[i].name}`);
+      
+      // Update module status to active
+      setChainState(prev => prev.map((m, idx) => ({
+        ...m,
+        status: idx === i ? 'active' : idx < i ? 'success' : 'pending'
+      })));
+      
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Simulate auth logic
+      let success = true;
+      let skipReason = '';
+      
+      // Primary authentication checks
+      if (chainState[i].name.includes('Primary Auth') || chainState[i].name.includes('Username') || chainState[i].name.includes('Basic Auth') || chainState[i].name.includes('Identity Check')) {
+        if (!formData.username || !formData.password) {
+          success = false;
+        } else if (formData.password !== 'demo123') {
+          success = false;
+        }
+      }
+      
+      // SMS MFA checks
+      if (chainState[i].name.includes('SMS Challenge')) {
+        setMessage('📱 SMS code sent to your device');
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+      if (chainState[i].name.includes('Code Verification')) {
+        if (!formData.smsCode || formData.smsCode !== '123456') {
+          success = false;
+        }
+      }
+      
+      // TOTP MFA checks  
+      if (chainState[i].name.includes('TOTP Challenge')) {
+        if (!formData.totpCode || formData.totpCode.length !== 6) {
+          success = false;
+        }
+      }
+      if (chainState[i].name.includes('Backup Code')) {
+        if (!formData.totpCode && formData.backupCode && formData.backupCode === 'backup123') {
+          success = true; // Allow backup code
+        } else if (!formData.totpCode && !formData.backupCode) {
+          success = false;
+        }
+      }
+      
+      // Risk assessment
+      if (chainState[i].name.includes('Risk')) {
+        const risk = calculateRiskScore();
+        setRiskScore(risk);
+        setMessage(`🔍 Risk Score: ${risk}% (${risk < 30 ? 'Low' : risk < 70 ? 'Medium' : 'High'} Risk)`);
+        if (risk > 80) {
+          success = false;
+        }
+      }
+      
+      // Conditional MFA based on risk
+      if (chainState[i].name.includes('Conditional MFA')) {
+        if (riskScore > 50) {
+          if (!formData.totpCode && !formData.smsCode) {
+            success = false;
+          }
+        } else {
+          success = true;
+          skipReason = 'Low risk - MFA skipped';
+        }
+      }
+      
+      // Step-up authentication
+      if (chainState[i].name.includes('Step-up Trigger')) {
+        if (formData.username === 'admin' || formData.username.includes('privileged')) {
+          setMessage('⚠️ Sensitive resource detected - step-up authentication required');
+        } else {
+          success = true;
+          skipReason = 'Standard user - no step-up needed';
+        }
+      }
+      
+      // Geolocation checks
+      if (chainState[i].name.includes('Geolocation')) {
+        if (formData.location.includes('Unknown')) {
+          success = false;
+        }
+      }
+      
+      // Handle module flags
+      if (!success && chainState[i].type === 'REQUIRED') {
+        setChainState(prev => prev.map((m, idx) => ({
+          ...m,
+          status: idx === i ? 'failed' : idx < i ? 'success' : 'pending'
+        })));
+        setMessage(`❌ Authentication failed at: ${chainState[i].name}`);
+        setIsRunning(false);
+        onComplete(false);
+        return;
+      }
+      
+      // Handle successful modules
+      const newStatus = success ? 'success' : 'failed';
+      setChainState(prev => prev.map((m, idx) => ({
+        ...m,
+        status: idx === i ? newStatus : idx < i ? prev[idx].status : 'pending'
+      })));
+      
+      if (skipReason) {
+        setChainState(prev => prev.map((m, idx) => ({
+          ...m,
+          status: idx === i ? 'skipped' : idx < i ? prev[idx].status : 'pending'
+        })));
+        setMessage(`⏭️ ${skipReason}`);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        continue;
+      }
+      
+      if (success && chainState[i].type === 'SUFFICIENT') {
+        setChainState(prev => prev.map((m, idx) => ({
+          ...m,
+          status: idx <= i ? 'success' : 'skipped'
+        })));
+        setMessage('✅ Authentication successful (SUFFICIENT module passed)');
+        setIsRunning(false);
+        onComplete(true);
+        return;
+      }
+    }
+    
+    setMessage('✅ Authentication chain completed successfully');
+    setChainState(prev => prev.map(m => ({...m, status: 'success'})));
+    setIsRunning(false);
+    onComplete(true);
+  };
+
+  const getChainDescription = () => {
+    switch(chain) {
+      case 'basic': return 'Standard username/password authentication with policy checks';
+      case 'sms_mfa': return 'Two-factor authentication using SMS verification codes';
+      case 'totp_mfa': return 'Time-based OTP using authenticator apps like Google Authenticator';
+      case 'adaptive': return 'Risk-based authentication that adapts based on login context';
+      case 'step_up': return 'Additional authentication required for sensitive operations';
+      default: return 'Authentication flow simulation';
+    }
+  };
+
+  const getTips = () => {
+    switch(chain) {
+      case 'basic': return 'Try: username "demo" with password "demo123"';
+      case 'sms_mfa': return 'Use SMS code "123456" after entering credentials';
+      case 'totp_mfa': return 'Enter any 6-digit code, or use backup code "backup123"';
+      case 'adaptive': return 'Try "suspicious" username or "Unknown Location" to see risk assessment';
+      case 'step_up': return 'Try "admin" username to trigger step-up authentication';
+      default: return '';
+    }
+  };
+
+  return (
+    <div>
+      <div className="slds-section">
+        <div className="slds-section-header">
+          🔐 {chain.replace('_', ' ').toUpperCase()} Authentication
+        </div>
+        <div className="slds-section-content">
+          <p style={{marginBottom: 16}}>{getChainDescription()}</p>
+          {getTips() && (
+            <div className="status warning">
+              <strong>💡 Tip:</strong> {getTips()}
+            </div>
+          )}
+        </div>
+      </div>
+      
+      <div className="login-form">
+        <div className="input-group">
+          <label>Username</label>
+          <input 
+            className="input" 
+            type="text" 
+            placeholder="Try: demo, admin, suspicious" 
+            value={formData.username}
+            onChange={e => setFormData(prev => ({...prev, username: e.target.value}))}
+          />
+        </div>
+        <div className="input-group">
+          <label>Password</label>
+          <input 
+            className="input" 
+            type="password" 
+            placeholder="Use: demo123"
+            value={formData.password}
+            onChange={e => setFormData(prev => ({...prev, password: e.target.value}))}
+          />
+        </div>
+        
+        {chain === 'sms_mfa' && (
+          <div className="input-group">
+            <label>SMS Code</label>
+            <input 
+              className="input" 
+              type="text" 
+              placeholder="Enter: 123456"
+              value={formData.smsCode}
+              onChange={e => setFormData(prev => ({...prev, smsCode: e.target.value}))}
+            />
+          </div>
+        )}
+        
+        {chain === 'totp_mfa' && (
+          <>
+            <div className="input-group">
+              <label>TOTP Code (Authenticator App)</label>
+              <input 
+                className="input" 
+                type="text" 
+                placeholder="6-digit TOTP code"
+                value={formData.totpCode}
+                onChange={e => setFormData(prev => ({...prev, totpCode: e.target.value}))}
+              />
+            </div>
+            <div className="input-group">
+              <label>Backup Recovery Code (Optional)</label>
+              <input 
+                className="input" 
+                type="text" 
+                placeholder="Use: backup123 if no TOTP"
+                value={formData.backupCode}
+                onChange={e => setFormData(prev => ({...prev, backupCode: e.target.value}))}
+              />
+            </div>
+            <div style={{display: 'flex', alignItems: 'center', gap: 8, padding: '12px 0'}}>
+              <input 
+                type="checkbox"
+                checked={formData.trustDevice}
+                onChange={e => setFormData(prev => ({...prev, trustDevice: e.target.checked}))}
+              />
+              <label style={{color: 'var(--slds-text-default)', fontWeight: 500}}>Trust this device</label>
+            </div>
+          </>
+        )}
+        
+        {(chain === 'adaptive' || chain === 'step_up') && (
+          <>
+            <div className="input-group">
+              <label>Location Context</label>
+              <select 
+                className="input"
+                value={formData.location}
+                onChange={e => setFormData(prev => ({...prev, location: e.target.value}))}
+              >
+                <option>New York, US</option>
+                <option>London, UK</option>
+                <option>Unknown Location</option>
+                <option>Tokyo, JP</option>
+              </select>
+            </div>
+            <div className="input-group">
+              <label>MFA Code (if required)</label>
+              <input 
+                className="input" 
+                type="text" 
+                placeholder="6-digit code"
+                value={formData.totpCode}
+                onChange={e => setFormData(prev => ({...prev, totpCode: e.target.value}))}
+              />
+            </div>
+            <div style={{display: 'flex', alignItems: 'center', gap: 8, padding: '12px 0'}}>
+              <input 
+                type="checkbox"
+                checked={formData.trustDevice}
+                onChange={e => setFormData(prev => ({...prev, trustDevice: e.target.checked}))}
+              />
+              <label style={{color: 'var(--slds-text-default)', fontWeight: 500}}>Trusted device</label>
+            </div>
+          </>
+        )}
+        
+        <button 
+          className="btn" 
+          onClick={runAuthChain} 
+          disabled={isRunning}
+        >
+          {isRunning ? 'Authenticating...' : 'Start Authentication'}
+        </button>
+      </div>
+
+      <div className="auth-chain">
+        {chainState.map((module, idx) => (
+          <React.Fragment key={idx}>
+            <div className={`auth-module ${module.status}`}>
+              <div style={{fontWeight: 600, marginBottom: 8}}>{module.name}</div>
+              <div style={{fontSize: '0.75rem', opacity: 0.9, marginBottom: 8}}>{module.description}</div>
+              <div style={{fontSize: '0.8rem', padding: '2px 6px', background: 'rgba(0,0,0,0.2)', borderRadius: 4, display: 'inline-block'}}>{module.type}</div>
+              <div style={{fontSize: '1.2rem', marginTop: 8}}>
+                {module.status === 'pending' && '⏳'}
+                {module.status === 'active' && '🔄'}
+                {module.status === 'success' && '✅'}
+                {module.status === 'failed' && '❌'}
+                {module.status === 'skipped' && '⏭️'}
+              </div>
+            </div>
+            {idx < chainState.length - 1 && <div className="arrow">→</div>}
+          </React.Fragment>
+        ))}
+      </div>
+
+      {message && (
+        <div className={`status ${message.includes('❌') ? 'error' : message.includes('✅') ? 'success' : 'warning'}`}>
+          {message}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ConceptsTab() {
+  return (
+    <div className="concept-grid">
+      {concepts.map((concept, idx) => (
+        <div key={idx} className="slds-section">
+          <div className="slds-section-header">
+            {concept.title}
+          </div>
+          <div className="slds-section-content">
+            <p style={{marginBottom: 16, color: 'var(--slds-text-weak)'}}>{concept.description}</p>
+            <ul className="step-list">
+              {concept.steps.map((step, stepIdx) => (
+                <li key={stepIdx}>{step}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function App() {
+  const [activeTab, setActiveTab] = useState('concepts');
+  const [authResult, setAuthResult] = useState(null);
+
+  return (
+    <div className="container">
+      <div className="header">
+        <div className="logo">Bel Learning Lab</div>
+        <div className="subtitle">Interactive Identity & Access Management Tutorial</div>
+        <div style={{fontSize: '1rem', color: 'var(--slds-text-weak)', marginTop: '8px'}}>
+          🔐 Learn authentication chains, policies, and IAM concepts through hands-on simulation
+        </div>
+      </div>
+
+      <div className="tabs">
+        <button 
+          className={`tab ${activeTab === 'concepts' ? 'active' : ''}`}
+          onClick={() => setActiveTab('concepts')}
+          title="Learn core ForgeRock concepts"
+        >
+          📚 Concepts
+        </button>
+        <button 
+          className={`tab ${activeTab === 'basic' ? 'active' : ''}`}
+          onClick={() => setActiveTab('basic')}
+          title="Simple username/password authentication"
+        >
+          🔑 Basic Auth
+        </button>
+        <button 
+          className={`tab ${activeTab === 'sms_mfa' ? 'active' : ''}`}
+          onClick={() => setActiveTab('sms_mfa')}
+          title="SMS-based two-factor authentication"
+        >
+          📱 SMS MFA
+        </button>
+        <button 
+          className={`tab ${activeTab === 'totp_mfa' ? 'active' : ''}`}
+          onClick={() => setActiveTab('totp_mfa')}
+          title="Time-based OTP with authenticator apps"
+        >
+          🔐 TOTP MFA
+        </button>
+        <button 
+          className={`tab ${activeTab === 'adaptive' ? 'active' : ''}`}
+          onClick={() => setActiveTab('adaptive')}
+          title="Risk-based adaptive authentication"
+        >
+          🧠 Adaptive
+        </button>
+        <button 
+          className={`tab ${activeTab === 'step_up' ? 'active' : ''}`}
+          onClick={() => setActiveTab('step_up')}
+          title="Additional auth for sensitive resources"
+        >
+          🔺 Step-up
+        </button>
+      </div>
+
+      <div className="panel">
+        {activeTab === 'concepts' && <ConceptsTab />}
+        
+        {['basic', 'sms_mfa', 'totp_mfa', 'adaptive', 'step_up'].includes(activeTab) && (
+          <LoginSimulator 
+            chain={activeTab} 
+            onComplete={setAuthResult}
+          />
+        )}
+      </div>
+
+      {authResult !== null && (
+        <div className={`status ${authResult ? 'success' : 'error'}`} style={{marginTop: 20}}>
+          {authResult ? 
+            '🎉 Access Granted! User successfully authenticated.' : 
+            '🚫 Access Denied! Authentication failed.'
+          }
+        </div>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
