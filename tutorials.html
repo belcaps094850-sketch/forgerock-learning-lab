@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Live Tutorials - Bel Learning Lab</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Salesforce+Sans:wght@300;400;500;600;700;800&display=swap">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  font-family: 'Salesforce Sans', sans-serif;
+  background: linear-gradient(135deg, #ef4444 0%, #f97316 50%, #eab308 100%);
+  color: white;
+  min-height: 100vh;
+  padding: 2rem;
+}
+.container { max-width: 800px; margin: 0 auto; text-align: center; }
+.back-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+.hero {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  padding: 4rem 2rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  margin-bottom: 3rem;
+}
+.icon { font-size: 5rem; margin-bottom: 1rem; }
+.title { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+.subtitle { font-size: 1.2rem; opacity: 0.8; margin-bottom: 2rem; }
+.schedule {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.session {
+  background: rgba(255,255,255,0.08);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  text-align: left;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.session-time { font-size: 0.85rem; opacity: 0.7; margin-bottom: 0.5rem; }
+.session-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+.session-desc { opacity: 0.8; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="index.html" class="back-btn">← Back to Home</a>
+  
+  <div class="hero">
+    <div class="icon">🎥</div>
+    <h1 class="title">Live Video Tutorials</h1>
+    <p class="subtitle">Interactive video sessions with expert instructors and real-time Q&A</p>
+    
+    <div style="background: rgba(234, 179, 8, 0.2); color: #fff; padding: 1rem 2rem; border-radius: 0.5rem; border: 1px solid rgba(234, 179, 8, 0.3); margin: 2rem 0;">
+      <strong>📺 Coming Q2 2026</strong> - Live streaming platform with expert instructors!
+    </div>
+  </div>
+
+  <h3 style="margin-bottom: 1.5rem;">📅 Upcoming Sessions</h3>
+  <div class="schedule">
+    <div class="session">
+      <div class="session-time">Mon 3:00 PM EST</div>
+      <div class="session-title">🔐 Advanced IAM Concepts</div>
+      <div class="session-desc">Deep dive into enterprise identity management with live demos</div>
+    </div>
+    <div class="session">
+      <div class="session-time">Wed 2:00 PM EST</div>
+      <div class="session-title">☁️ Cloud Security Best Practices</div>
+      <div class="session-desc">AWS, Azure, and GCP security implementations</div>
+    </div>
+    <div class="session">
+      <div class="session-time">Fri 4:00 PM EST</div>
+      <div class="session-title">💻 Python for DevOps</div>
+      <div class="session-desc">Automation scripts and infrastructure management</div>
+    </div>
+    <div class="session">
+      <div class="session-time">Sat 11:00 AM EST</div>
+      <div class="session-title">🏆 Certification Prep</div>
+      <div class="session-desc">Weekly exam preparation and practice questions</div>
+    </div>
+  </div>
+
+  <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 0.75rem; margin-top: 2rem;">
+    <h3 style="margin-bottom: 1rem;">✨ Features</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+      <div>💬 Live Chat & Q&A</div>
+      <div>🎬 Screen Sharing</div>
+      <div>📝 Interactive Notes</div>
+      <div>📹 Session Recording</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

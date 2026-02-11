@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Development Roadmap - Bel Learning Lab</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Salesforce+Sans:wght@300;400;500;600;700;800&display=swap">
+<style>
+:root {
+  --slds-brand: #1589ee;
+  --slds-text-inverse: #ffffff;
+  --slds-success: #04844b;
+  --slds-warning: #fe9339;
+  --slds-info: #0176d3;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+  font-family: 'Salesforce Sans', sans-serif;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 100%);
+  color: var(--slds-text-inverse);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.back-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.header {
+  text-align: center;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #4ade80, #06b6d4, #8b5cf6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--slds-success), var(--slds-warning), var(--slds-info));
+  transform: translateX(-50%);
+  border-radius: 1.5px;
+}
+
+.milestone {
+  position: relative;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.milestone:nth-child(odd) {
+  flex-direction: row;
+  text-align: right;
+}
+
+.milestone:nth-child(even) {
+  flex-direction: row-reverse;
+  text-align: left;
+}
+
+.milestone-content {
+  flex: 1;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  max-width: 350px;
+}
+
+.milestone:nth-child(odd) .milestone-content {
+  margin-right: 2rem;
+}
+
+.milestone:nth-child(even) .milestone-content {
+  margin-left: 2rem;
+}
+
+.milestone-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: 3px solid rgba(255,255,255,0.2);
+  z-index: 2;
+}
+
+.milestone.completed .milestone-marker {
+  background: var(--slds-success);
+  border-color: var(--slds-success);
+  animation: pulse-green 2s infinite;
+}
+
+.milestone.current .milestone-marker {
+  background: var(--slds-warning);
+  border-color: var(--slds-warning);
+  animation: pulse-orange 2s infinite;
+}
+
+.milestone.future .milestone-marker {
+  background: var(--slds-info);
+  border-color: var(--slds-info);
+  opacity: 0.7;
+}
+
+.milestone-date {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.milestone-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.milestone-desc {
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.feature-list {
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+.feature-list li {
+  padding: 0.25rem 0;
+  opacity: 0.8;
+}
+
+.feature-list li::before {
+  content: "✨ ";
+  margin-right: 0.5rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.status-completed {
+  background: rgba(4, 132, 75, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(4, 132, 75, 0.3);
+}
+
+.status-current {
+  background: rgba(254, 147, 57, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(254, 147, 57, 0.3);
+}
+
+.status-future {
+  background: rgba(1, 118, 211, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(1, 118, 211, 0.3);
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(4, 132, 75, 0.7); }
+  50% { box-shadow: 0 0 0 10px rgba(4, 132, 75, 0); }
+}
+
+@keyframes pulse-orange {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(254, 147, 57, 0.7); }
+  50% { box-shadow: 0 0 0 10px rgba(254, 147, 57, 0); }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .timeline::before { display: none; }
+  .milestone {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  .milestone-content {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+  .milestone-marker {
+    position: static !important;
+    transform: none !important;
+    margin-bottom: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="index.html" class="back-btn">← Back to Home</a>
+
+  <div class="header">
+    <h1 class="title">🗺️ Development Roadmap</h1>
+    <p class="subtitle">
+      Track our journey as we build the ultimate learning platform. From core features to cutting-edge innovations.
+    </p>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-number" style="color: var(--slds-success);">3</div>
+      <div class="stat-label">Features Completed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" style="color: var(--slds-warning);">2</div>
+      <div class="stat-label">In Development</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" style="color: var(--slds-info);">8</div>
+      <div class="stat-label">Planned Features</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" style="color: #8b5cf6;">95%</div>
+      <div class="stat-label">User Satisfaction</div>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="milestone completed">
+      <div class="milestone-content">
+        <div class="milestone-date">February 2026</div>
+        <div class="milestone-title">Core Platform Launch</div>
+        <div class="milestone-desc">
+          Built the foundation with essential learning features and modern design.
+        </div>
+        <ul class="feature-list">
+          <li>Learning paths & modules</li>
+          <li>Progress tracking</li>
+          <li>Note-taking system</li>
+          <li>Salesforce Lightning UI</li>
+        </ul>
+        <div class="status-badge status-completed">✅ Completed</div>
+      </div>
+      <div class="milestone-marker">🚀</div>
+    </div>
+
+    <div class="milestone current">
+      <div class="milestone-content">
+        <div class="milestone-date">February 2026</div>
+        <div class="milestone-title">AI & Gamification</div>
+        <div class="milestone-desc">
+          Adding intelligent features and engagement systems for better learning outcomes.
+        </div>
+        <ul class="feature-list">
+          <li>AI Study Buddy "Alex"</li>
+          <li>Daily challenges & quizzes</li>
+          <li>Achievement system</li>
+          <li>Streak tracking</li>
+        </ul>
+        <div class="status-badge status-current">🔄 In Progress</div>
+      </div>
+      <div class="milestone-marker">🤖</div>
+    </div>
+
+    <div class="milestone future">
+      <div class="milestone-content">
+        <div class="milestone-date">Q2 2026</div>
+        <div class="milestone-title">Mobile & Collaboration</div>
+        <div class="milestone-desc">
+          Native mobile apps and real-time collaboration features for learning on-the-go.
+        </div>
+        <ul class="feature-list">
+          <li>iOS & Android apps</li>
+          <li>Virtual study rooms</li>
+          <li>Offline content sync</li>
+          <li>Push notifications</li>
+        </ul>
+        <div class="status-badge status-future">📅 Planned</div>
+      </div>
+      <div class="milestone-marker">📱</div>
+    </div>
+
+    <div class="milestone future">
+      <div class="milestone-content">
+        <div class="milestone-date">Q3 2026</div>
+        <div class="milestone-title">Advanced Learning</div>
+        <div class="milestone-desc">
+          Cutting-edge learning technologies and personalization features.
+        </div>
+        <ul class="feature-list">
+          <li>VR/AR learning experiences</li>
+          <li>Voice-controlled interface</li>
+          <li>Live video tutorials</li>
+          <li>Advanced analytics</li>
+        </ul>
+        <div class="status-badge status-future">🔮 Future</div>
+      </div>
+      <div class="milestone-marker">🥽</div>
+    </div>
+
+    <div class="milestone future">
+      <div class="milestone-content">
+        <div class="milestone-date">Q4 2026</div>
+        <div class="milestone-title">Enterprise & Certification</div>
+        <div class="milestone-desc">
+          Professional learning management and official certification programs.
+        </div>
+        <ul class="feature-list">
+          <li>Enterprise dashboards</li>
+          <li>Certification tracking</li>
+          <li>Team management</li>
+          <li>Learning analytics</li>
+        </ul>
+        <div class="status-badge status-future">🎯 Vision</div>
+      </div>
+      <div class="milestone-marker">🏆</div>
+    </div>
+  </div>
+
+  <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border-radius: 1rem; padding: 2rem; margin-top: 3rem; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
+    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">🌟 Have Ideas?</h3>
+    <p style="opacity: 0.8; margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+      We're always looking for innovative ways to improve the learning experience. Your feedback shapes our roadmap!
+    </p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab/issues" target="_blank" style="background: rgba(255,255,255,0.15); padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; color: white; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+        💡 Suggest Feature
+      </a>
+      <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank" style="background: rgba(255,255,255,0.15); padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; color: white; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+        ⭐ Star on GitHub
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

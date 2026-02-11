@@ -5,246 +5,156 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Bel Learning Lab</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Salesforce+Sans:wght@300;400;500;600;700;800&display=swap');
-
-:root {
-  --slds-brand: #1589ee;
-  --slds-brand-dark: #0176d3;
-  --slds-brand-light: #5eb4ff;
-  --slds-success: #04844b;
-  --slds-warning: #fe9339;
-  --slds-error: #ea001e;
-  --slds-info: #0176d3;
-  
-  --slds-text-default: #181818;
-  --slds-text-weak: #706e6b;
-  --slds-text-inverse: #ffffff;
-  
-  --slds-color-background: #f3f2f2;
-  --slds-color-background-alt: #ffffff;
-  --slds-color-background-shade: #ecebea;
-  
-  --slds-color-border: #dddbda;
-  --slds-shadow-2: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-  --slds-shadow-4: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-* { 
-  margin: 0; 
-  padding: 0; 
-  box-sizing: border-box; 
-}
-
-body { 
-  font-family: 'Salesforce Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: linear-gradient(135deg, #1589ee 0%, #667eea 50%, #764ba2 100%);
-  color: var(--slds-text-inverse);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.container {
+h1 {
   text-align: center;
-  max-width: 600px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border-radius: 1rem;
-  padding: 4rem 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, #ffffff, #f0f9ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -0.025em;
+  color: #2c3e50;
+  margin-bottom: 10px;
 }
 
 .subtitle {
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  opacity: 0.9;
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+  font-size: 18px;
 }
 
-.description {
-  font-size: 1rem;
-  opacity: 0.8;
-  margin-bottom: 3rem;
-  line-height: 1.6;
-}
-
-.main-btn {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 0.75rem;
-  color: var(--slds-text-inverse);
+.main-button {
+  display: block;
+  width: 200px;
+  margin: 30px auto;
+  padding: 15px 30px;
+  background-color: #3498db;
+  color: white;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.125rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-.main-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
+.main-button:hover {
+  background-color: #2980b9;
 }
 
 .features {
+  margin: 50px 0;
+}
+
+.feature-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
 }
 
 .feature {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 0.75rem;
-  padding: 1.5rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.3s ease;
+  padding: 20px;
+  border: 1px solid #ecf0f1;
+  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
-.feature:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.12);
+.feature h3 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
 }
 
-.feature-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  display: block;
+.feature p {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 14px;
 }
 
-.feature-title {
-  font-weight: 600;
-  font-size: 0.875rem;
-  margin-bottom: 0.25rem;
+.navigation {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #ecf0f1;
 }
 
-.feature-desc {
-  font-size: 0.75rem;
-  opacity: 0.8;
-  line-height: 1.4;
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
-.demo-link {
-  color: rgba(255, 255, 255, 0.8);
+.nav-links a {
+  color: #3498db;
   text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.2s ease;
+  padding: 8px 16px;
+  border: 1px solid #3498db;
+  border-radius: 3px;
+  font-size: 14px;
 }
 
-.demo-link:hover {
-  color: rgba(255, 255, 255, 1);
-  border-bottom-color: rgba(255, 255, 255, 0.6);
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-.logo {
-  animation: float 3s ease-in-out infinite;
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 3rem 2rem;
-    margin: 1rem;
-  }
-  
-  .logo {
-    font-size: 2.5rem;
-  }
-  
-  .subtitle {
-    font-size: 1.125rem;
-  }
-  
-  .features {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+.nav-links a:hover {
+  background-color: #3498db;
+  color: white;
 }
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="logo">🎓 Bel Learning Lab</div>
-  <div class="subtitle">Your Personal Learning Hub</div>
-  <div class="description">
-    Master new skills with interactive learning paths, AI-powered study assistance, and gamified progress tracking designed to make learning engaging and effective.
-  </div>
+
+<h1>Bel Learning Lab</h1>
+<p class="subtitle">Your Personal Learning Hub</p>
+
+<p style="text-align: center; margin-bottom: 30px;">
+Master new skills with interactive learning paths, AI-powered study assistance, and progress tracking.
+</p>
+
+<a href="learning-hub.html" class="main-button">Launch Learning Hub</a>
+
+<div class="features">
+  <h2 style="text-align: center; color: #2c3e50;">Features</h2>
   
-  <a href="learning-hub.html" class="main-btn">
-    🚀 Launch Learning Hub
-  </a>
-  
-  <div class="features">
+  <div class="feature-list">
     <div class="feature">
-      <span class="feature-icon">📊</span>
-      <div class="feature-title">Smart Dashboard</div>
-      <div class="feature-desc">Track streaks, goals, and progress</div>
+      <h3>Smart Dashboard</h3>
+      <p>Track your learning progress, streaks, and goals</p>
     </div>
     <div class="feature">
-      <span class="feature-icon">🤖</span>
-      <div class="feature-title">AI Study Buddy</div>
-      <div class="feature-desc">Personalized learning guidance</div>
+      <h3>AI Study Buddy</h3>
+      <p>Get personalized learning guidance from Alex</p>
     </div>
     <div class="feature">
-      <span class="feature-icon">🎯</span>
-      <div class="feature-title">Learning Paths</div>
-      <div class="feature-desc">6+ structured skill tracks</div>
+      <h3>Learning Paths</h3>
+      <p>Structured courses in IAM, Cloud, DevOps, and more</p>
     </div>
     <div class="feature">
-      <span class="feature-icon">⚡</span>
-      <div class="feature-title">Daily Challenges</div>
-      <div class="feature-desc">Quick wins & skill tests</div>
+      <h3>Daily Challenges</h3>
+      <p>Quick quizzes and exercises to stay sharp</p>
     </div>
     <div class="feature">
-      <span class="feature-icon">📝</span>
-      <div class="feature-title">Smart Notes</div>
-      <div class="feature-desc">Capture insights & knowledge</div>
+      <h3>Note Taking</h3>
+      <p>Capture insights with our smart notes system</p>
     </div>
     <div class="feature">
-      <span class="feature-icon">🏆</span>
-      <div class="feature-title">Achievements</div>
-      <div class="feature-desc">Gamified motivation system</div>
+      <h3>Achievements</h3>
+      <p>Earn badges and track your accomplishments</p>
     </div>
-  </div>
-  
-  <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
-    <p style="font-size: 0.875rem; opacity: 0.7; margin-bottom: 0.5rem;">
-      Also available:
-    </p>
-    <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank" class="demo-link" style="margin-right: 1rem;">
-      📁 GitHub Repository
-    </a>
-    <span style="opacity: 0.5;">•</span>
-    <a href="forgerock-demo.html" class="demo-link" style="margin-left: 1rem;">
-      🔐 ForgeRock IAM Demo
-    </a>
   </div>
 </div>
+
+<div class="navigation">
+  <h3 style="text-align: center; color: #2c3e50;">Resources</h3>
+  <div class="nav-links">
+    <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank">GitHub Repository</a>
+    <a href="forgerock-demo.html">ForgeRock IAM Demo</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="changelog.html">Changelog</a>
+    <a href="mobile-preview.html">Mobile App Preview</a>
+    <a href="study-rooms.html">Study Rooms Preview</a>
+  </div>
+</div>
+
 </body>
 </html>

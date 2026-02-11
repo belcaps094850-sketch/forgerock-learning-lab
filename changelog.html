@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Changelog - Bel Learning Lab</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Salesforce+Sans:wght@300;400;500;600;700;800&display=swap">
+<style>
+:root {
+  --slds-brand: #1589ee;
+  --slds-text-inverse: #ffffff;
+  --slds-success: #04844b;
+  --slds-warning: #fe9339;
+  --slds-info: #0176d3;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+  font-family: 'Salesforce Sans', sans-serif;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+  color: var(--slds-text-inverse);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.back-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.header {
+  text-align: center;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.version {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.version-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.version-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--slds-brand);
+}
+
+.version-date {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.version-type {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.type-major {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.type-minor {
+  background: rgba(34, 197, 94, 0.2);
+  color: #86efac;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.type-patch {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.changes {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.change-category {
+  background: rgba(255,255,255,0.06);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.change-list {
+  list-style: none;
+}
+
+.change-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.change-list li:last-child {
+  border-bottom: none;
+}
+
+.change-list li::before {
+  content: "• ";
+  color: var(--slds-brand);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .version-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="index.html" class="back-btn">← Back to Home</a>
+
+  <div class="header">
+    <h1 class="title">📝 Changelog</h1>
+    <p class="subtitle">
+      Track every update, improvement, and new feature as we build the ultimate learning platform.
+    </p>
+  </div>
+
+  <div class="version">
+    <div class="version-header">
+      <div>
+        <div class="version-number">v1.2.0</div>
+        <div class="version-date">February 11, 2026</div>
+      </div>
+      <div class="version-type type-minor">Minor Release</div>
+    </div>
+    
+    <div class="changes">
+      <div class="change-category">
+        <div class="category-title">
+          <span>✨</span>
+          <span>New Features</span>
+        </div>
+        <ul class="change-list">
+          <li>AI Study Buddy "Alex" with personalized learning guidance</li>
+          <li>Interactive chat interface with pre-defined Q&A</li>
+          <li>Beautiful landing page with glassmorphism design</li>
+          <li>Navigation system connecting all platform features</li>
+          <li>Coming soon previews for upcoming features</li>
+        </ul>
+      </div>
+
+      <div class="change-category">
+        <div class="category-title">
+          <span>🎨</span>
+          <span>Design Improvements</span>
+        </div>
+        <ul class="change-list">
+          <li>Enhanced UI with glowing animations and effects</li>
+          <li>Improved mobile responsiveness across all pages</li>
+          <li>Added floating logo animation on landing page</li>
+          <li>Professional gradient backgrounds and card layouts</li>
+        </ul>
+      </div>
+
+      <div class="change-category">
+        <div class="category-title">
+          <span>🔧</span>
+          <span>Technical</span>
+        </div>
+        <ul class="change-list">
+          <li>Preserved original ForgeRock demo as separate page</li>
+          <li>Improved file organization and navigation structure</li>
+          <li>Enhanced localStorage persistence for user data</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="version">
+    <div class="version-header">
+      <div>
+        <div class="version-number">v1.1.0</div>
+        <div class="version-date">February 11, 2026</div>
+      </div>
+      <div class="version-type type-minor">Minor Release</div>
+    </div>
+    
+    <div class="changes">
+      <div class="change-category">
+        <div class="category-title">
+          <span>✨</span>
+          <span>New Features</span>
+        </div>
+        <ul class="change-list">
+          <li>Comprehensive learning hub with 6 learning paths</li>
+          <li>Interactive daily challenges and quiz system</li>
+          <li>Personal notes system with tagging</li>
+          <li>Achievement and streak tracking</li>
+          <li>Progress analytics with visual charts</li>
+        </ul>
+      </div>
+
+      <div class="change-category">
+        <div class="category-title">
+          <span>🎨</span>
+          <span>Design</span>
+        </div>
+        <ul class="change-list">
+          <li>Salesforce Lightning Design System implementation</li>
+          <li>Modern card-based layouts</li>
+          <li>Professional color scheme and typography</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="version">
+    <div class="version-header">
+      <div>
+        <div class="version-number">v1.0.0</div>
+        <div class="version-date">February 11, 2026</div>
+      </div>
+      <div class="version-type type-major">Major Release</div>
+    </div>
+    
+    <div class="changes">
+      <div class="change-category">
+        <div class="category-title">
+          <span>🚀</span>
+          <span>Initial Release</span>
+        </div>
+        <ul class="change-list">
+          <li>ForgeRock IAM learning simulation</li>
+          <li>Interactive authentication chain demos</li>
+          <li>Multi-factor authentication scenarios</li>
+          <li>Educational concepts and tutorials</li>
+          <li>Responsive web design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: 1rem; padding: 2rem; margin-top: 2rem; text-align: center; border: 1px solid rgba(255,255,255,0.15);">
+    <h3 style="margin-bottom: 1rem; color: var(--slds-brand);">🔔 Stay Updated</h3>
+    <p style="opacity: 0.8; margin-bottom: 1.5rem;">
+      Follow our GitHub repository to get notified of new releases and features.
+    </p>
+    <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank" style="background: var(--slds-brand); padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; color: white; font-weight: 600; transition: all 0.3s ease;">
+      ⭐ Watch on GitHub
+    </a>
+  </div>
+</div>
+</body>
+</html>
