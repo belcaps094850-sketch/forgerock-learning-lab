@@ -320,6 +320,22 @@ body {
   50% { opacity: 0.8; transform: scale(1.1); }
 }
 
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(102, 126, 234, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.8), 0 0 30px rgba(118, 75, 162, 0.4); }
+}
+
+.ai-buddy-widget {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.3) rotate(-5deg); opacity: 0; }
+  50% { transform: scale(1.05) rotate(2deg); }
+  70% { transform: scale(0.9) rotate(-1deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
 .achievement-list {
   display: flex;
   flex-direction: column;
@@ -555,11 +571,54 @@ const saveUserData = (data) => {
   localStorage.setItem('belLearningHub', JSON.stringify(data));
 };
 
+// AI Study Buddy Messages
+const getStudyBuddyMessage = (userData) => {
+  const messages = [
+    `Hey Bel! You're on a ${userData.streak}-day streak! 🔥 Keep the momentum going!`,
+    `Great progress! You've completed ${userData.completedModules} modules. Ready for the next challenge?`,
+    `I noticed you're close to your daily goal. Just ${Math.max(0, userData.dailyGoal - userData.todayTime)} minutes to go! 💪`,
+    `Time for a quick win! Try a 5-minute challenge to boost your confidence.`,
+    `Your learning journey is inspiring! Remember: consistency beats intensity. 📚`,
+    `Pro tip: Take breaks every 25 minutes for better retention. Your brain will thank you! 🧠`,
+    `Feeling stuck? Sometimes the best breakthroughs come after taking a short walk. 🚶‍♀️`,
+    `You're building an amazing habit! Every minute of learning compounds over time. 📈`
+  ];
+  
+  if (userData.streak >= 7) return "🏆 Amazing! A week-long streak! You're becoming a learning machine!";
+  if (userData.todayTime >= userData.dailyGoal) return "🎉 Daily goal crushed! You're on fire today!";
+  if (userData.streak === 0) return "Welcome to your learning journey! Let's start building that streak! 🌟";
+  
+  return messages[Math.floor(Math.random() * messages.length)];
+};
+
+const studyBuddyConversation = [
+  { 
+    type: 'alex', 
+    message: "Hi there! I'm Alex, your AI study companion. I'm here to help you stay motivated and make your learning journey more effective. What would you like to focus on today?" 
+  },
+  { 
+    type: 'user', 
+    message: "I'm feeling a bit overwhelmed with all the topics. Where should I start?",
+    response: "I totally understand! The key is to start small and build momentum. Based on your progress, I'd recommend continuing with the IAM path since you're already 50% through it. Completing something gives you confidence for the next challenge! 🎯"
+  },
+  { 
+    type: 'user', 
+    message: "How can I stay consistent with my learning?",
+    response: "Great question! Here are my top tips: 1) Set a specific time each day (like right after coffee ☕), 2) Start with just 10 minutes if you're busy, 3) Celebrate small wins, and 4) Use your streak as motivation. What time of day works best for you?"
+  },
+  { 
+    type: 'user', 
+    message: "I'm struggling to retain what I'm learning.",
+    response: "Retention is all about active learning! Try this: After each module, summarize key points in your own words, create a quick mind map, or teach the concept to an imaginary student. The Notes section is perfect for this! Also, spaced repetition works wonders - revisit topics after 1 day, 1 week, then 1 month. 🧠✨"
+  }
+];
+
 // Main App Component
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [userData, setUserData] = useState(loadUserData());
   const [selectedChallenge, setSelectedChallenge] = useState(null);
+  const [showBuddyChat, setShowBuddyChat] = useState(false);
 
   // Update user data
   const updateUserData = useCallback((updates) => {
@@ -613,8 +672,10 @@ function App() {
           {activeTab === 'notes' && <NotesSystem />}
         </div>
         
-        <Sidebar userData={userData} />
+        <Sidebar userData={userData} showBuddyChat={showBuddyChat} setShowBuddyChat={setShowBuddyChat} />
       </div>
+      
+      <BuddyChat isOpen={showBuddyChat} onClose={() => setShowBuddyChat(false)} />
     </div>
   );
 }
@@ -1097,7 +1158,104 @@ function NotesSystem() {
   );
 }
 
-function Sidebar({ userData }) {
+function BuddyChat({ isOpen, onClose }) {
+  const [selectedQuestion, setSelectedQuestion] = useState(null);
+  
+  if (!isOpen) return null;
+  
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0,0,0,0.5)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 1000
+    }}>
+      <div style={{
+        backgroundColor: 'white',
+        borderRadius: '0.5rem',
+        padding: '2rem',
+        maxWidth: '500px',
+        width: '90%',
+        maxHeight: '80vh',
+        overflowY: 'auto',
+        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)'
+      }}>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem'}}>
+          <h3 style={{color: 'var(--slds-text-default)', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+            🤖 Chat with Alex
+          </h3>
+          <button onClick={onClose} style={{background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer'}}>
+            ✕
+          </button>
+        </div>
+        
+        {!selectedQuestion ? (
+          <div>
+            <p style={{color: 'var(--slds-text-weak)', marginBottom: '1.5rem'}}>
+              Hi! I'm Alex, your AI study buddy. What would you like to chat about?
+            </p>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
+              {studyBuddyConversation.slice(1).map((item, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedQuestion(item)}
+                  style={{
+                    padding: '0.75rem',
+                    backgroundColor: 'var(--slds-color-background-shade)',
+                    border: '1px solid var(--slds-color-border)',
+                    borderRadius: '0.375rem',
+                    textAlign: 'left',
+                    cursor: 'pointer',
+                    fontSize: '0.875rem',
+                    transition: 'all 0.2s ease'
+                  }}
+                  onMouseOver={(e) => e.target.style.backgroundColor = 'var(--slds-color-background-alt)'}
+                  onMouseOut={(e) => e.target.style.backgroundColor = 'var(--slds-color-background-shade)'}
+                >
+                  {item.message}
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div>
+            <div style={{
+              backgroundColor: 'var(--slds-color-background-shade)',
+              padding: '1rem',
+              borderRadius: '0.5rem',
+              marginBottom: '1rem'
+            }}>
+              <strong>You:</strong> {selectedQuestion.message}
+            </div>
+            <div style={{
+              backgroundColor: 'rgba(102, 126, 234, 0.1)',
+              padding: '1rem',
+              borderRadius: '0.5rem',
+              marginBottom: '1rem'
+            }}>
+              <strong>🤖 Alex:</strong> {selectedQuestion.response}
+            </div>
+            <button
+              onClick={() => setSelectedQuestion(null)}
+              className="btn btn-secondary"
+              style={{padding: '0.5rem 1rem'}}
+            >
+              ← Ask Another Question
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function Sidebar({ userData, showBuddyChat, setShowBuddyChat }) {
   return (
     <div className="sidebar">
       {/* Streak Widget */}
@@ -1145,6 +1303,28 @@ function Sidebar({ userData }) {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* AI Study Buddy */}
+      <div className="widget ai-buddy-widget" style={{background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white', border: '1px solid #667eea'}}>
+        <div className="widget-title" style={{color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+          🤖 Alex - Your Study Buddy
+        </div>
+        <div style={{fontSize: '0.875rem', marginBottom: '1rem', opacity: 0.9}}>
+          {getStudyBuddyMessage(userData)}
+        </div>
+        <button 
+          className="btn" 
+          style={{
+            background: 'rgba(255,255,255,0.2)', 
+            border: '1px solid rgba(255,255,255,0.3)',
+            fontSize: '0.75rem',
+            padding: '0.5rem 1rem'
+          }}
+          onClick={() => setShowBuddyChat(!showBuddyChat)}
+        >
+          💬 Chat with Alex
+        </button>
       </div>
 
       {/* Quick Actions */}
