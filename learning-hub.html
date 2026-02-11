@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bel Learning Hub</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Salesforce+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --slds-brand: #1589ee;
+  --slds-brand-dark: #0176d3;
+  --slds-brand-light: #5eb4ff;
+  --slds-success: #04844b;
+  --slds-warning: #fe9339;
+  --slds-error: #ea001e;
+  --slds-info: #0176d3;
+  --slds-purple: #8b5cf6;
+  --slds-green: #10b981;
+  --slds-yellow: #f59e0b;
+  --slds-pink: #ec4899;
+  
+  --slds-text-default: #181818;
+  --slds-text-weak: #706e6b;
+  --slds-text-placeholder: #706e6b;
+  --slds-text-inverse: #ffffff;
+  
+  --slds-color-background: #f3f2f2;
+  --slds-color-background-alt: #ffffff;
+  --slds-color-background-shade: #ecebea;
+  
+  --slds-color-border: #dddbda;
+  --slds-color-border-strong: #c9c7c5;
+  
+  --slds-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  --slds-shadow-2: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --slds-shadow-4: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  --slds-shadow-8: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
+  
+  --slds-spacing-xxx-small: 0.125rem;
+  --slds-spacing-xx-small: 0.25rem;
+  --slds-spacing-x-small: 0.5rem;
+  --slds-spacing-small: 0.75rem;
+  --slds-spacing-medium: 1rem;
+  --slds-spacing-large: 1.5rem;
+  --slds-spacing-x-large: 2rem;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+  font-family: 'Salesforce Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--slds-color-background);
+  color: var(--slds-text-default);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.container { 
+  max-width: 1400px; 
+  margin: 0 auto; 
+  padding: var(--slds-spacing-medium);
+}
+
+.header { 
+  background-color: var(--slds-color-background-alt);
+  padding: var(--slds-spacing-large) var(--slds-spacing-x-large);
+  border-radius: 0.5rem;
+  border: 1px solid var(--slds-color-border);
+  box-shadow: var(--slds-shadow-2);
+  margin-bottom: var(--slds-spacing-large);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo { 
+  font-size: 2rem;
+  font-weight: 700; 
+  color: var(--slds-brand);
+  margin-bottom: var(--slds-spacing-small);
+}
+
+.header-stats {
+  display: flex;
+  gap: var(--slds-spacing-large);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  min-width: 80px;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--slds-brand);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--slds-text-weak);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.main-nav {
+  display: flex;
+  background-color: var(--slds-color-background-alt);
+  border-radius: 0.5rem;
+  border: 1px solid var(--slds-color-border);
+  padding: var(--slds-spacing-xx-small);
+  margin-bottom: var(--slds-spacing-large);
+  flex-wrap: wrap;
+  gap: var(--slds-spacing-xx-small);
+  box-shadow: var(--slds-shadow-1);
+}
+
+.nav-tab {
+  flex: 1;
+  min-width: 140px;
+  padding: var(--slds-spacing-small) var(--slds-spacing-medium);
+  background: transparent;
+  border: none;
+  color: var(--slds-text-weak);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--slds-spacing-x-small);
+}
+
+.nav-tab:hover {
+  background-color: var(--slds-color-background-shade);
+  color: var(--slds-text-default);
+}
+
+.nav-tab.active {
+  background-color: var(--slds-brand);
+  color: var(--slds-text-inverse);
+  box-shadow: var(--slds-shadow-2);
+}
+
+.content-area {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--slds-spacing-large);
+  align-items: start;
+}
+
+.main-content {
+  background-color: var(--slds-color-background-alt);
+  border-radius: 0.5rem;
+  padding: var(--slds-spacing-x-large);
+  border: 1px solid var(--slds-color-border);
+  box-shadow: var(--slds-shadow-4);
+  min-height: 600px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--slds-spacing-medium);
+}
+
+.widget {
+  background-color: var(--slds-color-background-alt);
+  border-radius: 0.5rem;
+  padding: var(--slds-spacing-large);
+  border: 1px solid var(--slds-color-border);
+  box-shadow: var(--slds-shadow-2);
+}
+
+.widget-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--slds-spacing-medium);
+  color: var(--slds-text-default);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--slds-color-background-shade);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: var(--slds-spacing-small) 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--slds-brand), var(--slds-brand-light));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.learning-card {
+  background-color: var(--slds-color-background-alt);
+  border: 1px solid var(--slds-color-border);
+  border-radius: 0.5rem;
+  padding: var(--slds-spacing-large);
+  margin-bottom: var(--slds-spacing-medium);
+  box-shadow: var(--slds-shadow-2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learning-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--slds-shadow-8);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--slds-spacing-medium);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--slds-text-default);
+}
+
+.difficulty-badge {
+  padding: var(--slds-spacing-xxx-small) var(--slds-spacing-small);
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.difficulty-beginner {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: var(--slds-success);
+}
+
+.difficulty-intermediate {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: var(--slds-warning);
+}
+
+.difficulty-advanced {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: var(--slds-error);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--slds-spacing-large);
+}
+
+.btn {
+  padding: var(--slds-spacing-medium) var(--slds-spacing-x-large);
+  background-color: var(--slds-brand);
+  border: 1px solid var(--slds-brand);
+  border-radius: 0.25rem;
+  color: var(--slds-text-inverse);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  font-family: inherit;
+  box-shadow: var(--slds-shadow-1);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--slds-brand-dark);
+  border-color: var(--slds-brand-dark);
+  box-shadow: var(--slds-shadow-2);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border-color: var(--slds-color-border-strong);
+  color: var(--slds-text-default);
+}
+
+.btn-secondary:hover {
+  background-color: var(--slds-color-background-shade);
+  border-color: var(--slds-color-border-strong);
+  color: var(--slds-text-default);
+}
+
+.streak-display {
+  text-align: center;
+  padding: var(--slds-spacing-large);
+}
+
+.streak-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--slds-warning);
+  display: block;
+}
+
+.streak-fire {
+  font-size: 2rem;
+  animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.achievement-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--slds-spacing-small);
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: var(--slds-spacing-small);
+  padding: var(--slds-spacing-small);
+  border-radius: 0.25rem;
+  background-color: var(--slds-color-background-shade);
+}
+
+.achievement-icon {
+  font-size: 1.5rem;
+}
+
+.quiz-question {
+  background-color: var(--slds-color-background-shade);
+  padding: var(--slds-spacing-large);
+  border-radius: 0.5rem;
+  margin-bottom: var(--slds-spacing-large);
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--slds-spacing-small);
+  margin-top: var(--slds-spacing-medium);
+}
+
+.quiz-option {
+  padding: var(--slds-spacing-medium);
+  background-color: var(--slds-color-background-alt);
+  border: 2px solid var(--slds-color-border);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quiz-option:hover {
+  border-color: var(--slds-brand);
+  background-color: rgba(21, 137, 238, 0.05);
+}
+
+.quiz-option.selected {
+  border-color: var(--slds-brand);
+  background-color: rgba(21, 137, 238, 0.1);
+}
+
+.quiz-option.correct {
+  border-color: var(--slds-success);
+  background-color: rgba(4, 132, 75, 0.1);
+}
+
+.quiz-option.incorrect {
+  border-color: var(--slds-error);
+  background-color: rgba(234, 0, 30, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .content-area {
+    grid-template-columns: 1fr;
+  }
+  
+  .header {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--slds-spacing-medium);
+  }
+  
+  .header-stats {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--slds-spacing-small);
+  }
+  
+  .main-nav {
+    flex-direction: column;
+  }
+  
+  .nav-tab {
+    min-width: auto;
+  }
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useCallback } = React;
+
+// Learning data structure
+const learningPaths = {
+  iam: {
+    title: "Identity & Access Management",
+    icon: "🔐",
+    difficulty: "intermediate",
+    description: "Master authentication, authorization, and identity governance",
+    modules: [
+      { id: 1, title: "Authentication Basics", completed: true, time: "15 min" },
+      { id: 2, title: "Multi-Factor Authentication", completed: true, time: "20 min" },
+      { id: 3, title: "SAML & OAuth", completed: false, time: "25 min" },
+      { id: 4, title: "Zero Trust Architecture", completed: false, time: "30 min" }
+    ]
+  },
+  cloud: {
+    title: "Cloud Platforms",
+    icon: "☁️",
+    difficulty: "beginner",
+    description: "Learn AWS, Azure, and GCP fundamentals",
+    modules: [
+      { id: 1, title: "Cloud Computing Basics", completed: false, time: "20 min" },
+      { id: 2, title: "AWS Core Services", completed: false, time: "30 min" },
+      { id: 3, title: "Azure Fundamentals", completed: false, time: "25 min" },
+      { id: 4, title: "GCP Essentials", completed: false, time: "25 min" }
+    ]
+  },
+  devops: {
+    title: "DevOps & Automation",
+    icon: "🔧",
+    difficulty: "advanced",
+    description: "CI/CD, containerization, and infrastructure as code",
+    modules: [
+      { id: 1, title: "CI/CD Pipelines", completed: false, time: "35 min" },
+      { id: 2, title: "Docker Containers", completed: false, time: "40 min" },
+      { id: 3, title: "Kubernetes Orchestration", completed: false, time: "45 min" },
+      { id: 4, title: "Infrastructure as Code", completed: false, time: "30 min" }
+    ]
+  },
+  security: {
+    title: "Cybersecurity",
+    icon: "🛡️",
+    difficulty: "intermediate",
+    description: "Security frameworks, threat analysis, and compliance",
+    modules: [
+      { id: 1, title: "Security Fundamentals", completed: false, time: "25 min" },
+      { id: 2, title: "OWASP Top 10", completed: false, time: "30 min" },
+      { id: 3, title: "Penetration Testing", completed: false, time: "40 min" },
+      { id: 4, title: "Compliance Frameworks", completed: false, time: "35 min" }
+    ]
+  },
+  programming: {
+    title: "Programming",
+    icon: "💻",
+    difficulty: "beginner",
+    description: "Python, JavaScript, and API development",
+    modules: [
+      { id: 1, title: "Python Fundamentals", completed: false, time: "30 min" },
+      { id: 2, title: "JavaScript ES6+", completed: false, time: "25 min" },
+      { id: 3, title: "REST API Design", completed: false, time: "35 min" },
+      { id: 4, title: "Database Basics", completed: false, time: "30 min" }
+    ]
+  },
+  data: {
+    title: "Data & Analytics",
+    icon: "📊",
+    difficulty: "intermediate",
+    description: "SQL, data modeling, and business intelligence",
+    modules: [
+      { id: 1, title: "SQL Fundamentals", completed: false, time: "25 min" },
+      { id: 2, title: "Data Modeling", completed: false, time: "30 min" },
+      { id: 3, title: "ETL Processes", completed: false, time: "35 min" },
+      { id: 4, title: "Data Visualization", completed: false, time: "25 min" }
+    ]
+  }
+};
+
+const dailyChallenges = [
+  {
+    id: 1,
+    title: "IAM Quick Quiz",
+    description: "Test your knowledge of authentication methods",
+    type: "quiz",
+    timeEstimate: "5 min",
+    points: 10,
+    questions: [
+      {
+        question: "What does MFA stand for?",
+        options: ["Multi-Factor Authentication", "Multiple File Access", "Multi-Function Application", "Master File Authority"],
+        correct: 0
+      },
+      {
+        question: "Which is NOT a factor in authentication?",
+        options: ["Something you know", "Something you have", "Something you want", "Something you are"],
+        correct: 2
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: "Cloud Service Matching",
+    description: "Match cloud services to their providers",
+    type: "matching",
+    timeEstimate: "3 min",
+    points: 5
+  },
+  {
+    id: 3,
+    title: "Security Scenario",
+    description: "Analyze a real-world security incident",
+    type: "scenario",
+    timeEstimate: "10 min",
+    points: 15
+  }
+];
+
+// Load user data from localStorage
+const loadUserData = () => {
+  const saved = localStorage.getItem('belLearningHub');
+  if (saved) {
+    return JSON.parse(saved);
+  }
+  return {
+    streak: 0,
+    totalTime: 0,
+    completedModules: 2,
+    achievements: ['first_login', 'early_bird'],
+    dailyGoal: 30, // minutes
+    todayTime: 0,
+    lastLoginDate: null
+  };
+};
+
+// Save user data to localStorage
+const saveUserData = (data) => {
+  localStorage.setItem('belLearningHub', JSON.stringify(data));
+};
+
+// Main App Component
+function App() {
+  const [activeTab, setActiveTab] = useState('dashboard');
+  const [userData, setUserData] = useState(loadUserData());
+  const [selectedChallenge, setSelectedChallenge] = useState(null);
+
+  // Update user data
+  const updateUserData = useCallback((updates) => {
+    const newData = { ...userData, ...updates };
+    setUserData(newData);
+    saveUserData(newData);
+  }, [userData]);
+
+  // Check daily login streak
+  useEffect(() => {
+    const today = new Date().toDateString();
+    const lastLogin = userData.lastLoginDate;
+    
+    if (lastLogin !== today) {
+      const yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      
+      if (lastLogin === yesterday.toDateString()) {
+        // Continue streak
+        updateUserData({ 
+          streak: userData.streak + 1,
+          lastLoginDate: today 
+        });
+      } else if (lastLogin === null) {
+        // First time user
+        updateUserData({ 
+          streak: 1,
+          lastLoginDate: today 
+        });
+      } else {
+        // Streak broken
+        updateUserData({ 
+          streak: 1,
+          lastLoginDate: today 
+        });
+      }
+    }
+  }, []);
+
+  return (
+    <div className="container">
+      <Header userData={userData} />
+      <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+      
+      <div className="content-area">
+        <div className="main-content">
+          {activeTab === 'dashboard' && <Dashboard userData={userData} updateUserData={updateUserData} />}
+          {activeTab === 'learn' && <LearningPaths userData={userData} updateUserData={updateUserData} />}
+          {activeTab === 'challenges' && <DailyChallenges challenges={dailyChallenges} userData={userData} updateUserData={updateUserData} />}
+          {activeTab === 'progress' && <Progress userData={userData} />}
+          {activeTab === 'notes' && <NotesSystem />}
+        </div>
+        
+        <Sidebar userData={userData} />
+      </div>
+    </div>
+  );
+}
+
+function Header({ userData }) {
+  return (
+    <div className="header">
+      <div>
+        <div className="logo">Bel Learning Hub</div>
+        <div style={{color: 'var(--slds-text-weak)'}}>Your daily learning companion</div>
+      </div>
+      <div className="header-stats">
+        <div className="stat-item">
+          <div className="stat-number">{userData.streak}</div>
+          <div className="stat-label">Day Streak</div>
+        </div>
+        <div className="stat-item">
+          <div className="stat-number">{Math.floor(userData.totalTime / 60)}h</div>
+          <div className="stat-label">Total Time</div>
+        </div>
+        <div className="stat-item">
+          <div className="stat-number">{userData.completedModules}</div>
+          <div className="stat-label">Completed</div>
+        </div>
+        <div className="stat-item">
+          <div className="stat-number">{userData.achievements.length}</div>
+          <div className="stat-label">Achievements</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Navigation({ activeTab, setActiveTab }) {
+  const navItems = [
+    { id: 'dashboard', label: 'Dashboard', icon: '📊' },
+    { id: 'learn', label: 'Learning Paths', icon: '🎯' },
+    { id: 'challenges', label: 'Daily Challenges', icon: '⚡' },
+    { id: 'progress', label: 'Progress', icon: '📈' },
+    { id: 'notes', label: 'My Notes', icon: '📝' }
+  ];
+
+  return (
+    <div className="main-nav">
+      {navItems.map(item => (
+        <button
+          key={item.id}
+          className={`nav-tab ${activeTab === item.id ? 'active' : ''}`}
+          onClick={() => setActiveTab(item.id)}
+        >
+          <span>{item.icon}</span>
+          <span>{item.label}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function Dashboard({ userData, updateUserData }) {
+  const todayProgress = (userData.todayTime / userData.dailyGoal) * 100;
+  
+  return (
+    <div>
+      <h2 style={{marginBottom: '1.5rem', color: 'var(--slds-text-default)'}}>Welcome back! 👋</h2>
+      
+      <div className="grid">
+        <div className="learning-card">
+          <div className="card-header">
+            <div className="card-title">Today's Goal</div>
+            <div style={{color: 'var(--slds-brand)', fontWeight: 600}}>
+              {userData.todayTime}/{userData.dailyGoal} min
+            </div>
+          </div>
+          <div className="progress-bar">
+            <div className="progress-fill" style={{width: `${Math.min(todayProgress, 100)}%`}}></div>
+          </div>
+          <p style={{color: 'var(--slds-text-weak)', fontSize: '0.875rem', marginTop: '0.5rem'}}>
+            {todayProgress >= 100 ? '🎉 Goal achieved!' : `${Math.max(0, userData.dailyGoal - userData.todayTime)} minutes to go`}
+          </p>
+        </div>
+
+        <div className="learning-card">
+          <div className="card-header">
+            <div className="card-title">Continue Learning</div>
+          </div>
+          <p style={{color: 'var(--slds-text-weak)', marginBottom: '1rem'}}>
+            Pick up where you left off with SAML & OAuth
+          </p>
+          <button className="btn">Continue Module</button>
+        </div>
+
+        <div className="learning-card">
+          <div className="card-header">
+            <div className="card-title">Quick Challenge</div>
+            <div className="difficulty-badge difficulty-beginner">5 min</div>
+          </div>
+          <p style={{color: 'var(--slds-text-weak)', marginBottom: '1rem'}}>
+            Test your knowledge with today's IAM quiz
+          </p>
+          <button className="btn btn-secondary">Start Challenge</button>
+        </div>
+      </div>
+
+      <div style={{marginTop: '2rem'}}>
+        <h3 style={{marginBottom: '1rem', color: 'var(--slds-text-default)'}}>Recent Activity</h3>
+        <div className="learning-card">
+          <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+            <div style={{fontSize: '2rem'}}>✅</div>
+            <div>
+              <div style={{fontWeight: 600}}>Completed: Authentication Basics</div>
+              <div style={{color: 'var(--slds-text-weak)', fontSize: '0.875rem'}}>Yesterday • 15 minutes</div>
+            </div>
+          </div>
+        </div>
+        <div className="learning-card">
+          <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+            <div style={{fontSize: '2rem'}}>✅</div>
+            <div>
+              <div style={{fontWeight: 600}}>Completed: Multi-Factor Authentication</div>
+              <div style={{color: 'var(--slds-text-weak)', fontSize: '0.875rem'}}>2 days ago • 20 minutes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LearningPaths({ userData, updateUserData }) {
+  return (
+    <div>
+      <h2 style={{marginBottom: '1.5rem', color: 'var(--slds-text-default)'}}>Learning Paths 🎯</h2>
+      
+      <div className="grid">
+        {Object.entries(learningPaths).map(([key, path]) => (
+          <LearningPathCard key={key} path={path} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function LearningPathCard({ path }) {
+  const completedCount = path.modules.filter(m => m.completed).length;
+  const progress = (completedCount / path.modules.length) * 100;
+
+  return (
+    <div className="learning-card">
+      <div className="card-header">
+        <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+          <span style={{fontSize: '1.5rem'}}>{path.icon}</span>
+          <div className="card-title">{path.title}</div>
+        </div>
+        <div className={`difficulty-badge difficulty-${path.difficulty}`}>
+          {path.difficulty}
+        </div>
+      </div>
+      
+      <p style={{color: 'var(--slds-text-weak)', marginBottom: '1rem', fontSize: '0.875rem'}}>
+        {path.description}
+      </p>
+      
+      <div style={{marginBottom: '1rem'}}>
+        <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem'}}>
+          <span style={{fontSize: '0.875rem', color: 'var(--slds-text-weak)'}}>Progress</span>
+          <span style={{fontSize: '0.875rem', fontWeight: 600}}>{completedCount}/{path.modules.length}</span>
+        </div>
+        <div className="progress-bar">
+          <div className="progress-fill" style={{width: `${progress}%`}}></div>
+        </div>
+      </div>
+      
+      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+        <button className="btn">
+          {completedCount === 0 ? 'Start Path' : 'Continue'}
+        </button>
+        <span style={{fontSize: '0.875rem', color: 'var(--slds-text-weak)'}}>
+          {path.modules.reduce((total, module) => total + parseInt(module.time), 0)} min total
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function DailyChallenges({ challenges, userData, updateUserData }) {
+  const [selectedChallenge, setSelectedChallenge] = useState(null);
+
+  if (selectedChallenge) {
+    return <ChallengeView challenge={selectedChallenge} onBack={() => setSelectedChallenge(null)} />;
+  }
+
+  return (
+    <div>
+      <h2 style={{marginBottom: '1.5rem', color: 'var(--slds-text-default)'}}>Daily Challenges ⚡</h2>
+      <p style={{color: 'var(--slds-text-weak)', marginBottom: '2rem'}}>
+        Complete quick challenges to earn points and maintain your streak
+      </p>
+      
+      <div className="grid">
+        {challenges.map(challenge => (
+          <div key={challenge.id} className="learning-card">
+            <div className="card-header">
+              <div className="card-title">{challenge.title}</div>
+              <div style={{color: 'var(--slds-brand)', fontWeight: 600}}>
+                +{challenge.points} pts
+              </div>
+            </div>
+            
+            <p style={{color: 'var(--slds-text-weak)', marginBottom: '1rem', fontSize: '0.875rem'}}>
+              {challenge.description}
+            </p>
+            
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+              <button 
+                className="btn"
+                onClick={() => setSelectedChallenge(challenge)}
+              >
+                Start Challenge
+              </button>
+              <span style={{fontSize: '0.875rem', color: 'var(--slds-text-weak)'}}>
+                {challenge.timeEstimate}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ChallengeView({ challenge, onBack }) {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [showResult, setShowResult] = useState(false);
+  const [score, setScore] = useState(0);
+
+  if (challenge.type !== 'quiz') {
+    return (
+      <div>
+        <button onClick={onBack} className="btn btn-secondary" style={{marginBottom: '1rem'}}>
+          ← Back to Challenges
+        </button>
+        <h2>{challenge.title}</h2>
+        <p style={{color: 'var(--slds-text-weak)', marginTop: '1rem'}}>
+          This challenge type is coming soon!
+        </p>
+      </div>
+    );
+  }
+
+  const question = challenge.questions[currentQuestion];
+  
+  const handleAnswer = (answerIndex) => {
+    setSelectedAnswer(answerIndex);
+    setShowResult(true);
+    
+    if (answerIndex === question.correct) {
+      setScore(score + 1);
+    }
+    
+    setTimeout(() => {
+      if (currentQuestion < challenge.questions.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+        setSelectedAnswer(null);
+        setShowResult(false);
+      } else {
+        // Quiz complete
+      }
+    }, 2000);
+  };
+
+  return (
+    <div>
+      <button onClick={onBack} className="btn btn-secondary" style={{marginBottom: '1rem'}}>
+        ← Back to Challenges
+      </button>
+      
+      <h2 style={{marginBottom: '1rem'}}>{challenge.title}</h2>
+      
+      <div className="quiz-question">
+        <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '1rem'}}>
+          <span style={{color: 'var(--slds-text-weak)'}}>
+            Question {currentQuestion + 1} of {challenge.questions.length}
+          </span>
+          <span style={{color: 'var(--slds-text-weak)'}}>
+            Score: {score}/{challenge.questions.length}
+          </span>
+        </div>
+        
+        <h3 style={{marginBottom: '1rem', color: 'var(--slds-text-default)'}}>
+          {question.question}
+        </h3>
+        
+        <div className="quiz-options">
+          {question.options.map((option, index) => (
+            <div
+              key={index}
+              className={`quiz-option ${
+                selectedAnswer === index ? 'selected' : ''
+              } ${
+                showResult && index === question.correct ? 'correct' : 
+                showResult && selectedAnswer === index && index !== question.correct ? 'incorrect' : ''
+              }`}
+              onClick={() => !showResult && handleAnswer(index)}
+            >
+              {option}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Progress({ userData }) {
+  const paths = Object.values(learningPaths);
+  const totalModules = paths.reduce((sum, path) => sum + path.modules.length, 0);
+  const completedModules = paths.reduce((sum, path) => 
+    sum + path.modules.filter(m => m.completed).length, 0
+  );
+  const overallProgress = (completedModules / totalModules) * 100;
+
+  return (
+    <div>
+      <h2 style={{marginBottom: '1.5rem', color: 'var(--slds-text-default)'}}>Your Progress 📈</h2>
+      
+      <div className="learning-card">
+        <div className="card-header">
+          <div className="card-title">Overall Progress</div>
+          <div style={{color: 'var(--slds-brand)', fontWeight: 600}}>
+            {completedModules}/{totalModules} modules
+          </div>
+        </div>
+        <div className="progress-bar" style={{height: '12px'}}>
+          <div className="progress-fill" style={{width: `${overallProgress}%`}}></div>
+        </div>
+        <p style={{color: 'var(--slds-text-weak)', fontSize: '0.875rem', marginTop: '0.5rem'}}>
+          {overallProgress.toFixed(1)}% complete
+        </p>
+      </div>
+
+      <h3 style={{margin: '2rem 0 1rem', color: 'var(--slds-text-default)'}}>Learning Path Progress</h3>
+      
+      {Object.entries(learningPaths).map(([key, path]) => {
+        const completed = path.modules.filter(m => m.completed).length;
+        const progress = (completed / path.modules.length) * 100;
+        
+        return (
+          <div key={key} className="learning-card">
+            <div style={{display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem'}}>
+              <span style={{fontSize: '2rem'}}>{path.icon}</span>
+              <div style={{flex: 1}}>
+                <div style={{fontWeight: 600, marginBottom: '0.25rem'}}>{path.title}</div>
+                <div className="progress-bar">
+                  <div className="progress-fill" style={{width: `${progress}%`}}></div>
+                </div>
+              </div>
+              <div style={{textAlign: 'right'}}>
+                <div style={{fontWeight: 600, color: 'var(--slds-brand)'}}>{completed}/{path.modules.length}</div>
+                <div style={{fontSize: '0.75rem', color: 'var(--slds-text-weak)'}}>{progress.toFixed(0)}%</div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function NotesSystem() {
+  const [notes, setNotes] = useState([
+    {
+      id: 1,
+      title: "MFA Implementation Notes",
+      content: "Key takeaways from MFA module:\n- Always use time-based OTP when possible\n- SMS is vulnerable to SIM swapping\n- Hardware tokens provide highest security",
+      created: "2026-02-10",
+      tags: ["iam", "security"]
+    }
+  ]);
+  
+  const [newNote, setNewNote] = useState({ title: '', content: '', tags: '' });
+
+  const addNote = () => {
+    if (newNote.title && newNote.content) {
+      setNotes([
+        ...notes,
+        {
+          id: Date.now(),
+          ...newNote,
+          created: new Date().toISOString().split('T')[0],
+          tags: newNote.tags.split(',').map(tag => tag.trim()).filter(Boolean)
+        }
+      ]);
+      setNewNote({ title: '', content: '', tags: '' });
+    }
+  };
+
+  return (
+    <div>
+      <h2 style={{marginBottom: '1.5rem', color: 'var(--slds-text-default)'}}>My Learning Notes 📝</h2>
+      
+      <div className="learning-card">
+        <h3 style={{marginBottom: '1rem', color: 'var(--slds-text-default)'}}>Add New Note</h3>
+        <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+          <input
+            type="text"
+            placeholder="Note title"
+            value={newNote.title}
+            onChange={(e) => setNewNote({...newNote, title: e.target.value})}
+            style={{
+              padding: '0.75rem',
+              border: '2px solid var(--slds-color-border)',
+              borderRadius: '0.25rem',
+              fontSize: '0.875rem'
+            }}
+          />
+          <textarea
+            placeholder="Your notes..."
+            rows={4}
+            value={newNote.content}
+            onChange={(e) => setNewNote({...newNote, content: e.target.value})}
+            style={{
+              padding: '0.75rem',
+              border: '2px solid var(--slds-color-border)',
+              borderRadius: '0.25rem',
+              fontSize: '0.875rem',
+              fontFamily: 'inherit',
+              resize: 'vertical'
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Tags (comma separated)"
+            value={newNote.tags}
+            onChange={(e) => setNewNote({...newNote, tags: e.target.value})}
+            style={{
+              padding: '0.75rem',
+              border: '2px solid var(--slds-color-border)',
+              borderRadius: '0.25rem',
+              fontSize: '0.875rem'
+            }}
+          />
+          <button onClick={addNote} className="btn" style={{alignSelf: 'flex-start'}}>
+            Save Note
+          </button>
+        </div>
+      </div>
+
+      <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+        {notes.map(note => (
+          <div key={note.id} className="learning-card">
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem'}}>
+              <h4 style={{color: 'var(--slds-text-default)'}}>{note.title}</h4>
+              <span style={{fontSize: '0.75rem', color: 'var(--slds-text-weak)'}}>{note.created}</span>
+            </div>
+            <p style={{whiteSpace: 'pre-line', marginBottom: '1rem', color: 'var(--slds-text-default)', lineHeight: 1.6}}>
+              {note.content}
+            </p>
+            <div style={{display: 'flex', gap: '0.5rem'}}>
+              {note.tags.map(tag => (
+                <span
+                  key={tag}
+                  style={{
+                    padding: '0.25rem 0.5rem',
+                    backgroundColor: 'var(--slds-color-background-shade)',
+                    border: '1px solid var(--slds-color-border)',
+                    borderRadius: '1rem',
+                    fontSize: '0.75rem',
+                    color: 'var(--slds-text-weak)'
+                  }}
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Sidebar({ userData }) {
+  return (
+    <div className="sidebar">
+      {/* Streak Widget */}
+      <div className="widget">
+        <div className="widget-title">🔥 Learning Streak</div>
+        <div className="streak-display">
+          <span className="streak-fire">🔥</span>
+          <span className="streak-number">{userData.streak}</span>
+          <div style={{color: 'var(--slds-text-weak)', fontSize: '0.875rem'}}>
+            {userData.streak === 1 ? 'day' : 'days'} in a row
+          </div>
+        </div>
+      </div>
+
+      {/* Today's Goal */}
+      <div className="widget">
+        <div className="widget-title">Today's Goal</div>
+        <div style={{textAlign: 'center'}}>
+          <div style={{fontSize: '2rem', fontWeight: 700, color: 'var(--slds-brand)'}}>
+            {userData.todayTime}<span style={{fontSize: '1rem', color: 'var(--slds-text-weak)'}}>/{userData.dailyGoal}</span>
+          </div>
+          <div style={{color: 'var(--slds-text-weak)', fontSize: '0.875rem', marginBottom: '1rem'}}>minutes</div>
+          <div className="progress-bar">
+            <div className="progress-fill" style={{width: `${Math.min((userData.todayTime / userData.dailyGoal) * 100, 100)}%`}}></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Achievements */}
+      <div className="widget">
+        <div className="widget-title">🏆 Recent Achievements</div>
+        <div className="achievement-list">
+          <div className="achievement-item">
+            <span className="achievement-icon">🎯</span>
+            <div>
+              <div style={{fontWeight: 600, fontSize: '0.875rem'}}>First Steps</div>
+              <div style={{color: 'var(--slds-text-weak)', fontSize: '0.75rem'}}>Completed first module</div>
+            </div>
+          </div>
+          <div className="achievement-item">
+            <span className="achievement-icon">🌅</span>
+            <div>
+              <div style={{fontWeight: 600, fontSize: '0.875rem'}}>Early Bird</div>
+              <div style={{color: 'var(--slds-text-weak)', fontSize: '0.75rem'}}>Studied before 9 AM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Quick Actions */}
+      <div className="widget">
+        <div className="widget-title">Quick Actions</div>
+        <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
+          <button className="btn btn-secondary" style={{padding: '0.5rem 1rem', fontSize: '0.75rem'}}>
+            📚 Continue Reading
+          </button>
+          <button className="btn btn-secondary" style={{padding: '0.5rem 1rem', fontSize: '0.75rem'}}>
+            ⚡ Quick Challenge
+          </button>
+          <button className="btn btn-secondary" style={{padding: '0.5rem 1rem', fontSize: '0.75rem'}}>
+            📝 Add Note
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
