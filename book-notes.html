@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book Notes — Bel Learning Lab</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+nav.top-nav { margin-bottom: 30px; }
+nav.top-nav a { color: #3498db; text-decoration: none; font-size: 14px; }
+nav.top-nav a:hover { text-decoration: underline; }
+
+h1 { color: #2c3e50; margin-bottom: 5px; }
+.subtitle { color: #7f8c8d; margin-bottom: 30px; font-size: 16px; }
+
+/* Book index */
+.book-index { margin-bottom: 40px; }
+.book-index a {
+  display: block;
+  padding: 12px 16px;
+  border: 1px solid #ecf0f1;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: bold;
+}
+.book-index a:hover { background-color: #f9f9f9; }
+.book-index .book-meta { font-weight: normal; font-size: 13px; color: #7f8c8d; }
+
+/* Book detail */
+.book-detail { display: none; }
+.book-detail.active { display: block; }
+.book-header { margin-bottom: 30px; border-bottom: 1px solid #ecf0f1; padding-bottom: 20px; }
+.book-header h2 { color: #2c3e50; margin-bottom: 5px; }
+.book-header .meta { font-size: 14px; color: #7f8c8d; }
+.back-to-list { font-size: 14px; color: #3498db; cursor: pointer; text-decoration: none; margin-bottom: 16px; display: inline-block; }
+.back-to-list:hover { text-decoration: underline; }
+
+/* Content blocks */
+.section { margin-bottom: 30px; }
+.section h3 { color: #2c3e50; font-size: 18px; margin-bottom: 12px; border-bottom: 1px solid #ecf0f1; padding-bottom: 6px; }
+.section h4 { color: #2c3e50; font-size: 15px; margin: 16px 0 6px; }
+
+.key-point { border-left: 3px solid #3498db; padding: 10px 14px; margin-bottom: 10px; background: #f9f9f9; border-radius: 0 4px 4px 0; }
+.key-point strong { color: #2c3e50; }
+
+blockquote {
+  border-left: 3px solid #3498db;
+  margin: 12px 0;
+  padding: 8px 14px;
+  color: #555;
+  font-style: italic;
+  background: #f9f9f9;
+}
+
+table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+th { text-align: left; padding: 8px 10px; font-size: 13px; color: #7f8c8d; border-bottom: 2px solid #ecf0f1; }
+td { padding: 8px 10px; font-size: 14px; border-bottom: 1px solid #ecf0f1; }
+
+.framework-steps { list-style: none; padding: 0; counter-reset: step; }
+.framework-steps li {
+  padding: 10px 14px 10px 44px;
+  margin-bottom: 8px;
+  border: 1px solid #ecf0f1;
+  border-radius: 4px;
+  position: relative;
+  font-size: 14px;
+}
+.framework-steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  font-weight: bold;
+  color: #3498db;
+  font-size: 16px;
+}
+
+.action-item {
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border: 1px solid #ecf0f1;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.action-item::before { content: '→ '; color: #3498db; font-weight: bold; }
+
+ul.plain { list-style: none; padding: 0; }
+ul.plain li { padding: 4px 0; font-size: 14px; }
+ul.plain li::before { content: '• '; color: #3498db; }
+</style>
+</head>
+<body>
+
+<nav class="top-nav"><a href="index.html">← Back to Home</a></nav>
+
+<h1>📚 Book Notes</h1>
+<p class="subtitle">Key concepts, frameworks, and actionable takeaways</p>
+
+<!-- BOOK INDEX -->
+<div id="book-index" class="book-index">
+  <a href="#" onclick="showBook('de-positioning'); return false;">
+    De-Positioning: The Secret Brand Strategy for Creating Competitive Advantage
+    <div class="book-meta">Todd Irwin · B2B brand strategy · Researched by Sage 🎯</div>
+  </a>
+  <!-- Add more books here as: <a href="#" onclick="showBook('book-id'); return false;"> ... </a> -->
+</div>
+
+<!-- DE-POSITIONING -->
+<div id="book-de-positioning" class="book-detail">
+  <a class="back-to-list" onclick="showIndex()">← All Books</a>
+
+  <div class="book-header">
+    <h2>De-Positioning</h2>
+    <div class="meta">
+      <strong>Author:</strong> Todd Irwin &nbsp;|&nbsp;
+      <strong>Topic:</strong> B2B Brand Strategy &nbsp;|&nbsp;
+      <strong>Researched by:</strong> Sage 🎯 &nbsp;|&nbsp;
+      <strong>Date:</strong> February 2026
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <div class="section">
+    <h3>Overview</h3>
+    <p>Traditional brand positioning — trying to differentiate by claiming uniqueness — no longer works in saturated markets. Instead, brands should <strong>de-position competitors</strong> by identifying real customer pain points that rivals can't or won't solve, then aligning the entire organization around eliminating that pain.</p>
+    <blockquote>Differentiation alone is not enough. Brands win not by shouting louder, but by solving the one problem competitors leave unresolved — making alternatives feel unnecessary.</blockquote>
+  </div>
+
+  <!-- Six Key Principles -->
+  <div class="section">
+    <h3>The Six Key Principles</h3>
+
+    <h4>1. Abandon the Search for "White Space"</h4>
+    <div class="key-point">Every category is already occupied. Instead of inventing a new lane, <strong>redefine existing space</strong> by reframing how customers see current options. Identify a clear "enemy" — not a competitor, but a problem or outdated way of doing things.</div>
+
+    <h4>2. Find the "Hero Pain Point"</h4>
+    <div class="key-point">Not one of many problems — the <strong>single most emotionally charged and practically urgent issue</strong> customers want solved. Focus creates power. Trying to address too many needs weakens impact.</div>
+
+    <h4>3. Make the Customer the Hero</h4>
+    <div class="key-point">Customers don't wake up hoping to admire a brand. They wake up because <strong>something isn't working</strong>. Winning brands identify the obstacle and organize everything around removing it.</div>
+
+    <h4>4. Study Competitors to Expose What They Can't Fix</h4>
+    <div class="key-point">Study rivals deeply — not to copy, but to <strong>uncover what they cannot or will not fix</strong>. Every organization carries limitations. Those weaknesses are your strategic openings.</div>
+
+    <h4>5. Own One Idea in the Customer's Mind</h4>
+    <div class="key-point">Brands that try to stand for too many things end up standing for nothing. One strong concept creates a <strong>mental shortcut</strong> — easy to understand, easy to remember.</div>
+
+    <h4>6. Integrate Across the Entire Organization</h4>
+    <div class="key-point">If the external promise doesn't match the internal experience, <strong>trust collapses</strong>. Every part of the business must reinforce the same strategic idea.</div>
+  </div>
+
+  <!-- Framework -->
+  <div class="section">
+    <h3>The De-Positioning Process</h3>
+    <ol class="framework-steps">
+      <li><strong>Research & Observe</strong> — Deep customer research + competitor analysis</li>
+      <li><strong>Identify the Hero Pain Point</strong> — The single most urgent, unresolved customer frustration</li>
+      <li><strong>Map Competitor Weaknesses</strong> — Where do rivals fail to solve this pain?</li>
+      <li><strong>Define Your One Idea</strong> — The clear, ownable solution that makes alternatives feel outdated</li>
+      <li><strong>Align the Organization</strong> — Every touchpoint reinforces the one idea</li>
+      <li><strong>Execute with Discipline</strong> — Say no to anything that dilutes focus</li>
+    </ol>
+  </div>
+
+  <!-- Enemy Framework -->
+  <div class="section">
+    <h3>The "Enemy" Framework</h3>
+    <table>
+      <tr><th>Element</th><th>Description</th></tr>
+      <tr><td><strong>The Enemy</strong></td><td>Not a competitor — a problem, inefficiency, or outdated approach</td></tr>
+      <tr><td><strong>The Pain</strong></td><td>The hero pain point customers feel most urgently</td></tr>
+      <tr><td><strong>The Solution</strong></td><td>Your brand's singular, clear answer</td></tr>
+      <tr><td><strong>The Contrast</strong></td><td>How your solution makes the old way feel inadequate</td></tr>
+    </table>
+  </div>
+
+  <!-- Case Studies -->
+  <div class="section">
+    <h3>Case Studies</h3>
+
+    <h4>Apple — The Second-Mover Masterclass</h4>
+    <p>Didn't succeed by being first. Observed early players, let them introduce complexity and frustration, then entered with simplicity, integration, and design. De-positioned competitors as complicated and uninspiring.</p>
+
+    <h4>Volvo — Owning One Idea for Decades</h4>
+    <p>Owned <strong>safety</strong>. Didn't try to be fastest, most luxurious, or most affordable. Every decision reinforced one concept. Discipline in owning one idea creates lasting brand equity.</p>
+  </div>
+
+  <!-- B2B Applications -->
+  <div class="section">
+    <h3>B2B CX Applications (Sage's Analysis)</h3>
+    <table>
+      <tr><th>Principle</th><th>Application</th></tr>
+      <tr><td><strong>Hero Pain Point</strong></td><td>Map the #1 frustration for each audience segment. Own the one that matters most.</td></tr>
+      <tr><td><strong>Customer as Hero</strong></td><td>Lead with their pain, not our capabilities. Center the customer's problem everywhere.</td></tr>
+      <tr><td><strong>Competitor Weakness Mapping</strong></td><td>Audit competitor CX — slow onboarding? Opaque pricing? Bad support? Those gaps are our strategy.</td></tr>
+      <tr><td><strong>Own One Idea</strong></td><td>One promise per audience. Brokers: speed. Employers: certainty. TPAs: integration.</td></tr>
+      <tr><td><strong>Organizational Alignment</strong></td><td>CX promises mean nothing if sales, onboarding, and support don't deliver the same experience.</td></tr>
+      <tr><td><strong>Second-Mover Advantage</strong></td><td>Study what incumbents get wrong. Build the experience that makes their way feel outdated.</td></tr>
+    </table>
+  </div>
+
+  <!-- Key Quotes -->
+  <div class="section">
+    <h3>Key Quotes</h3>
+    <blockquote>"Brands win not by being different, but by being the clear antidote to an unresolved frustration."</blockquote>
+    <blockquote>"Focus creates power. One strong concept creates a mental shortcut."</blockquote>
+    <blockquote>"If the promise a brand makes externally does not match the experience delivered internally, trust collapses."</blockquote>
+    <blockquote>"Customers don't wake up hoping to admire a brand's personality. They wake up because something isn't working."</blockquote>
+  </div>
+
+  <!-- Next Steps -->
+  <div class="section">
+    <h3>Recommended Next Steps</h3>
+    <div class="action-item">Run a Hero Pain Point exercise for each audience segment</div>
+    <div class="action-item">Audit 3-5 competitor websites and CX flows</div>
+    <div class="action-item">Define our "One Idea" per audience and pressure-test it</div>
+    <div class="action-item">Align website copy, sales materials, and support scripts around that idea</div>
+    <div class="action-item">Create an internal alignment check — does every team reinforce the promise?</div>
+  </div>
+</div>
+
+<script>
+function showBook(id) {
+  document.getElementById('book-index').style.display = 'none';
+  document.querySelectorAll('.book-detail').forEach(function(el) { el.classList.remove('active'); });
+  var el = document.getElementById('book-' + id);
+  if (el) el.classList.add('active');
+}
+function showIndex() {
+  document.querySelectorAll('.book-detail').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById('book-index').style.display = 'block';
+}
+// Handle direct hash links
+if (location.hash) {
+  var id = location.hash.replace('#', '');
+  showBook(id);
+}
+</script>
+
+</body>
+</html>
