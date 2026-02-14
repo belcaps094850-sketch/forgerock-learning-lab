@@ -3,32 +3,53 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Bel Learning Lab — A personal learning hub for IAM, SRE, React, B2B strategy, and more." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
 <title>Bel Learning Lab</title>
 <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
   font-family: Arial, sans-serif;
   background-color: #ffffff;
   color: #333333;
   line-height: 1.6;
-  max-width: 600px;
+}
+
+.container {
+  max-width: 760px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 60px 20px 40px;
+}
+
+/* Hero */
+.hero {
   text-align: center;
+  margin-bottom: 50px;
 }
 
-h1 {
+.hero h1 {
+  font-size: 32px;
   color: #2c3e50;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-.subtitle {
+.hero .subtitle {
   color: #7f8c8d;
-  margin-bottom: 40px;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.hero .intro {
+  color: #555;
+  font-size: 15px;
+  max-width: 540px;
+  margin: 0 auto 28px;
 }
 
 .launch-btn {
   display: inline-block;
-  padding: 15px 40px;
+  padding: 14px 36px;
   background-color: #3498db;
   color: white;
   text-decoration: none;
@@ -41,39 +62,132 @@ h1 {
   background-color: #2980b9;
 }
 
-nav {
-  margin-top: 60px;
-  padding-top: 30px;
-  border-top: 1px solid #ecf0f1;
+/* Card sections */
+.section-label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #7f8c8d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ecf0f1;
 }
 
-nav a {
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.card {
+  display: block;
+  border: 1px solid #ecf0f1;
+  border-radius: 6px;
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s;
+}
+
+.card:hover {
+  border-color: #3498db;
+}
+
+.card .card-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 4px;
+}
+
+.card .card-desc {
+  font-size: 13px;
+  color: #7f8c8d;
+  line-height: 1.4;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 24px 20px;
+  border-top: 1px solid #ecf0f1;
+  color: #95a5a6;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+footer a {
   color: #3498db;
   text-decoration: none;
-  margin: 0 10px;
-  font-size: 14px;
 }
 
-nav a:hover {
+footer a:hover {
   text-decoration: underline;
 }
 </style>
 </head>
 <body>
 
-<h1>Bel Learning Lab</h1>
-<p class="subtitle">Your Personal Learning Hub</p>
+<div class="container">
 
-<a href="learning-hub.html" class="launch-btn">Launch Learning Hub</a>
+  <!-- Hero -->
+  <div class="hero">
+    <h1>🧪 Bel Learning Lab</h1>
+    <p class="subtitle">Your Personal Learning Hub</p>
+    <p class="intro">A collection of interactive tools, daily digests, and research notes for exploring IAM, SRE, React, and B2B strategy — all in one place.</p>
+    <a href="learning-hub.html" class="launch-btn">Launch Learning Hub</a>
+  </div>
 
-<nav>
-  <a href="forgerock-demo.html">ForgeRock IAM Demo</a>
-  <a href="sre-digest.html">SRE Digest</a>
-  <a href="book-notes.html">Book Notes</a>
-  <a href="react-radar.html">React Radar</a>
-  <a href="changelog.html">Changelog</a>
-  <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank">GitHub</a>
-</nav>
+  <!-- Learning -->
+  <div class="section-label">Learning</div>
+  <div class="card-grid">
+    <a href="learning-hub.html" class="card">
+      <div class="card-title">📘 Learning Hub</div>
+      <div class="card-desc">AI study buddy, learning paths, and challenges</div>
+    </a>
+    <a href="forgerock-demo.html" class="card">
+      <div class="card-title">🔐 ForgeRock IAM Demo</div>
+      <div class="card-desc">Interactive IAM simulation and walkthrough</div>
+    </a>
+    <a href="book-notes.html" class="card">
+      <div class="card-title">📚 Book Notes</div>
+      <div class="card-desc">Key concepts and takeaways from research</div>
+    </a>
+  </div>
+
+  <!-- Daily Digests -->
+  <div class="section-label">Daily Digests</div>
+  <div class="card-grid">
+    <a href="react-radar.html" class="card">
+      <div class="card-title">⚛️ React Radar</div>
+      <div class="card-desc">Trending React topics from Reddit, updated daily</div>
+    </a>
+    <a href="sre-digest.html" class="card">
+      <div class="card-title">🔧 SRE Digest</div>
+      <div class="card-desc">Top SRE and DevOps topics, updated weekdays</div>
+    </a>
+  </div>
+
+  <!-- Tools & Meta -->
+  <div class="section-label">Tools &amp; Meta</div>
+  <div class="card-grid">
+    <a href="changelog.html" class="card">
+      <div class="card-title">📝 Changelog</div>
+      <div class="card-desc">Version history and recent updates</div>
+    </a>
+    <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank" class="card">
+      <div class="card-title">💻 GitHub</div>
+      <div class="card-desc">Source code and contributions</div>
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  Built by Bel · <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab">View on GitHub</a>
+</footer>
 
 </body>
 </html>
