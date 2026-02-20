@@ -1,8 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-const GITHUB_URL = 'https://github.com/belcaps094850-sketch/forgerock-learning-lab'
-
 export default function Layout({ children }) {
   const location = useLocation()
   const [learningOpen, setLearningOpen] = useState(false)
@@ -70,7 +68,6 @@ export default function Layout({ children }) {
           </li>
           <li><Link to="/changelog" className={isActive('/changelog') ? 'active' : ''}>Changelog</Link></li>
         </ul>
-        <a href={GITHUB_URL} target="_blank" rel="noreferrer" className="nav-cta">View on GitHub</a>
         <button className={`hamburger ${mobileOpen ? 'open' : ''}`} onClick={() => setMobileOpen(!mobileOpen)}>
           <span /><span /><span />
         </button>
@@ -87,14 +84,13 @@ export default function Layout({ children }) {
           <Link to="/sre-digest" className={isActive('/sre-digest') ? 'active' : ''}>SRE Digest</Link>
           <div className="mobile-section-label">Meta</div>
           <Link to="/changelog" className={isActive('/changelog') ? 'active' : ''}>Changelog</Link>
-          <a href={GITHUB_URL} target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </nav>
 
       {children}
 
       <footer>
-        Built by Bel &middot; <a href={GITHUB_URL} target="_blank" rel="noreferrer">View on GitHub</a>
+        Built by Bel
       </footer>
     </div>
   )

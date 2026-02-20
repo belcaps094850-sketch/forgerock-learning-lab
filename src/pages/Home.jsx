@@ -81,13 +81,6 @@ export default function Home() {
               <div className="lc-desc">Version history &amp; updates</div>
             </div>
           </Link>
-          <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank" rel="noreferrer" className="link-card">
-            <span className="lc-icon">💻</span>
-            <div>
-              <div className="lc-title">GitHub</div>
-              <div className="lc-desc">Source code &amp; contributions</div>
-            </div>
-          </a>
         </div>
       </div>
     </>
