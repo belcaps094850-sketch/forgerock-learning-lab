@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Bel Learning Lab</title>
+<title>ForgeRock IAM Demo — Bel Learning Lab</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -59,13 +61,36 @@
 
 body { 
   font-family: 'Salesforce Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--slds-color-background);
+  background-color: #96A396;
   color: var(--slds-text-default);
   line-height: 1.5;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.site-nav {
+  font-family: 'Inter', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: #F5F7F0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.site-nav .logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: #1A1A1A;
+  text-decoration: none;
+}
+.site-nav .logo span { color: #D4872E; }
+.site-nav .nav-links { display: flex; gap: 28px; list-style: none; }
+.site-nav .nav-links a { color: #333; text-decoration: none; font-size: 13px; font-weight: 500; }
+.site-nav .nav-links a:hover, .site-nav .nav-links a.active { color: #2B5F4E; }
+.site-nav .nav-cta { background: #2B5F4E; color: #fff; padding: 8px 20px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 500; }
+.site-nav .nav-cta:hover { background: #1B4D3E; }
+@media (max-width: 768px) { .site-nav .nav-links { display: none; } .site-nav { padding: 12px 16px; } }
 
 .container { 
   max-width: 1200px; 
@@ -499,7 +524,23 @@ input[type="checkbox"] {
 </style>
 </head>
 <body>
+<div style="max-width:1100px;margin:0 auto;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.12);background:#F5F7F0;">
+<nav class="site-nav">
+  <a href="index.html" class="logo"><span>Bel</span> Learning Lab</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="book-notes.html">Books</a></li>
+    <li><a href="daily-brief.html">Briefs</a></li>
+    <li><a href="poc-playground.html" class="active">POCs</a></li>
+    <li><a href="changelog.html">Changelog</a></li>
+  </ul>
+  <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank" class="nav-cta">View on GitHub</a>
+</nav>
 <div id="root"></div>
+<div style="text-align:center;padding:20px 48px 28px;border-top:1px solid rgba(0,0,0,0.06);color:#6B7280;font-size:13px;font-family:Inter,Arial,sans-serif;">
+  Built by Bel · <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" style="color:#2B5F4E;text-decoration:none;font-weight:500;">View on GitHub</a>
+</div>
+</div>
 <script type="text/babel">
 const { useState, useEffect } = React;
 

@@ -3,50 +3,154 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <title>Auth Flows Best Practices — Bel Learning Lab</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, sans-serif; background: #fff; color: #333; line-height: 1.6; }
-.container { max-width: 900px; margin: 0 auto; padding: 40px 20px 60px; }
-a.back { display: inline-block; margin-bottom: 24px; color: #3498db; text-decoration: none; font-size: 14px; }
-a.back:hover { text-decoration: underline; }
-h1 { font-size: 28px; color: #2c3e50; margin-bottom: 6px; }
-.subtitle { color: #7f8c8d; font-size: 16px; margin-bottom: 32px; }
-h2 { font-size: 22px; color: #2c3e50; margin: 36px 0 16px; padding-bottom: 6px; border-bottom: 2px solid #ecf0f1; }
-h3 { font-size: 17px; color: #2c3e50; margin: 20px 0 10px; }
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #96A396;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+.card-wrapper {
+  background: #F5F7F0;
+  border-radius: 24px;
+  max-width: 1100px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+}
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  color: #1A1A1A;
+  text-decoration: none;
+}
+.logo span { color: #D4872E; }
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.nav-links a:hover, .nav-links a.active { color: #2B5F4E; }
+.nav-cta {
+  background: #2B5F4E;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.nav-cta:hover { background: #1B4D3E; }
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 48px 48px;
+}
+
+h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  color: #1A1A1A;
+  margin-bottom: 6px;
+}
+.subtitle { color: #6B7280; font-size: 16px; margin-bottom: 32px; }
+h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #1A1A1A;
+  margin: 36px 0 16px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid rgba(0,0,0,0.06);
+}
+h3 { font-size: 17px; color: #1A1A1A; margin: 20px 0 10px; }
 p, li { font-size: 15px; }
 ul { margin: 0 0 16px 24px; }
 li { margin-bottom: 6px; }
 
-/* Flow diagrams */
 .flow { display: flex; align-items: center; flex-wrap: wrap; gap: 0; margin: 16px 0 24px; }
-.flow-step { background: #eaf2f8; border: 2px solid #3498db; border-radius: 6px; padding: 10px 16px; font-size: 13px; font-weight: bold; color: #2c3e50; text-align: center; min-width: 100px; max-width: 180px; }
-.flow-step.alt { background: #fef9e7; border-color: #f1c40f; }
+.flow-step { background: #eef5f0; border: 2px solid #2B5F4E; border-radius: 6px; padding: 10px 16px; font-size: 13px; font-weight: bold; color: #1A1A1A; text-align: center; min-width: 100px; max-width: 180px; }
+.flow-step.alt { background: #fef9e7; border-color: #D4872E; }
 .flow-step.success { background: #eafaf1; border-color: #27ae60; }
 .flow-step.danger { background: #fdedec; border-color: #e74c3c; }
-.flow-arrow { font-size: 20px; color: #95a5a6; padding: 0 6px; flex-shrink: 0; }
-.flow-label { font-size: 11px; font-weight: normal; color: #7f8c8d; display: block; margin-top: 3px; }
+.flow-arrow { font-size: 20px; color: #96A396; padding: 0 6px; flex-shrink: 0; }
+.flow-label { font-size: 11px; font-weight: normal; color: #6B7280; display: block; margin-top: 3px; }
 
-/* Impl notes */
-.impl { background: #f8f9fa; border-left: 4px solid #3498db; padding: 14px 18px; margin: 16px 0; border-radius: 0 4px 4px 0; }
-.impl strong { color: #2c3e50; }
+.impl { background: #fff; border-left: 4px solid #2B5F4E; padding: 14px 18px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+.impl strong { color: #1A1A1A; }
 .impl code { background: #e8e8e8; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
 
-/* NIST callout */
-.nist { background: #fef9e7; border-left: 4px solid #f1c40f; padding: 14px 18px; margin: 16px 0; border-radius: 0 4px 4px 0; font-size: 14px; }
+.nist { background: #fef9e7; border-left: 4px solid #D4872E; padding: 14px 18px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 14px; }
 
-footer { text-align: center; padding: 24px 20px; border-top: 1px solid #ecf0f1; color: #95a5a6; font-size: 13px; margin-top: 30px; }
-footer a { color: #3498db; text-decoration: none; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0; }
+th { text-align: left; padding: 8px 10px; background: #fff; border-bottom: 2px solid rgba(0,0,0,0.06); color: #6B7280; font-size: 13px; }
+td { padding: 8px 10px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+
+footer {
+  text-align: center;
+  padding: 20px 48px 28px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  color: #6B7280;
+  font-size: 13px;
+}
+footer a { color: #2B5F4E; text-decoration: none; font-weight: 500; }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  body { padding: 16px; }
+  nav { padding: 20px 24px; flex-wrap: wrap; gap: 12px; }
+  .nav-links { display: none; }
+  .content { padding: 20px 24px 36px; }
+  .flow { flex-direction: column; align-items: flex-start; }
+  .flow-arrow { transform: rotate(90deg); padding: 4px 0; }
+  footer { padding: 16px 24px 20px; }
+}
 </style>
 </head>
 <body>
 
-<div class="container">
-<a href="index.html" class="back">← Back to Learning Lab</a>
+<div class="card-wrapper">
+
+<nav>
+  <a href="index.html" class="logo"><span>Bel</span> Learning Lab</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="book-notes.html">Books</a></li>
+    <li><a href="daily-brief.html">Briefs</a></li>
+    <li><a href="poc-playground.html" class="active">POCs</a></li>
+    <li><a href="changelog.html">Changelog</a></li>
+  </ul>
+  <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank" class="nav-cta">View on GitHub</a>
+</nav>
+
+<div class="content">
+
 <h1>🔑 Auth Flows Best Practices</h1>
 <p class="subtitle">Registration, Forgot Password &amp; Account Recovery — with ForgeRock implementation notes</p>
 
-<!-- ============================================================ -->
 <h2>1. Registration Flow</h2>
 
 <h3>Recommended Flow</h3>
@@ -82,7 +186,6 @@ footer a { color: #3498db; text-decoration: none; }
   <strong>ForgeRock Implementation:</strong> Build a <code>Registration</code> journey in PingOne AIC (or AM). Use the <strong>Page Node</strong> to combine Attribute Collector + Password Collector on one screen. Add a <strong>Create Object</strong> node → <strong>Email Suspend Node</strong> (sends verification link) → on resume, <strong>Patch Object</strong> to set <code>emailVerified=true</code>. For progressive profiling, create a separate <code>Progressive Profile</code> journey triggered by an inner-tree evaluator on subsequent logins that checks if attributes like <code>telephoneNumber</code> are missing. Use the <strong>HaveIBeenPwned</strong> integration node to check breached passwords at registration time.
 </div>
 
-<!-- ============================================================ -->
 <h2>2. Forgot Password Flow</h2>
 
 <h3>Recommended Flow</h3>
@@ -119,7 +222,6 @@ footer a { color: #3498db; text-decoration: none; }
   <strong>ForgeRock Implementation:</strong> Use the built-in <code>Forgot Password</code> journey template or build custom: <strong>Page Node</strong> (username collector) → <strong>Identify Existing User</strong> → <strong>Email Suspend Node</strong> with a reset link containing a one-time token. On resume: <strong>Attribute Collector</strong> (new password) → <strong>Patch Object</strong> to update password → <strong>Session Invalidation Node</strong> (or scripted node calling <code>/sessions?_action=logoutByUser</code>). Add a <strong>Message Node</strong> for the generic "check your email" response regardless of user existence. Set token TTL in the Email Suspend Node config (default 300s — increase to 3600s for production).
 </div>
 
-<!-- ============================================================ -->
 <h2>3. Account Recovery Flow</h2>
 
 <h3>Recommended Flow</h3>
@@ -138,19 +240,19 @@ footer a { color: #3498db; text-decoration: none; }
 </div>
 
 <h3>Scenario Comparison</h3>
-<table style="width:100%; border-collapse:collapse; font-size:14px; margin:16px 0;">
+<table>
   <thead>
-    <tr style="background:#f8f9fa; text-align:left;">
-      <th style="padding:8px; border:1px solid #ddd;">Scenario</th>
-      <th style="padding:8px; border:1px solid #ddd;">Recovery Method</th>
-      <th style="padding:8px; border:1px solid #ddd;">Risk Level</th>
+    <tr>
+      <th>Scenario</th>
+      <th>Recovery Method</th>
+      <th>Risk Level</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td style="padding:8px; border:1px solid #ddd;">Lost password (has MFA)</td><td style="padding:8px; border:1px solid #ddd;">Email reset + MFA verify</td><td style="padding:8px; border:1px solid #ddd;">Low</td></tr>
-    <tr><td style="padding:8px; border:1px solid #ddd;">Lost MFA device</td><td style="padding:8px; border:1px solid #ddd;">Backup codes → re-enroll MFA</td><td style="padding:8px; border:1px solid #ddd;">Medium</td></tr>
-    <tr><td style="padding:8px; border:1px solid #ddd;">Lost password + MFA</td><td style="padding:8px; border:1px solid #ddd;">Email + SMS + identity proofing</td><td style="padding:8px; border:1px solid #ddd;">High</td></tr>
-    <tr><td style="padding:8px; border:1px solid #ddd;">Compromised account</td><td style="padding:8px; border:1px solid #ddd;">Admin-assisted + full re-enrollment</td><td style="padding:8px; border:1px solid #ddd;">Critical</td></tr>
+    <tr><td>Lost password (has MFA)</td><td>Email reset + MFA verify</td><td>Low</td></tr>
+    <tr><td>Lost MFA device</td><td>Backup codes → re-enroll MFA</td><td>Medium</td></tr>
+    <tr><td>Lost password + MFA</td><td>Email + SMS + identity proofing</td><td>High</td></tr>
+    <tr><td>Compromised account</td><td>Admin-assisted + full re-enrollment</td><td>Critical</td></tr>
   </tbody>
 </table>
 
@@ -173,7 +275,6 @@ footer a { color: #3498db; text-decoration: none; }
   <strong>ForgeRock Implementation:</strong> Build an <code>Account Recovery</code> journey with branching logic: <strong>Choice Collector</strong> (recovery method selection) → branch to Email Suspend, SMS OTP, or Backup Code verification. Use a <strong>Scripted Decision Node</strong> to check which recovery factors the user has enrolled. For backup codes, use <code>fr-attr: recovery-codes</code> in the user profile and a scripted node to validate + consume codes. After verification, route to an <strong>MFA Registration</strong> inner journey to re-enroll. Use the <strong>Account Lockout Node</strong> or scripted <code>inetUserStatus</code> check for locked accounts. For high-risk recovery, integrate <strong>Onfido</strong> or <strong>Jumio</strong> via marketplace connectors for document verification. Enable <strong>Audit Logging</strong> at the journey level — all events write to <code>am-authentication</code> topic.
 </div>
 
-<!-- ============================================================ -->
 <h2>Summary: Key Principles</h2>
 <ul>
   <li><strong>Minimize friction at every step</strong> — only ask for what you need, when you need it.</li>
@@ -188,8 +289,10 @@ footer a { color: #3498db; text-decoration: none; }
 </div>
 
 <footer>
-  Built by Bel · <a href="index.html">Back to Learning Lab</a>
+  Built by Bel · <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab">View on GitHub</a>
 </footer>
+
+</div>
 
 </body>
 </html>

@@ -3,50 +3,105 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Daily Brief Dashboard — Your morning intelligence feed." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <title>Daily Brief Dashboard — Bel Learning Lab</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>" />
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  color: #333333;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #96A396;
+  color: #333;
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-.container {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 60px 20px 40px;
+.card-wrapper {
+  background: #F5F7F0;
+  border-radius: 24px;
+  max-width: 1100px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  overflow: hidden;
 }
 
-.back-link {
-  display: inline-block;
-  color: #3498db;
+/* Nav */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+}
+
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  color: #1A1A1A;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #D4872E;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #333;
   text-decoration: none;
   font-size: 14px;
-  margin-bottom: 24px;
+  font-weight: 500;
+  transition: color 0.15s;
 }
 
-.back-link:hover {
-  text-decoration: underline;
+.nav-links a:hover,
+.nav-links a.active {
+  color: #2B5F4E;
 }
 
-.hero {
-  text-align: center;
-  margin-bottom: 32px;
+.nav-cta {
+  background: #2B5F4E;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s;
 }
 
-.hero h1 {
-  font-size: 32px;
-  color: #2c3e50;
-  margin-bottom: 8px;
+.nav-cta:hover {
+  background: #1B4D3E;
 }
 
-.hero .subtitle {
-  color: #7f8c8d;
-  font-size: 18px;
+/* Content */
+.content {
+  padding: 40px 48px 48px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  color: #1A1A1A;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: #6B7280;
+  font-size: 16px;
+  margin-bottom: 28px;
 }
 
 /* Date selector */
@@ -55,65 +110,67 @@ body {
 }
 
 .date-selector label {
-  font-size: 13px;
-  font-weight: bold;
-  color: #7f8c8d;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B8F5E;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   margin-right: 8px;
 }
 
 .date-selector select {
-  padding: 6px 12px;
-  border: 1px solid #ecf0f1;
-  border-radius: 4px;
-  font-family: Arial, sans-serif;
+  padding: 8px 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
-  color: #333333;
-  background: #ffffff;
+  color: #333;
+  background: #fff;
 }
 
 /* Section labels */
 .section-label {
-  font-size: 13px;
-  font-weight: bold;
-  color: #7f8c8d;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B8F5E;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   margin-bottom: 12px;
   padding-bottom: 6px;
-  border-bottom: 1px solid #ecf0f1;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 /* Cards */
 .card {
-  border: 1px solid #ecf0f1;
-  border-radius: 6px;
-  padding: 16px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 14px;
+  padding: 18px;
   margin-bottom: 14px;
-  transition: border-color 0.15s;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .card:hover {
-  border-color: #3498db;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
 }
 
 .card-title {
   font-size: 15px;
-  font-weight: bold;
-  color: #2c3e50;
+  font-weight: 600;
+  color: #1A1A1A;
   margin-bottom: 4px;
 }
 
 .card-desc {
   font-size: 13px;
-  color: #7f8c8d;
-  line-height: 1.4;
+  color: #6B7280;
+  line-height: 1.5;
 }
 
 /* POC highlight */
 .poc-highlight {
-  border-left: 3px solid #3498db;
+  border-left: 3px solid #2B5F4E;
   margin-bottom: 28px;
 }
 
@@ -126,8 +183,8 @@ body {
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 11px;
-  color: #7f8c8d;
-  border: 1px solid #ecf0f1;
+  color: #6B7280;
+  border: 1px solid rgba(0,0,0,0.06);
   margin-top: 6px;
 }
 
@@ -138,26 +195,27 @@ body {
 
 .top-pick {
   font-size: 15px;
-  font-weight: bold;
-  color: #2c3e50;
+  font-weight: 600;
+  color: #1A1A1A;
   margin-bottom: 4px;
 }
 
 .summary {
   font-size: 13px;
-  color: #7f8c8d;
-  line-height: 1.4;
+  color: #6B7280;
+  line-height: 1.5;
   margin-bottom: 8px;
 }
 
 .digest-toggle {
   font-size: 13px;
-  color: #3498db;
+  color: #2B5F4E;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
 }
 
 .digest-toggle:hover {
@@ -168,10 +226,10 @@ body {
   display: none;
   font-size: 13px;
   color: #555;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-top: 8px;
   padding-top: 8px;
-  border-top: 1px solid #ecf0f1;
+  border-top: 1px solid rgba(0,0,0,0.04);
 }
 
 .digest-content.open {
@@ -181,46 +239,78 @@ body {
 /* Footer */
 footer {
   text-align: center;
-  padding: 24px 20px;
-  border-top: 1px solid #ecf0f1;
-  color: #95a5a6;
+  padding: 20px 48px 28px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  color: #6B7280;
   font-size: 13px;
-  margin-top: 20px;
 }
 
 footer a {
-  color: #3498db;
+  color: #2B5F4E;
   text-decoration: none;
+  font-weight: 500;
 }
 
 footer a:hover {
   text-decoration: underline;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  body { padding: 16px; }
+
+  nav {
+    padding: 20px 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .nav-links { display: none; }
+
+  .content { padding: 32px 24px 36px; }
+
+  .page-title { font-size: 28px; }
+
+  footer { padding: 16px 24px 20px; }
+}
 </style>
 </head>
 <body>
 
-<div class="container">
+<div class="card-wrapper">
 
-  <a href="index.html" class="back-link">&larr; Back to Home</a>
+  <!-- Nav -->
+  <nav>
+    <a href="index.html" class="logo"><span>Bel</span> Learning Lab</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="book-notes.html">Books</a></li>
+      <li><a href="daily-brief.html" class="active">Briefs</a></li>
+      <li><a href="poc-playground.html">POCs</a></li>
+      <li><a href="changelog.html">Changelog</a></li>
+    </ul>
+    <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank" class="nav-cta">View on GitHub</a>
+  </nav>
 
-  <div class="hero">
-    <h1>📊 Daily Brief Dashboard</h1>
+  <div class="content">
+
+    <h1 class="page-title">Daily Brief Dashboard</h1>
     <p class="subtitle">Your morning intelligence feed</p>
+
+    <div class="date-selector">
+      <label for="brief-date">Date:</label>
+      <select id="brief-date"></select>
+    </div>
+
+    <div id="brief-content"></div>
+
   </div>
 
-  <div class="date-selector">
-    <label for="brief-date">Date:</label>
-    <select id="brief-date"></select>
-  </div>
-
-  <div id="brief-content"></div>
+  <footer>
+    Built by Bel · <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab">View on GitHub</a>
+  </footer>
 
 </div>
-
-<footer>
-  Built by Bel · <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab">View on GitHub</a>
-</footer>
 
 <script>
 (function() {

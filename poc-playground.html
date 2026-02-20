@@ -3,50 +3,105 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="POC Playground — Proof-of-concept experiments from the Ideas Backlog." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <title>POC Playground — Bel Learning Lab</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>" />
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  color: #333333;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #96A396;
+  color: #333;
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-.container {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 60px 20px 40px;
+.card-wrapper {
+  background: #F5F7F0;
+  border-radius: 24px;
+  max-width: 1100px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  overflow: hidden;
 }
 
-.back-link {
-  display: inline-block;
-  color: #3498db;
+/* Nav */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+}
+
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  color: #1A1A1A;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #D4872E;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #333;
   text-decoration: none;
   font-size: 14px;
-  margin-bottom: 24px;
+  font-weight: 500;
+  transition: color 0.15s;
 }
 
-.back-link:hover {
-  text-decoration: underline;
+.nav-links a:hover,
+.nav-links a.active {
+  color: #2B5F4E;
 }
 
-.hero {
-  text-align: center;
-  margin-bottom: 32px;
+.nav-cta {
+  background: #2B5F4E;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s;
 }
 
-.hero h1 {
-  font-size: 32px;
-  color: #2c3e50;
-  margin-bottom: 8px;
+.nav-cta:hover {
+  background: #1B4D3E;
 }
 
-.hero .subtitle {
-  color: #7f8c8d;
-  font-size: 18px;
+/* Content */
+.content {
+  padding: 40px 48px 48px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  color: #1A1A1A;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: #6B7280;
+  font-size: 16px;
+  margin-bottom: 28px;
 }
 
 /* Filters */
@@ -59,37 +114,40 @@ body {
 
 .filter-btn {
   padding: 6px 16px;
-  border: 1px solid #ecf0f1;
-  border-radius: 4px;
-  background: #ffffff;
-  color: #7f8c8d;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 20px;
+  background: #fff;
+  color: #6B7280;
   font-size: 13px;
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   cursor: pointer;
+  transition: all 0.15s;
 }
 
 .filter-btn:hover {
-  border-color: #3498db;
-  color: #3498db;
+  border-color: #2B5F4E;
+  color: #2B5F4E;
 }
 
 .filter-btn.active {
-  background: #3498db;
+  background: #2B5F4E;
   color: #ffffff;
-  border-color: #3498db;
+  border-color: #2B5F4E;
 }
 
 /* POC Cards */
 .poc-card {
-  border: 1px solid #ecf0f1;
-  border-radius: 6px;
-  padding: 16px;
-  margin-bottom: 14px;
-  transition: border-color 0.15s;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 12px;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .poc-card:hover {
-  border-color: #3498db;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
 }
 
 .poc-header {
@@ -102,8 +160,8 @@ body {
 
 .poc-title {
   font-size: 15px;
-  font-weight: bold;
-  color: #2c3e50;
+  font-weight: 600;
+  color: #1A1A1A;
 }
 
 .badge {
@@ -115,136 +173,168 @@ body {
   text-transform: uppercase;
 }
 
-.badge-spark { background: #ecf0f1; color: #7f8c8d; }
-.badge-researching { background: #dbeafe; color: #2563eb; }
-.badge-poc { background: #ffedd5; color: #c2410c; }
-.badge-completed { background: #dcfce7; color: #16a34a; }
+.badge-spark { background: #F3F4F6; color: #6B7280; }
+.badge-researching { background: #E8F5E9; color: #2B5F4E; }
+.badge-poc { background: #FFF3E0; color: #D4872E; }
+.badge-completed { background: #E8F5E9; color: #16a34a; }
 
 .category-tag {
   display: inline-block;
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 11px;
-  color: #7f8c8d;
-  border: 1px solid #ecf0f1;
+  color: #6B7280;
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 .poc-desc {
   font-size: 13px;
-  color: #7f8c8d;
-  line-height: 1.4;
+  color: #6B7280;
+  line-height: 1.5;
   margin-bottom: 8px;
 }
 
 .poc-notes {
   font-size: 12px;
-  color: #95a5a6;
-  border-top: 1px solid #ecf0f1;
+  color: #9CA3AF;
+  border-top: 1px solid rgba(0,0,0,0.04);
   padding-top: 8px;
 }
 
 .poc-notes strong {
-  color: #7f8c8d;
+  color: #6B7280;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 24px 20px;
-  border-top: 1px solid #ecf0f1;
-  color: #95a5a6;
+  padding: 20px 48px 28px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  color: #6B7280;
   font-size: 13px;
-  margin-top: 20px;
 }
 
 footer a {
-  color: #3498db;
+  color: #2B5F4E;
   text-decoration: none;
+  font-weight: 500;
 }
 
 footer a:hover {
   text-decoration: underline;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  body { padding: 16px; }
+
+  nav {
+    padding: 20px 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .nav-links { display: none; }
+
+  .content { padding: 32px 24px 36px; }
+
+  .page-title { font-size: 28px; }
+
+  footer { padding: 16px 24px 20px; }
+}
 </style>
 </head>
 <body>
 
-<div class="container">
+<div class="card-wrapper">
 
-  <a href="index.html" class="back-link">&larr; Back to Home</a>
+  <!-- Nav -->
+  <nav>
+    <a href="index.html" class="logo"><span>Bel</span> Learning Lab</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="book-notes.html">Books</a></li>
+      <li><a href="daily-brief.html">Briefs</a></li>
+      <li><a href="poc-playground.html" class="active">POCs</a></li>
+      <li><a href="changelog.html">Changelog</a></li>
+    </ul>
+    <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank" class="nav-cta">View on GitHub</a>
+  </nav>
 
-  <div class="hero">
-    <h1>🔬 POC Playground</h1>
+  <div class="content">
+
+    <h1 class="page-title">POC Playground</h1>
     <p class="subtitle">Proof-of-concept experiments from the Ideas Backlog</p>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="spark">Spark</button>
+      <button class="filter-btn" data-filter="researching">Researching</button>
+      <button class="filter-btn" data-filter="poc">POC</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </div>
+
+    <div id="poc-list">
+
+      <div class="poc-card" data-status="poc">
+        <div class="poc-header">
+          <span class="poc-title">Interactive Learning Paths Engine</span>
+          <span class="badge badge-poc">POC</span>
+          <span class="category-tag">React</span>
+        </div>
+        <div class="poc-desc">A guided learning path system that adapts to progress, serves quizzes, and tracks completion across IAM, SRE, and cloud topics.</div>
+        <div class="poc-notes"><strong>Notes:</strong> Early prototype built. Exploring spaced-repetition integration and per-module scoring.</div>
+      </div>
+
+      <div class="poc-card" data-status="poc">
+        <div class="poc-header">
+          <span class="poc-title">Mission Control Command Center</span>
+          <span class="badge badge-poc">POC</span>
+          <span class="category-tag">React</span>
+        </div>
+        <div class="poc-desc">A NASA-style dark command center dashboard for real-time agent monitoring — radar sweep, orbital rings, and glowing status nodes.</div>
+        <div class="poc-notes"><strong>Notes:</strong> Card view and command center view working. DiceBear Personas avatars integrated.</div>
+      </div>
+
+      <div class="poc-card" data-status="researching">
+        <div class="poc-header">
+          <span class="poc-title">Self-Funded Health Plan Cost Simulator</span>
+          <span class="badge badge-researching">Researching</span>
+          <span class="category-tag">MSL</span>
+        </div>
+        <div class="poc-desc">A calculator comparing fully-insured vs self-funded + stop loss costs for mid-market employers, surfacing break-even points and risk profiles.</div>
+        <div class="poc-notes"><strong>Notes:</strong> Market primer complete ($30B+ market). Gathering carrier rate structures and claim distribution data.</div>
+      </div>
+
+      <div class="poc-card" data-status="researching">
+        <div class="poc-header">
+          <span class="poc-title">Real-Time Agent Monitoring Dashboard</span>
+          <span class="badge badge-researching">Researching</span>
+          <span class="category-tag">AI</span>
+        </div>
+        <div class="poc-desc">Live dashboard showing agent heartbeat, task queue depth, token usage, and error rates across the OpenClaw agent fleet.</div>
+        <div class="poc-notes"><strong>Notes:</strong> Evaluating data sources — agent logs, cron output, and system metrics.</div>
+      </div>
+
+      <div class="poc-card" data-status="spark">
+        <div class="poc-header">
+          <span class="poc-title">Multi-Model Agent Benchmark</span>
+          <span class="badge badge-spark">Spark</span>
+          <span class="category-tag">AI</span>
+        </div>
+        <div class="poc-desc">Compare agent task completion rates, latency, and cost across Claude Opus 4.6, Sonnet 4.5, and open-source models on standardized coding tasks.</div>
+        <div class="poc-notes"><strong>Notes:</strong> Inspired by Opus 4.6 launch benchmarks. Need to define task suite and evaluation criteria.</div>
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="spark">Spark</button>
-    <button class="filter-btn" data-filter="researching">Researching</button>
-    <button class="filter-btn" data-filter="poc">POC</button>
-    <button class="filter-btn" data-filter="completed">Completed</button>
-  </div>
-
-  <div id="poc-list">
-
-    <div class="poc-card" data-status="poc">
-      <div class="poc-header">
-        <span class="poc-title">Interactive Learning Paths Engine</span>
-        <span class="badge badge-poc">POC</span>
-        <span class="category-tag">React</span>
-      </div>
-      <div class="poc-desc">A guided learning path system that adapts to progress, serves quizzes, and tracks completion across IAM, SRE, and cloud topics.</div>
-      <div class="poc-notes"><strong>Notes:</strong> Early prototype built. Exploring spaced-repetition integration and per-module scoring.</div>
-    </div>
-
-    <div class="poc-card" data-status="poc">
-      <div class="poc-header">
-        <span class="poc-title">Mission Control Command Center</span>
-        <span class="badge badge-poc">POC</span>
-        <span class="category-tag">React</span>
-      </div>
-      <div class="poc-desc">A NASA-style dark command center dashboard for real-time agent monitoring — radar sweep, orbital rings, and glowing status nodes.</div>
-      <div class="poc-notes"><strong>Notes:</strong> Card view and command center view working. DiceBear Personas avatars integrated.</div>
-    </div>
-
-    <div class="poc-card" data-status="researching">
-      <div class="poc-header">
-        <span class="poc-title">Self-Funded Health Plan Cost Simulator</span>
-        <span class="badge badge-researching">Researching</span>
-        <span class="category-tag">MSL</span>
-      </div>
-      <div class="poc-desc">A calculator comparing fully-insured vs self-funded + stop loss costs for mid-market employers, surfacing break-even points and risk profiles.</div>
-      <div class="poc-notes"><strong>Notes:</strong> Market primer complete ($30B+ market). Gathering carrier rate structures and claim distribution data.</div>
-    </div>
-
-    <div class="poc-card" data-status="researching">
-      <div class="poc-header">
-        <span class="poc-title">Real-Time Agent Monitoring Dashboard</span>
-        <span class="badge badge-researching">Researching</span>
-        <span class="category-tag">AI</span>
-      </div>
-      <div class="poc-desc">Live dashboard showing agent heartbeat, task queue depth, token usage, and error rates across the OpenClaw agent fleet.</div>
-      <div class="poc-notes"><strong>Notes:</strong> Evaluating data sources — agent logs, cron output, and system metrics.</div>
-    </div>
-
-    <div class="poc-card" data-status="spark">
-      <div class="poc-header">
-        <span class="poc-title">Multi-Model Agent Benchmark</span>
-        <span class="badge badge-spark">Spark</span>
-        <span class="category-tag">AI</span>
-      </div>
-      <div class="poc-desc">Compare agent task completion rates, latency, and cost across Claude Opus 4.6, Sonnet 4.5, and open-source models on standardized coding tasks.</div>
-      <div class="poc-notes"><strong>Notes:</strong> Inspired by Opus 4.6 launch benchmarks. Need to define task suite and evaluation criteria.</div>
-    </div>
-
-  </div>
+  <footer>
+    Built by Bel · <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab">View on GitHub</a>
+  </footer>
 
 </div>
-
-<footer>
-  Built by Bel · <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab">View on GitHub</a>
-</footer>
 
 <script>
 (function() {

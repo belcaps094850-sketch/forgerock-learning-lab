@@ -3,143 +3,178 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Changelog - Bel Learning Lab</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Salesforce+Sans:wght@300;400;500;600;700;800&display=swap">
+<meta name="description" content="Changelog — Track every update, improvement, and new feature." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<title>Changelog — Bel Learning Lab</title>
 <style>
-:root {
-  --slds-brand: #1589ee;
-  --slds-text-inverse: #ffffff;
-  --slds-success: #04844b;
-  --slds-warning: #fe9339;
-  --slds-info: #0176d3;
-}
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body { 
-  font-family: 'Salesforce Sans', sans-serif;
-  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
-  color: var(--slds-text-inverse);
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #96A396;
+  color: #333;
+  line-height: 1.6;
   min-height: 100vh;
-  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-.container {
+.card-wrapper {
+  background: #F5F7F0;
+  border-radius: 24px;
+  max-width: 1100px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+/* Nav */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+}
+
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  color: #1A1A1A;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #D4872E;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #2B5F4E;
+}
+
+.nav-cta {
+  background: #2B5F4E;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.nav-cta:hover {
+  background: #1B4D3E;
+}
+
+/* Content */
+.content {
+  padding: 40px 48px 48px;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.back-btn {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  display: inline-block;
-  margin-bottom: 2rem;
-}
-
-.back-btn:hover {
-  background: rgba(255,255,255,0.2);
-  transform: translateY(-2px);
-}
-
-.header {
-  text-align: center;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(20px);
-  border-radius: 1rem;
-  padding: 3rem 2rem;
-  margin-bottom: 3rem;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+.page-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  color: #1A1A1A;
+  margin-bottom: 6px;
 }
 
 .subtitle {
-  font-size: 1.1rem;
-  opacity: 0.8;
+  color: #6B7280;
+  font-size: 16px;
+  margin-bottom: 36px;
 }
 
+/* Version blocks */
 .version {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  border: 1px solid rgba(255,255,255,0.15);
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0,0,0,0.04);
 }
 
 .version-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 20px;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 10px;
 }
 
 .version-number {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--slds-brand);
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #1A1A1A;
 }
 
 .version-date {
-  opacity: 0.7;
-  font-size: 0.9rem;
+  color: #6B7280;
+  font-size: 13px;
 }
 
 .version-type {
-  padding: 0.25rem 0.75rem;
-  border-radius: 1rem;
-  font-size: 0.75rem;
-  font-weight: 500;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .type-major {
-  background: rgba(239, 68, 68, 0.2);
-  color: #fca5a5;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: #FDEDEC;
+  color: #C0392B;
 }
 
 .type-minor {
-  background: rgba(34, 197, 94, 0.2);
-  color: #86efac;
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  background: #E8F5E9;
+  color: #2B5F4E;
 }
 
 .type-patch {
-  background: rgba(59, 130, 246, 0.2);
-  color: #93c5fd;
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  background: #E3F2FD;
+  color: #1565C0;
 }
 
-.changes {
-  display: grid;
-  gap: 1.5rem;
-}
-
+/* Change categories */
 .change-category {
-  background: rgba(255,255,255,0.06);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
+  background: #F5F7F0;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.change-category:last-child {
+  margin-bottom: 0;
 }
 
 .category-title {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 6px;
   font-weight: 600;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #1A1A1A;
 }
 
 .change-list {
@@ -147,10 +182,11 @@ body {
 }
 
 .change-list li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  opacity: 0.9;
-  line-height: 1.4;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  color: #555;
+  line-height: 1.5;
+  font-size: 14px;
 }
 
 .change-list li:last-child {
@@ -159,40 +195,125 @@ body {
 
 .change-list li::before {
   content: "• ";
-  color: var(--slds-brand);
+  color: #2B5F4E;
   font-weight: bold;
-  margin-right: 0.5rem;
+  margin-right: 4px;
 }
 
+/* Stay updated box */
+.stay-updated {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px;
+  margin-top: 24px;
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.stay-updated h3 {
+  font-family: 'DM Serif Display', serif;
+  margin-bottom: 10px;
+  color: #1A1A1A;
+  font-size: 20px;
+}
+
+.stay-updated p {
+  color: #6B7280;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.stay-updated a {
+  display: inline-block;
+  background: #2B5F4E;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.15s;
+}
+
+.stay-updated a:hover {
+  background: #1B4D3E;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 48px 28px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  color: #6B7280;
+  font-size: 13px;
+}
+
+footer a {
+  color: #2B5F4E;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
+  body { padding: 16px; }
+
+  nav {
+    padding: 20px 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .nav-links { display: none; }
+
+  .content { padding: 32px 24px 36px; }
+
+  .page-title { font-size: 28px; }
+
   .version-header {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  footer { padding: 16px 24px 20px; }
 }
 </style>
 </head>
 <body>
-<div class="container">
-  <a href="index.html" class="back-btn">← Back to Home</a>
 
-  <div class="header">
-    <h1 class="title">📝 Changelog</h1>
-    <p class="subtitle">
-      Track every update, improvement, and new feature as we build the ultimate learning platform.
-    </p>
-  </div>
+<div class="card-wrapper">
 
-  <div class="version">
-    <div class="version-header">
-      <div>
-        <div class="version-number">v1.2.0</div>
-        <div class="version-date">February 11, 2026</div>
+  <!-- Nav -->
+  <nav>
+    <a href="index.html" class="logo"><span>Bel</span> Learning Lab</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="book-notes.html">Books</a></li>
+      <li><a href="daily-brief.html">Briefs</a></li>
+      <li><a href="poc-playground.html">POCs</a></li>
+      <li><a href="changelog.html" class="active">Changelog</a></li>
+    </ul>
+    <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank" class="nav-cta">View on GitHub</a>
+  </nav>
+
+  <div class="content">
+
+    <h1 class="page-title">Changelog</h1>
+    <p class="subtitle">Track every update, improvement, and new feature as we build the ultimate learning platform.</p>
+
+    <div class="version">
+      <div class="version-header">
+        <div>
+          <div class="version-number">v1.2.0</div>
+          <div class="version-date">February 11, 2026</div>
+        </div>
+        <div class="version-type type-minor">Minor Release</div>
       </div>
-      <div class="version-type type-minor">Minor Release</div>
-    </div>
-    
-    <div class="changes">
+
       <div class="change-category">
         <div class="category-title">
           <span>✨</span>
@@ -232,18 +353,16 @@ body {
         </ul>
       </div>
     </div>
-  </div>
 
-  <div class="version">
-    <div class="version-header">
-      <div>
-        <div class="version-number">v1.1.0</div>
-        <div class="version-date">February 11, 2026</div>
+    <div class="version">
+      <div class="version-header">
+        <div>
+          <div class="version-number">v1.1.0</div>
+          <div class="version-date">February 11, 2026</div>
+        </div>
+        <div class="version-type type-minor">Minor Release</div>
       </div>
-      <div class="version-type type-minor">Minor Release</div>
-    </div>
-    
-    <div class="changes">
+
       <div class="change-category">
         <div class="category-title">
           <span>✨</span>
@@ -270,18 +389,16 @@ body {
         </ul>
       </div>
     </div>
-  </div>
 
-  <div class="version">
-    <div class="version-header">
-      <div>
-        <div class="version-number">v1.0.0</div>
-        <div class="version-date">February 11, 2026</div>
+    <div class="version">
+      <div class="version-header">
+        <div>
+          <div class="version-number">v1.0.0</div>
+          <div class="version-date">February 11, 2026</div>
+        </div>
+        <div class="version-type type-major">Major Release</div>
       </div>
-      <div class="version-type type-major">Major Release</div>
-    </div>
-    
-    <div class="changes">
+
       <div class="change-category">
         <div class="category-title">
           <span>🚀</span>
@@ -296,17 +413,20 @@ body {
         </ul>
       </div>
     </div>
+
+    <div class="stay-updated">
+      <h3>Stay Updated</h3>
+      <p>Follow our GitHub repository to get notified of new releases and features.</p>
+      <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank">Watch on GitHub</a>
+    </div>
+
   </div>
 
-  <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: 1rem; padding: 2rem; margin-top: 2rem; text-align: center; border: 1px solid rgba(255,255,255,0.15);">
-    <h3 style="margin-bottom: 1rem; color: var(--slds-brand);">🔔 Stay Updated</h3>
-    <p style="opacity: 0.8; margin-bottom: 1.5rem;">
-      Follow our GitHub repository to get notified of new releases and features.
-    </p>
-    <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab" target="_blank" style="background: var(--slds-brand); padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; color: white; font-weight: 600; transition: all 0.3s ease;">
-      ⭐ Watch on GitHub
-    </a>
-  </div>
+  <footer>
+    Built by Bel · <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab">View on GitHub</a>
+  </footer>
+
 </div>
+
 </body>
 </html>
