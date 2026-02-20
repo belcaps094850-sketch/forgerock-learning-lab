@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>POC Playground — Bel Learning Lab</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 60px 20px 40px;
+}
+
+.back-link {
+  display: inline-block;
+  color: #3498db;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.hero .subtitle {
+  color: #7f8c8d;
+  font-size: 18px;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.filter-btn {
+  padding: 6px 16px;
+  border: 1px solid #ecf0f1;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #7f8c8d;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  border-color: #3498db;
+  color: #3498db;
+}
+
+.filter-btn.active {
+  background: #3498db;
+  color: #ffffff;
+  border-color: #3498db;
+}
+
+/* POC Cards */
+.poc-card {
+  border: 1px solid #ecf0f1;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 14px;
+  transition: border-color 0.15s;
+}
+
+.poc-card:hover {
+  border-color: #3498db;
+}
+
+.poc-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.poc-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.badge-spark { background: #ecf0f1; color: #7f8c8d; }
+.badge-researching { background: #dbeafe; color: #2563eb; }
+.badge-poc { background: #ffedd5; color: #c2410c; }
+.badge-completed { background: #dcfce7; color: #16a34a; }
+
+.category-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  color: #7f8c8d;
+  border: 1px solid #ecf0f1;
+}
+
+.poc-desc {
+  font-size: 13px;
+  color: #7f8c8d;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.poc-notes {
+  font-size: 12px;
+  color: #95a5a6;
+  border-top: 1px solid #ecf0f1;
+  padding-top: 8px;
+}
+
+.poc-notes strong {
+  color: #7f8c8d;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 24px 20px;
+  border-top: 1px solid #ecf0f1;
+  color: #95a5a6;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+footer a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <a href="index.html" class="back-link">&larr; Back to Home</a>
+
+  <div class="hero">
+    <h1>🔬 POC Playground</h1>
+    <p class="subtitle">Proof-of-concept experiments from the Ideas Backlog</p>
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="spark">Spark</button>
+    <button class="filter-btn" data-filter="researching">Researching</button>
+    <button class="filter-btn" data-filter="poc">POC</button>
+    <button class="filter-btn" data-filter="completed">Completed</button>
+  </div>
+
+  <div id="poc-list">
+
+    <div class="poc-card" data-status="poc">
+      <div class="poc-header">
+        <span class="poc-title">Interactive Learning Paths Engine</span>
+        <span class="badge badge-poc">POC</span>
+        <span class="category-tag">React</span>
+      </div>
+      <div class="poc-desc">A guided learning path system that adapts to progress, serves quizzes, and tracks completion across IAM, SRE, and cloud topics.</div>
+      <div class="poc-notes"><strong>Notes:</strong> Early prototype built. Exploring spaced-repetition integration and per-module scoring.</div>
+    </div>
+
+    <div class="poc-card" data-status="poc">
+      <div class="poc-header">
+        <span class="poc-title">Mission Control Command Center</span>
+        <span class="badge badge-poc">POC</span>
+        <span class="category-tag">React</span>
+      </div>
+      <div class="poc-desc">A NASA-style dark command center dashboard for real-time agent monitoring — radar sweep, orbital rings, and glowing status nodes.</div>
+      <div class="poc-notes"><strong>Notes:</strong> Card view and command center view working. DiceBear Personas avatars integrated.</div>
+    </div>
+
+    <div class="poc-card" data-status="researching">
+      <div class="poc-header">
+        <span class="poc-title">Self-Funded Health Plan Cost Simulator</span>
+        <span class="badge badge-researching">Researching</span>
+        <span class="category-tag">MSL</span>
+      </div>
+      <div class="poc-desc">A calculator comparing fully-insured vs self-funded + stop loss costs for mid-market employers, surfacing break-even points and risk profiles.</div>
+      <div class="poc-notes"><strong>Notes:</strong> Market primer complete ($30B+ market). Gathering carrier rate structures and claim distribution data.</div>
+    </div>
+
+    <div class="poc-card" data-status="researching">
+      <div class="poc-header">
+        <span class="poc-title">Real-Time Agent Monitoring Dashboard</span>
+        <span class="badge badge-researching">Researching</span>
+        <span class="category-tag">AI</span>
+      </div>
+      <div class="poc-desc">Live dashboard showing agent heartbeat, task queue depth, token usage, and error rates across the OpenClaw agent fleet.</div>
+      <div class="poc-notes"><strong>Notes:</strong> Evaluating data sources — agent logs, cron output, and system metrics.</div>
+    </div>
+
+    <div class="poc-card" data-status="spark">
+      <div class="poc-header">
+        <span class="poc-title">Multi-Model Agent Benchmark</span>
+        <span class="badge badge-spark">Spark</span>
+        <span class="category-tag">AI</span>
+      </div>
+      <div class="poc-desc">Compare agent task completion rates, latency, and cost across Claude Opus 4.6, Sonnet 4.5, and open-source models on standardized coding tasks.</div>
+      <div class="poc-notes"><strong>Notes:</strong> Inspired by Opus 4.6 launch benchmarks. Need to define task suite and evaluation criteria.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  Built by Bel · <a href="https://github.com/belcaps094850-sketch/forgerock-learning-lab">View on GitHub</a>
+</footer>
+
+<script>
+(function() {
+  var buttons = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.poc-card');
+
+  buttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      buttons.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var filter = btn.getAttribute('data-filter');
+
+      cards.forEach(function(card) {
+        if (filter === 'all' || card.getAttribute('data-status') === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
