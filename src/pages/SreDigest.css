@@ -1,0 +1,33 @@
+.sre-date-heading {
+  font-family: 'DM Serif Display', serif;
+  color: #1A1A1A;
+  font-size: 18px;
+  margin: 32px 0 16px;
+}
+
+.digest-entry {
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 14px;
+  background-color: #fff;
+}
+
+.digest-entry h4 {
+  color: #1A1A1A;
+  margin-top: 0;
+  font-size: 15px;
+}
+
+.sre-topic {
+  margin-bottom: 12px;
+  padding: 14px;
+  background-color: #fff;
+  border-left: 4px solid #2B5F4E;
+  border-radius: 0 8px 8px 0;
+}
+
+.sre-topic h4 { margin: 0 0 5px 0; color: #1A1A1A; }
+.sre-topic p { margin: 5px 0; font-size: 14px; color: #6B7280; }
+.sre-topic a { color: #2B5F4E; text-decoration: none; font-size: 13px; font-weight: 500; }
+.sre-topic a:hover { text-decoration: underline; }

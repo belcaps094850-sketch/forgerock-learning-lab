@@ -1,0 +1,32 @@
+.auth-flows-page h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #1A1A1A;
+  margin: 36px 0 16px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid rgba(0,0,0,0.06);
+}
+
+.auth-flows-page h3 { font-size: 17px; color: #1A1A1A; margin: 20px 0 10px; }
+.auth-flows-page p, .auth-flows-page li { font-size: 15px; }
+.auth-flows-page ul { margin: 0 0 16px 24px; }
+.auth-flows-page li { margin-bottom: 6px; }
+
+.flow { display: flex; align-items: center; flex-wrap: wrap; gap: 0; margin: 16px 0 24px; }
+.flow-step { background: #eef5f0; border: 2px solid #2B5F4E; border-radius: 6px; padding: 10px 16px; font-size: 13px; font-weight: bold; color: #1A1A1A; text-align: center; min-width: 100px; max-width: 180px; }
+.flow-step.alt { background: #fef9e7; border-color: #D4872E; }
+.flow-step.success { background: #eafaf1; border-color: #27ae60; }
+.flow-step.danger { background: #fdedec; border-color: #e74c3c; }
+.flow-arrow { font-size: 20px; color: #96A396; padding: 0 6px; flex-shrink: 0; }
+.flow-label { font-size: 11px; font-weight: normal; color: #6B7280; display: block; margin-top: 3px; }
+
+.impl { background: #fff; border-left: 4px solid #2B5F4E; padding: 14px 18px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+.impl strong { color: #1A1A1A; }
+.impl code { background: #e8e8e8; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+
+.nist { background: #fef9e7; border-left: 4px solid #D4872E; padding: 14px 18px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 14px; }
+
+@media (max-width: 768px) {
+  .flow { flex-direction: column; align-items: flex-start; }
+  .flow-arrow { transform: rotate(90deg); padding: 4px 0; }
+}

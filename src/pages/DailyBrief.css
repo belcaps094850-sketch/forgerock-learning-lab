@@ -1,0 +1,126 @@
+/* Date selector */
+.date-selector {
+  margin-bottom: 28px;
+}
+
+.date-selector label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B8F5E;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-right: 8px;
+}
+
+.date-selector select {
+  padding: 8px 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+}
+
+/* Section labels for daily brief */
+.db-section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B8F5E;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin-bottom: 4px;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: #6B7280;
+  line-height: 1.5;
+}
+
+/* POC highlight */
+.poc-highlight {
+  border-left: 3px solid #2B5F4E;
+  margin-bottom: 28px;
+}
+
+.poc-highlight .card-title::before {
+  content: '\1F4A1\0020';
+}
+
+.poc-category {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  color: #6B7280;
+  border: 1px solid rgba(0,0,0,0.06);
+  margin-top: 6px;
+}
+
+/* Category sections */
+.category-section {
+  margin-bottom: 28px;
+}
+
+.top-pick {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin-bottom: 4px;
+}
+
+.db-summary {
+  font-size: 13px;
+  color: #6B7280;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.digest-toggle {
+  font-size: 13px;
+  color: #2B5F4E;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+.digest-toggle:hover {
+  text-decoration: underline;
+}
+
+.digest-content {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}

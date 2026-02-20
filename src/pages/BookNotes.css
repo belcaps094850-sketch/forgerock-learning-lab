@@ -1,0 +1,28 @@
+/* Book index */
+.book-index { margin-bottom: 40px; }
+.book-index-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  color: #1A1A1A;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform 0.15s, box-shadow 0.15s;
+  background: #fff;
+}
+.book-index-link:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.book-thumb { width: 40px; height: 56px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
+.book-meta { font-weight: normal; font-size: 13px; color: #6B7280; }
+
+/* Book detail */
+.book-header { margin-bottom: 30px; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: 20px; display: flex; gap: 20px; align-items: flex-start; }
+.book-cover { width: 80px; height: 112px; object-fit: cover; border-radius: 6px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.book-header h2 { font-family: 'DM Serif Display', serif; color: #1A1A1A; margin-bottom: 5px; font-size: 24px; }
+.book-header .meta { font-size: 14px; color: #6B7280; }
+.back-to-list { font-size: 14px; color: #2B5F4E; cursor: pointer; text-decoration: none; margin-bottom: 16px; display: inline-block; font-weight: 500; }
+.back-to-list:hover { text-decoration: underline; }

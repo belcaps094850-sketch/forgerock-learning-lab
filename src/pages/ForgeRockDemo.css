@@ -1,0 +1,488 @@
+/* ForgeRock IAM Demo — Salesforce Lightning Design System Styles */
+/* All rules scoped under .forgerock-demo to avoid conflicts with global styles */
+
+.forgerock-demo {
+  /* Salesforce Lightning Design System Colors */
+  --slds-brand: #1589ee;
+  --slds-brand-dark: #0176d3;
+  --slds-brand-light: #5eb4ff;
+  --slds-success: #04844b;
+  --slds-warning: #fe9339;
+  --slds-error: #ea001e;
+  --slds-info: #0176d3;
+
+  /* Text Colors */
+  --slds-text-default: #181818;
+  --slds-text-weak: #706e6b;
+  --slds-text-placeholder: #706e6b;
+  --slds-text-inverse: #ffffff;
+
+  /* Background Colors */
+  --slds-color-background: #f3f2f2;
+  --slds-color-background-alt: #ffffff;
+  --slds-color-background-shade: #ecebea;
+
+  /* Border Colors */
+  --slds-color-border: #dddbda;
+  --slds-color-border-strong: #c9c7c5;
+
+  /* Shadows */
+  --slds-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  --slds-shadow-2: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --slds-shadow-4: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  --slds-shadow-8: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
+
+  /* Spacing */
+  --slds-spacing-xxx-small: 0.125rem;
+  --slds-spacing-xx-small: 0.25rem;
+  --slds-spacing-x-small: 0.5rem;
+  --slds-spacing-small: 0.75rem;
+  --slds-spacing-medium: 1rem;
+  --slds-spacing-large: 1.5rem;
+  --slds-spacing-x-large: 2rem;
+
+  font-family: 'Salesforce Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--slds-text-default);
+  line-height: 1.5;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.forgerock-demo .fr-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--slds-spacing-large) var(--slds-spacing-medium);
+}
+
+.forgerock-demo .fr-header {
+  text-align: center;
+  margin-bottom: var(--slds-spacing-x-large);
+  background-color: var(--slds-color-background-alt);
+  padding: var(--slds-spacing-x-large) var(--slds-spacing-large);
+  border-radius: 0.5rem;
+  border: 1px solid var(--slds-color-border);
+  box-shadow: var(--slds-shadow-2);
+}
+
+.forgerock-demo .fr-logo {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--slds-brand);
+  margin-bottom: var(--slds-spacing-small);
+  letter-spacing: -0.025em;
+}
+
+.forgerock-demo .fr-subtitle {
+  color: var(--slds-text-default);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: var(--slds-spacing-x-small);
+}
+
+.forgerock-demo .fr-header p {
+  color: var(--slds-text-weak);
+  font-size: 1rem;
+}
+
+.forgerock-demo .tabs {
+  display: flex;
+  background-color: var(--slds-color-background-alt);
+  border-radius: 0.5rem;
+  border: 1px solid var(--slds-color-border);
+  padding: var(--slds-spacing-xx-small);
+  margin-bottom: var(--slds-spacing-large);
+  flex-wrap: wrap;
+  gap: var(--slds-spacing-xx-small);
+  box-shadow: var(--slds-shadow-1);
+}
+
+.forgerock-demo .tab {
+  flex: 1;
+  min-width: 120px;
+  padding: var(--slds-spacing-small) var(--slds-spacing-medium);
+  background: transparent;
+  border: none;
+  color: var(--slds-text-weak);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.forgerock-demo .tab:hover {
+  background-color: var(--slds-color-background-shade);
+  color: var(--slds-text-default);
+}
+
+.forgerock-demo .tab.active {
+  background-color: var(--slds-brand);
+  color: var(--slds-text-inverse);
+  box-shadow: var(--slds-shadow-2);
+}
+
+.forgerock-demo .panel {
+  background-color: var(--slds-color-background-alt);
+  border-radius: 0.5rem;
+  padding: var(--slds-spacing-x-large);
+  border: 1px solid var(--slds-color-border);
+  box-shadow: var(--slds-shadow-4);
+}
+
+.forgerock-demo .panel h3 {
+  color: var(--slds-text-default);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--slds-spacing-medium);
+}
+
+.forgerock-demo .panel p {
+  color: var(--slds-text-weak);
+  margin-bottom: var(--slds-spacing-small);
+}
+
+.forgerock-demo .auth-chain {
+  display: flex;
+  align-items: center;
+  gap: var(--slds-spacing-medium);
+  margin: var(--slds-spacing-x-large) 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.forgerock-demo .auth-module {
+  background-color: var(--slds-color-background-alt);
+  border: 2px solid var(--slds-color-border);
+  padding: var(--slds-spacing-large);
+  border-radius: 0.5rem;
+  min-width: 200px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--slds-shadow-2);
+  position: relative;
+}
+
+.forgerock-demo .auth-module.pending {
+  border-color: var(--slds-color-border-strong);
+  background-color: var(--slds-color-background-shade);
+}
+
+.forgerock-demo .auth-module.active {
+  border-color: var(--slds-info);
+  background-color: #e3f3ff;
+  box-shadow: var(--slds-shadow-4);
+  animation: forgerock-pulse 2s infinite;
+}
+
+.forgerock-demo .auth-module.success {
+  border-color: var(--slds-success);
+  background-color: #ecf9f4;
+}
+
+.forgerock-demo .auth-module.failed {
+  border-color: var(--slds-error);
+  background-color: #fee;
+}
+
+.forgerock-demo .auth-module.skipped {
+  border-color: var(--slds-color-border);
+  background-color: var(--slds-color-background-shade);
+  opacity: 0.6;
+}
+
+.forgerock-demo .auth-module > div:first-child {
+  font-weight: 600;
+  color: var(--slds-text-default);
+  margin-bottom: var(--slds-spacing-x-small);
+  font-size: 1rem;
+}
+
+.forgerock-demo .auth-module > div:nth-child(2) {
+  font-size: 0.75rem;
+  color: var(--slds-text-weak);
+  margin-bottom: var(--slds-spacing-x-small);
+}
+
+.forgerock-demo .auth-module > div:nth-child(3) {
+  display: inline-block;
+  padding: var(--slds-spacing-xxx-small) var(--slds-spacing-x-small);
+  background-color: var(--slds-color-background);
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--slds-text-weak);
+}
+
+.forgerock-demo .auth-module > div:last-child {
+  font-size: 1.5rem;
+  margin-top: var(--slds-spacing-small);
+}
+
+.forgerock-demo .chain-arrow {
+  font-size: 1.25rem;
+  color: var(--slds-brand);
+  font-weight: bold;
+}
+
+.forgerock-demo .login-form {
+  display: grid;
+  gap: var(--slds-spacing-large);
+  max-width: 32rem;
+  margin: var(--slds-spacing-x-large) auto;
+  background-color: var(--slds-color-background-alt);
+  padding: var(--slds-spacing-x-large);
+  border-radius: 0.5rem;
+  border: 1px solid var(--slds-color-border);
+  box-shadow: var(--slds-shadow-2);
+}
+
+.forgerock-demo .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--slds-spacing-x-small);
+}
+
+.forgerock-demo .input-group label {
+  font-weight: 600;
+  color: var(--slds-text-default);
+  font-size: 0.875rem;
+}
+
+.forgerock-demo .fr-input,
+.forgerock-demo select {
+  padding: var(--slds-spacing-small) var(--slds-spacing-medium);
+  border: 2px solid var(--slds-color-border);
+  border-radius: 0.25rem;
+  background-color: var(--slds-color-background-alt);
+  color: var(--slds-text-default);
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.forgerock-demo .fr-input:focus,
+.forgerock-demo select:focus {
+  outline: none;
+  border-color: var(--slds-brand);
+  box-shadow: 0 0 0 1px var(--slds-brand);
+}
+
+.forgerock-demo .fr-input::placeholder {
+  color: var(--slds-text-placeholder);
+}
+
+.forgerock-demo .btn {
+  padding: var(--slds-spacing-medium) var(--slds-spacing-x-large);
+  background-color: var(--slds-brand);
+  border: 1px solid var(--slds-brand);
+  border-radius: 0.25rem;
+  color: var(--slds-text-inverse);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  font-family: inherit;
+  box-shadow: var(--slds-shadow-1);
+}
+
+.forgerock-demo .btn:hover {
+  background-color: var(--slds-brand-dark);
+  border-color: var(--slds-brand-dark);
+  box-shadow: var(--slds-shadow-2);
+}
+
+.forgerock-demo .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.forgerock-demo .status {
+  text-align: center;
+  padding: var(--slds-spacing-medium) var(--slds-spacing-large);
+  border-radius: 0.5rem;
+  margin: var(--slds-spacing-large) 0;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.forgerock-demo .status.success {
+  background-color: #ecf9f4;
+  border-color: var(--slds-success);
+  color: #027639;
+}
+
+.forgerock-demo .status.error {
+  background-color: #fee;
+  border-color: var(--slds-error);
+  color: #c23934;
+}
+
+.forgerock-demo .status.warning {
+  background-color: #fef5e7;
+  border-color: var(--slds-warning);
+  color: #b45506;
+}
+
+.forgerock-demo .concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--slds-spacing-large);
+}
+
+.forgerock-demo .concept-card {
+  background-color: var(--slds-color-background-alt);
+  padding: var(--slds-spacing-large);
+  border-radius: 0.5rem;
+  border: 1px solid var(--slds-color-border);
+  transition: all 0.3s ease;
+  box-shadow: var(--slds-shadow-2);
+}
+
+.forgerock-demo .concept-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--slds-shadow-8);
+  border-color: var(--slds-brand-light);
+}
+
+.forgerock-demo .concept-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--slds-spacing-small);
+  color: var(--slds-brand);
+}
+
+.forgerock-demo .concept-card p {
+  color: var(--slds-text-weak);
+  margin-bottom: var(--slds-spacing-medium);
+  font-size: 0.875rem;
+}
+
+.forgerock-demo .step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.forgerock-demo .step-list li {
+  padding: var(--slds-spacing-small) 0;
+  border-bottom: 1px solid var(--slds-color-border);
+  color: var(--slds-text-default);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+}
+
+.forgerock-demo .step-list li:last-child {
+  border-bottom: none;
+}
+
+.forgerock-demo .step-list li::before {
+  content: "\2192";
+  color: var(--slds-brand);
+  font-weight: 600;
+  margin-right: var(--slds-spacing-small);
+  font-size: 1rem;
+}
+
+/* Status badges */
+.forgerock-demo .status-badge {
+  display: inline-block;
+  padding: var(--slds-spacing-xxx-small) var(--slds-spacing-x-small);
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.forgerock-demo .status-badge.success {
+  background-color: var(--slds-success);
+  color: var(--slds-text-inverse);
+}
+
+.forgerock-demo .status-badge.error {
+  background-color: var(--slds-error);
+  color: var(--slds-text-inverse);
+}
+
+.forgerock-demo .status-badge.warning {
+  background-color: var(--slds-warning);
+  color: var(--slds-text-inverse);
+}
+
+.forgerock-demo .status-badge.info {
+  background-color: var(--slds-info);
+  color: var(--slds-text-inverse);
+}
+
+/* Checkbox styling */
+.forgerock-demo input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin-right: var(--slds-spacing-x-small);
+  accent-color: var(--slds-brand);
+}
+
+/* SLDS Section components */
+.forgerock-demo .slds-section {
+  background-color: var(--slds-color-background-alt);
+  border: 1px solid var(--slds-color-border);
+  border-radius: 0.5rem;
+  margin-bottom: var(--slds-spacing-large);
+}
+
+.forgerock-demo .slds-section-header {
+  background-color: var(--slds-color-background-shade);
+  padding: var(--slds-spacing-medium) var(--slds-spacing-large);
+  border-bottom: 1px solid var(--slds-color-border);
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-weight: 600;
+  color: var(--slds-text-default);
+}
+
+.forgerock-demo .slds-section-content {
+  padding: var(--slds-spacing-large);
+}
+
+/* Pulse animation */
+@keyframes forgerock-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .forgerock-demo .fr-container {
+    padding: var(--slds-spacing-medium);
+  }
+
+  .forgerock-demo .panel,
+  .forgerock-demo .login-form {
+    padding: var(--slds-spacing-large);
+  }
+
+  .forgerock-demo .auth-chain {
+    flex-direction: column;
+    gap: var(--slds-spacing-small);
+  }
+
+  .forgerock-demo .auth-module {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .forgerock-demo .chain-arrow {
+    transform: rotate(90deg);
+  }
+
+  .forgerock-demo .tabs {
+    flex-direction: column;
+  }
+
+  .forgerock-demo .tab {
+    min-width: auto;
+  }
+}
