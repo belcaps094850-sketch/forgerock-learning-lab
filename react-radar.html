@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Radar — Daily Trending Topics</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #fff; color: #333; line-height: 1.6; padding: 20px; max-width: 800px; margin: 0 auto; }
+        h1 { font-size: 1.8rem; margin-bottom: 4px; }
+        .subtitle { color: #666; margin-bottom: 24px; font-size: 0.95rem; }
+        .back-link { display: inline-block; margin-bottom: 16px; color: #0066cc; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+        .date-section { margin-bottom: 32px; border-bottom: 1px solid #eee; padding-bottom: 24px; }
+        .date-section:last-of-type { border-bottom: none; }
+        .date-heading { font-size: 1.1rem; color: #111; margin-bottom: 12px; }
+        .topic { margin-bottom: 14px; padding-left: 12px; border-left: 3px solid #0066cc; }
+        .topic a { color: #0066cc; text-decoration: none; font-weight: bold; font-size: 0.95rem; }
+        .topic a:hover { text-decoration: underline; }
+        .topic p { font-size: 0.88rem; color: #555; margin-top: 2px; }
+        .tag { display: inline-block; background: #f0f0f0; color: #555; font-size: 0.75rem; padding: 2px 6px; border-radius: 3px; margin-right: 4px; }
+        @media (max-width: 600px) { body { padding: 12px; } h1 { font-size: 1.4rem; } }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Home</a>
+    <h1>⚛️ React Radar</h1>
+    <p class="subtitle">Daily trending topics from the React ecosystem — auto-updated each morning.</p>
+
+    <!-- ===== 2026-02-21 ===== -->
+    <div class="date-section">
+        <h2 class="date-heading">📅 Saturday, February 21, 2026</h2>
+
+        <div class="topic">
+            <a href="https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components" target="_blank">CVE-2025-55182: Critical RCE in React Server Components (React2Shell)</a>
+            <p><span class="tag">security</span> <span class="tag">RSC</span> A CVSS 10.0 pre-auth remote code execution vulnerability affecting React Server Components. All apps using RSC or Server Functions on React 19.x should update immediately.</p>
+        </div>
+
+        <div class="topic">
+            <a href="https://www.infoq.com/news/2025/12/react-compiler-meta/" target="_blank">React Compiler 1.0 — Automatic Memoization Is Here</a>
+            <p><span class="tag">compiler</span> <span class="tag">performance</span> Meta's React Compiler 1.0 brings automatic memoization at build time, eliminating the need for manual useMemo and useCallback in most cases. Works with both React and React Native.</p>
+        </div>
+
+        <div class="topic">
+            <a href="https://react.dev/blog/2025/10/01/react-19-2" target="_blank">React 19.2: Activity API, useEffectEvent &amp; Suspense Batching</a>
+            <p><span class="tag">release</span> <span class="tag">SSR</span> React 19.2 introduces the &lt;Activity /&gt; component, useEffectEvent hook, cacheSignal API, and batched Suspense boundaries for server-side rendering.</p>
+        </div>
+
+        <div class="topic">
+            <a href="https://javascript.plainenglish.io/zustand-vs-redux-in-2026-why-i-switched-and-you-should-too-c119dd840ddb" target="_blank">Zustand vs Redux in 2026: The State Management Shift</a>
+            <p><span class="tag">state</span> <span class="tag">zustand</span> Zustand continues gaining ground over Redux with its ~3KB bundle and simpler API. Community discussion on r/reactjs shows growing preference for lightweight alternatives like Zustand and Jotai.</p>
+        </div>
+
+        <div class="topic">
+            <a href="https://www.reddit.com/r/reactjs/comments/1pbj9qo/building_a_design_system_in_2026/" target="_blank">Building a Design System in 2026 — r/reactjs Discussion</a>
+            <p><span class="tag">design-systems</span> <span class="tag">components</span> Hot Reddit thread on choosing component libraries for design systems in 2026, covering open-source options, theming, and rich component catalogs.</p>
+        </div>
+
+        <div class="topic">
+            <a href="https://www.reddit.com/r/react/comments/1qhxc46/does_react_still_feel_future_proof_in_2026_or_is/" target="_blank">Does React Still Feel Future-Proof in 2026?</a>
+            <p><span class="tag">discussion</span> <span class="tag">ecosystem</span> Reddit debate on whether React remains the default safe choice or if the ecosystem fragmentation (Next.js, Remix, RSC complexity) is eroding confidence.</p>
+        </div>
+
+        <div class="topic">
+            <a href="https://medium.com/@theasifimam/the-future-of-reactjs-next-js-in-2026-my-thoughts-as-a-frontend-developer-3ed682796116" target="_blank">AI-Driven Features Becoming Expected in React Apps</a>
+            <p><span class="tag">AI</span> <span class="tag">trends</span> Frontend developers report that AI chat, embeddings, and vector search are now expected features in modern React applications, shifting the baseline of what "standard" means.</p>
+        </div>
+    </div>
+
+</body>
+</html>
