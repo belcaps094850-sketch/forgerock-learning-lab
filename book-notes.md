@@ -100,3 +100,48 @@ Full list at [deming.org](https://deming.org/explore/fourteen-points/). Highligh
 - **Out of the Crisis** / **The New Economics** — W.E. Deming (primary sources)
 - **Win-Win** — John Dues
 - **The Lean Startup** — Eric Ries
+
+---
+
+## The Goal: A Process of Ongoing Improvement
+- **Author:** Eliyahu M. Goldratt & Jeff Cox
+- **First Published:** 1984
+- **Added:** 2026-02-20
+- **Status:** To Read
+
+### Summary
+A business novel following Alex Rogo, a plant manager with three months to save his failing factory. Guided by his former professor Jonah, Alex discovers the Theory of Constraints — that every system has a bottleneck, and optimizing anything other than the bottleneck is an illusion of productivity.
+
+### Three Operational Measurements
+- **Throughput** — rate the system generates money through sales (money coming in)
+- **Inventory** — all money invested in things intended to sell (money in the system)
+- **Operating Expense** — all money spent to turn inventory into throughput (money going out)
+
+### The Five Focusing Steps
+1. **IDENTIFY** the system's constraint
+2. **EXPLOIT** it — maximize output from current resources
+3. **SUBORDINATE** everything else to the constraint's pace
+4. **ELEVATE** the constraint — invest in increasing its capacity
+5. **REPEAT** — when the constraint moves, start over
+
+### Key Ideas
+- The goal of any business is to **make money** — everything else is a means
+- **Balanced plants don't work** — "the closer you come to a balanced plant, the closer you are to bankruptcy"
+- **Bottleneck time is sacred** — an hour lost there is lost for the entire system
+- **Busy ≠ productive** — doing work and making money are different things
+- **Local optimization is a trap** — optimize the whole system, not individual parts
+- **Reduce batch sizes** — smaller batches = faster flow = less inventory
+- **Cost-first thinking is wrong** — increase throughput, don't just cut costs
+
+### Quotable
+- "The goal is not to reduce cost. The goal is to increase throughput."
+- "A plant in which everyone is working all the time is very inefficient."
+- "Making an employee work and profiting from that work are two different things."
+- "Tell me how you measure me, and I will tell you how I will behave."
+
+### Connected Reading
+- **Deming's Journey to Profound Knowledge** — John Willis
+- **The Phoenix Project** — Kim, Behr, Spafford (The Goal for IT/DevOps)
+- **The DevOps Handbook** — Kim, Willis, et al.
+- **It's Not Luck** — Eliyahu Goldratt (sequel)
+- **Critical Chain** — Eliyahu Goldratt (TOC for project management)
