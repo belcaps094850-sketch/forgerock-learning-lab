@@ -145,3 +145,70 @@ A business novel following Alex Rogo, a plant manager with three months to save 
 - **The DevOps Handbook** — Kim, Willis, et al.
 - **It's Not Luck** — Eliyahu Goldratt (sequel)
 - **Critical Chain** — Eliyahu Goldratt (TOC for project management)
+
+---
+
+## Vibe Coding: Building Production-Grade Software With GenAI, Chat, Agents, and Beyond
+- **Authors:** Gene Kim & Steve Yegge
+- **Foreword:** Dario Amodei, CEO and Cofounder of Anthropic
+- **Publisher:** IT Revolution Press
+- **Published:** October 21, 2025
+- **Pages:** 320
+- **ISBN:** 9781966280026
+- **Added:** 2026-02-25
+- **Status:** Notes Complete
+
+### Summary
+By the authors of The Phoenix Project/DevOps Handbook (Kim) and a veteran of Google, Amazon, and Sourcegraph (Yegge). Explores how vibe coding — using GenAI to generate code from natural language descriptions — is transforming software development. Covers practical strategies from small projects to enterprise-scale applications, with real-world case studies showing dramatic productivity gains while maintaining engineering excellence.
+
+### Key Takeaways
+- Vibe coding transforms complex programming into fluid conversations with GenAI
+- Developers shift from writing code to directing AI agents — intent and flow over syntax
+- One person with AI can achieve what previously required a team
+- Build confidently in languages and frameworks you've never used before
+- Quality, security, and architecture judgment remain human responsibilities
+- AI coding is not just faster — it fundamentally changes how we approach development
+- Patience and iteration matter — AI doesn't get it right in one shot
+
+### Core Principles
+
+**From Writing to Directing:**
+Developers shift from manual coding to directing AI coding agents. The skill becomes knowing what to ask for, how to evaluate results, and when to intervene.
+
+**FAAFO — Transformative Potential at Scale:**
+Real-world case studies show extraordinary results. A developer built 2,600 lines of Python with docs and CLI flags in 2 hours while multitasking. A person who hadn't coded in 20 years built working tools.
+
+**Lowered Barriers, Raised Stakes:**
+More people can create software than ever before, but responsibility for quality, security, and architecture becomes more critical — not less.
+
+**Patience and Iteration:**
+AI doesn't produce perfect code in one pass. Success comes from iterating, guiding, and refining — treating AI as a collaborator, not a magic wand.
+
+**Co-Creation Over Automation:**
+The best results come from mastering the art of co-creating with your AI companion — it's a conversation, not a command.
+
+**Break Free From Traditional Constraints:**
+Syntax, setup, and unfamiliar frameworks no longer block progress. Developers can build in languages they've never used before.
+
+### Case Study: Luke Burton's CNC Firmware
+Luke Burton (nearly two decades at Apple, including technical readiness for Swift's 2014 WWDC launch) used Claude Code to build a Python program automating CNC firmware uploads — 2,600 lines with documentation and proper CLI flags in 2 hours. His collaborator in Germany was amazed. Luke's response: "You ain't seen nothing yet — give me 15 minutes, and this thing will have an interactive mode with GNU readline support."
+
+### Quotable
+- "Science fiction is now reality. Programmers no longer need to toil over code and syntax. They can now describe what they want and watch it materialize instantly."
+- "2600 lines of Python with documentation and proper CLI flags. It cost me $50 in Claude Code tokens, but I'm not complaining!"
+- "You ain't seen nothing yet — give me 15 minutes, and this thing will have an interactive mode with GNU readline support."
+- "Don't get left behind in the biggest transformation our industry has seen since the internet revolution."
+
+### Action Items
+- Experiment with AI coding tools (Claude Code, Codex, Copilot) in your daily workflow
+- Practice prompt engineering for code generation — specificity and iteration matter
+- Build review and testing skills — AI-generated code still needs human judgment
+- Try building something in a language or framework you've never used
+- Start small: automate a tedious task with AI-assisted coding to build confidence
+- Shift mindset from "writing code" to "directing and reviewing AI output"
+
+### Connected Reading
+- **The Phoenix Project** — Gene Kim, Kevin Behr, George Spafford
+- **The Unicorn Project** — Gene Kim
+- **The DevOps Handbook** — Gene Kim, Jez Humble, Patrick Debois, John Willis
+- **Accelerate** — Nicole Forsgren, Jez Humble, Gene Kim
