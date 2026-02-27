@@ -1,6 +1,8 @@
+import usePageMeta from '../hooks/usePageMeta'
 import './AuthFlows.css'
 
 export default function AuthFlows() {
+  usePageMeta('Auth Flows', 'Registration, Forgot Password & Account Recovery best practices with ForgeRock implementation notes')
   return (
     <div className="content auth-flows-page">
       <h1 className="page-title">🔑 Auth Flows Best Practices</h1>

@@ -17,6 +17,8 @@ export default function Layout({ children }) {
   const isBriefsActive = briefsPaths.some(p => location.pathname.startsWith(p))
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional menu reset on navigation
     setMobileOpen(false)
     setLearningOpen(false)
     setBriefsOpen(false)
@@ -33,6 +35,7 @@ export default function Layout({ children }) {
 
   return (
     <div className="card-wrapper">
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <nav>
         <Link to="/" className="logo"><span>Bel</span> Learning Lab</Link>
         <ul className="nav-center">
@@ -91,7 +94,9 @@ export default function Layout({ children }) {
         </div>
       </nav>
 
-      {children}
+      <main id="main-content">
+        {children}
+      </main>
 
       <footer>
         Built by Bel

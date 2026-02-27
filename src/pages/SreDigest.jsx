@@ -1,11 +1,15 @@
 import useJsonData from '../hooks/useJsonData'
+import usePageMeta from '../hooks/usePageMeta'
+import LoadingSkeleton from '../components/LoadingSkeleton'
 import './SreDigest.css'
 
 export default function SreDigest() {
+  usePageMeta('SRE Digest', 'Top trending SRE topics updated weekdays')
   const { data: days, error, loading } = useJsonData('/data/sre-digest.json')
 
-  if (loading) return <div className="content"><p>Loading...</p></div>
+  if (loading) return <LoadingSkeleton />
   if (error) return <div className="content"><p>Error: {error}</p></div>
+  if (!days || days.length === 0) return <div className="content"><h1 className="page-title sre-centered">SRE Daily Digest</h1><p className="subtitle sre-centered">No content available yet.</p></div>
 
   return (
     <div className="content">

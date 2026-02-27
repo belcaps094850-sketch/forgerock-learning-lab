@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import useJsonData from '../hooks/useJsonData'
+import usePageMeta from '../hooks/usePageMeta'
+import LoadingSkeleton from '../components/LoadingSkeleton'
 import './PocPlayground.css'
 
 const badgeClass = {
@@ -10,11 +12,13 @@ const badgeClass = {
 }
 
 export default function PocPlayground() {
+  usePageMeta('POC Playground', 'Proof-of-concept experiments from the Ideas Backlog')
   const [filter, setFilter] = useState('all')
   const { data: pocs, error, loading } = useJsonData('/data/pocs.json')
 
-  if (loading) return <div className="content"><p>Loading...</p></div>
+  if (loading) return <LoadingSkeleton />
   if (error) return <div className="content"><p>Error: {error}</p></div>
+  if (!pocs || pocs.length === 0) return <div className="content"><h1 className="page-title">POC Playground</h1><p className="subtitle">No content available yet.</p></div>
 
   const filtered = filter === 'all' ? pocs : pocs.filter(p => p.status === filter)
 

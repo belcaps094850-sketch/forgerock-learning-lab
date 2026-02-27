@@ -5,7 +5,7 @@ export default function DePositioning({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="/images/books/de-positioning.jpg" alt="De-Positioning cover" />
+        <img className="book-cover" src="/images/books/de-positioning.jpg" alt="De-Positioning cover" loading="lazy" />
         <div>
           <h2>De-Positioning</h2>
           <div className="meta"><strong>Author:</strong> Todd Irwin &nbsp;|&nbsp; <strong>Topic:</strong> B2B Brand Strategy &nbsp;|&nbsp; <strong>Researched by:</strong> Sage 🎯 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>

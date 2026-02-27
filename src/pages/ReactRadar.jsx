@@ -1,11 +1,15 @@
 import useJsonData from '../hooks/useJsonData'
+import usePageMeta from '../hooks/usePageMeta'
+import LoadingSkeleton from '../components/LoadingSkeleton'
 import './ReactRadar.css'
 
 export default function ReactRadar() {
+  usePageMeta('React Radar', 'Daily trending React topics from Reddit')
   const { data: days, error, loading } = useJsonData('/data/react-radar.json')
 
-  if (loading) return <div className="content"><p>Loading...</p></div>
+  if (loading) return <LoadingSkeleton />
   if (error) return <div className="content"><p>Error: {error}</p></div>
+  if (!days || days.length === 0) return <div className="content"><h1 className="page-title">React Radar</h1><p className="subtitle">No content available yet.</p></div>
 
   return (
     <div className="content">

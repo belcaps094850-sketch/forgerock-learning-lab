@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react'
 
+const cache = new Map()
+
 export default function useJsonData(url) {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState(() => cache.get(url) || null)
   const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(() => !cache.has(url))
 
   useEffect(() => {
+    if (cache.has(url)) return
+
     let cancelled = false
 
     fetch(url)
@@ -14,6 +18,7 @@ export default function useJsonData(url) {
         return res.json()
       })
       .then(json => {
+        cache.set(url, json)
         if (!cancelled) {
           setData(json)
           setLoading(false)

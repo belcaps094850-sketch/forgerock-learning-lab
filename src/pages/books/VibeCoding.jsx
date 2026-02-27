@@ -5,7 +5,7 @@ export default function VibeCoding({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="/images/books/vibe-coding.jpg" alt="Vibe Coding cover" />
+        <img className="book-cover" src="/images/books/vibe-coding.jpg" alt="Vibe Coding cover" loading="lazy" />
         <div>
           <h2>Vibe Coding: Building Production-Grade Software With GenAI</h2>
           <div className="meta"><strong>Authors:</strong> Gene Kim &amp; Steve Yegge &nbsp;|&nbsp; <strong>Foreword:</strong> Dario Amodei &nbsp;|&nbsp; <strong>Published:</strong> October 2025 &nbsp;|&nbsp; <strong>Researched by:</strong> Alec 🦞 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>

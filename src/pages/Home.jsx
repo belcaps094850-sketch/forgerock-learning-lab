@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
+import usePageMeta from '../hooks/usePageMeta'
 import './Home.css'
 
 export default function Home() {
+  usePageMeta(null, 'Personal knowledge hub for POC experiments, daily briefs, and research notes')
   return (
     <>
       <div className="hero">

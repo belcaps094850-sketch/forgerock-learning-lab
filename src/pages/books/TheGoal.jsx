@@ -5,7 +5,7 @@ export default function TheGoal({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="/images/books/the-goal.jpg" alt="The Goal cover" />
+        <img className="book-cover" src="/images/books/the-goal.jpg" alt="The Goal cover" loading="lazy" />
         <div>
           <h2>The Goal: A Process of Ongoing Improvement</h2>
           <div className="meta"><strong>Author:</strong> Eliyahu M. Goldratt &amp; Jeff Cox &nbsp;|&nbsp; <strong>First published:</strong> 1984 &nbsp;|&nbsp; <strong>Researched by:</strong> Alec 🦞 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>

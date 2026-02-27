@@ -5,7 +5,7 @@ export default function DigitalExhaustion({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="/images/books/digital-exhaustion.jpg" alt="Digital Exhaustion cover" />
+        <img className="book-cover" src="/images/books/digital-exhaustion.jpg" alt="Digital Exhaustion cover" loading="lazy" />
         <div>
           <h2>Digital Exhaustion: Simple Rules for Reclaiming Your Life</h2>
           <div className="meta"><strong>Author:</strong> Paul Leonardi &nbsp;|&nbsp; <strong>Publisher:</strong> Penguin Random House &nbsp;|&nbsp; <strong>Researched by:</strong> Alec 🦞 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>

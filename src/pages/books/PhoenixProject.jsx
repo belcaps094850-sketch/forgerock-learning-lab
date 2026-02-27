@@ -5,7 +5,7 @@ export default function PhoenixProject({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="/images/books/phoenix-project.jpg" alt="The Phoenix Project cover" />
+        <img className="book-cover" src="/images/books/phoenix-project.jpg" alt="The Phoenix Project cover" loading="lazy" />
         <div>
           <h2>The Phoenix Project</h2>
           <div className="meta"><strong>Authors:</strong> Gene Kim, Kevin Behr, George Spafford &nbsp;|&nbsp; <strong>Published:</strong> 2013 &nbsp;|&nbsp; <strong>Researched by:</strong> Alec 🦞 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>

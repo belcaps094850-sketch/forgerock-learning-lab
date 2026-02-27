@@ -5,7 +5,7 @@ export default function DemingProfoundKnowledge({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="/images/books/deming-profound-knowledge.jpg" alt="Deming's Journey cover" />
+        <img className="book-cover" src="/images/books/deming-profound-knowledge.jpg" alt="Deming's Journey cover" loading="lazy" />
         <div>
           <h2>Deming's Journey to Profound Knowledge</h2>
           <div className="meta"><strong>Author:</strong> John Willis (with Derek Lewis) &nbsp;|&nbsp; <strong>Publisher:</strong> IT Revolution Press (2023) &nbsp;|&nbsp; <strong>Researched by:</strong> Alec 🦞 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>

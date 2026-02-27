@@ -1,25 +1,24 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import useJsonData from '../hooks/useJsonData'
+import usePageMeta from '../hooks/usePageMeta'
+import LoadingSkeleton from '../components/LoadingSkeleton'
 import './DailyBrief.css'
 
 const categoryIcons = { AI: '\uD83E\uDD16', SRE: '\uD83D\uDD27', React: '\u269B\uFE0F', Security: '\uD83D\uDD12', MSL: '\uD83C\uDFE5' }
 const categoryOrder = ['AI', 'SRE', 'React', 'Security', 'MSL']
 
 export default function DailyBrief() {
+  usePageMeta('Daily Brief', 'Morning intelligence feed covering AI, SRE, React, Security, and MSL')
   const { data: briefs, error, loading } = useJsonData('/data/briefs.json')
   const [selectedDate, setSelectedDate] = useState(null)
   const [openDigests, setOpenDigests] = useState({})
 
-  useEffect(() => {
-    if (briefs && !selectedDate) {
-      setSelectedDate(briefs[0].id)
-    }
-  }, [briefs, selectedDate])
-
-  if (loading) return <div className="content"><p>Loading...</p></div>
+  if (loading) return <LoadingSkeleton />
   if (error) return <div className="content"><p>Error: {error}</p></div>
+  if (!briefs || briefs.length === 0) return <div className="content"><h1 className="page-title">Daily Brief Dashboard</h1><p className="subtitle">No content available yet.</p></div>
 
-  const brief = briefs.find(b => b.id === selectedDate) || briefs[0]
+  const effectiveDate = selectedDate || briefs[0].id
+  const brief = briefs.find(b => b.id === effectiveDate) || briefs[0]
 
   const toggleDigest = (cat) => {
     setOpenDigests(prev => ({ ...prev, [cat]: !prev[cat] }))
@@ -32,7 +31,7 @@ export default function DailyBrief() {
 
       <div className="date-selector">
         <label htmlFor="brief-date">Date:</label>
-        <select id="brief-date" value={selectedDate || ''} onChange={e => { setSelectedDate(e.target.value); setOpenDigests({}) }}>
+        <select id="brief-date" value={effectiveDate} onChange={e => { setSelectedDate(e.target.value); setOpenDigests({}) }}>
           {briefs.map(b => <option key={b.id} value={b.id}>{b.date}</option>)}
         </select>
       </div>
