@@ -20,6 +20,10 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+      REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v4
 
@@ -32,20 +36,14 @@ jobs:
 
       - name: Update SRE Digest
         if: ${{ github.event_name == 'schedule' || inputs.target == 'all' || inputs.target == 'sre' }}
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/update-sre-digest.mjs
 
       - name: Update React Radar
         if: ${{ github.event_name == 'schedule' || inputs.target == 'all' || inputs.target == 'radar' }}
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/update-react-radar.mjs
 
       - name: Update Daily Brief
         if: ${{ github.event_name == 'schedule' || inputs.target == 'all' || inputs.target == 'brief' }}
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/update-daily-brief.mjs
 
       - name: Commit and push

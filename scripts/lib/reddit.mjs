@@ -1,13 +1,59 @@
-const UA = 'forgerock-learning-bot/1.0 (digest automation)'
+const UA = 'forgerock-learning-bot/1.0 (by /u/forgerock-learning-bot)'
+
+// Reddit OAuth app-only (client credentials) auth.
+// Set REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET env vars,
+// or falls back to unauthenticated public JSON endpoint.
+let oauthToken = null
+let tokenExpiry = 0
+
+async function getOAuthToken() {
+  const clientId = process.env.REDDIT_CLIENT_ID
+  const clientSecret = process.env.REDDIT_CLIENT_SECRET
+  if (!clientId || !clientSecret) return null
+
+  if (oauthToken && Date.now() < tokenExpiry) return oauthToken
+
+  const res = await fetch('https://www.reddit.com/api/v1/access_token', {
+    method: 'POST',
+    headers: {
+      'User-Agent': UA,
+      Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: 'grant_type=client_credentials',
+  })
+
+  if (!res.ok) {
+    console.error(`Reddit OAuth failed: ${res.status}`)
+    return null
+  }
+
+  const data = await res.json()
+  oauthToken = data.access_token
+  tokenExpiry = Date.now() + (data.expires_in - 60) * 1000
+  return oauthToken
+}
 
 /**
  * Fetch hot posts from a single subreddit.
+ * Uses OAuth API (oauth.reddit.com) if credentials available,
+ * otherwise falls back to public JSON endpoint.
  * Returns [] on any error (never throws).
  */
 export async function fetchSubredditPosts(subreddit, { sort = 'hot', time = 'day', limit = 25 } = {}) {
   try {
-    const url = `https://www.reddit.com/r/${subreddit}/${sort}.json?limit=${limit}&t=${time}`
-    const res = await fetch(url, { headers: { 'User-Agent': UA } })
+    const token = await getOAuthToken()
+    let url, headers
+
+    if (token) {
+      url = `https://oauth.reddit.com/r/${subreddit}/${sort}?limit=${limit}&t=${time}`
+      headers = { 'User-Agent': UA, Authorization: `Bearer ${token}` }
+    } else {
+      url = `https://www.reddit.com/r/${subreddit}/${sort}.json?limit=${limit}&t=${time}`
+      headers = { 'User-Agent': UA }
+    }
+
+    const res = await fetch(url, { headers })
     if (!res.ok) {
       console.error(`Reddit ${res.status} for r/${subreddit}`)
       return []
