@@ -1,8 +1,9 @@
 name: Update Digests
 
 on:
-  schedule:
-    - cron: '0 8 * * 1-5' # weekdays ~3 AM ET
+  # Disabled — running locally via OpenClaw crons instead (Reddit blocks GitHub IPs)
+  # schedule:
+  #   - cron: '0 8 * * 1-5'
   workflow_dispatch:
     inputs:
       target:
