@@ -7,49 +7,49 @@ const books = [
     id: 'de-positioning',
     title: 'De-Positioning: The Secret Brand Strategy for Creating Competitive Advantage',
     meta: 'Todd Irwin \u00B7 B2B brand strategy \u00B7 Researched by Sage',
-    thumb: 'https://m.media-amazon.com/images/I/81Aiu7XCKzL._SL1500_.jpg',
+    thumb: '/images/books/de-positioning.jpg',
     thumbStyle: {},
   },
   {
     id: 'b2b-cx',
     title: 'B2B Customer Experience \u2014 Deep Dive Research',
     meta: 'Multi-source research \u00B7 B2B CX strategy & frameworks \u00B7 Researched by Sage',
-    thumb: 'https://m.media-amazon.com/images/I/81Aiu7XCKzL._SL1500_.jpg',
+    thumb: '/images/books/de-positioning.jpg',
     thumbStyle: { opacity: 0.4, filter: 'grayscale(1)' },
   },
   {
     id: 'digital-exhaustion',
     title: 'Digital Exhaustion: Simple Rules for Reclaiming Your Life',
     meta: 'Paul Leonardi \u00B7 Digital wellness & productivity \u00B7 Researched by Alec',
-    thumb: 'https://images4.penguinrandomhouse.com/cover/9780593851234',
+    thumb: '/images/books/digital-exhaustion.jpg',
     thumbStyle: {},
   },
   {
     id: 'deming-profound-knowledge',
     title: "Deming's Journey to Profound Knowledge",
     meta: 'John Willis \u00B7 Quality, systems thinking, Lean/Agile/DevOps roots \u00B7 Researched by Alec',
-    thumb: 'https://m.media-amazon.com/images/I/71avwVJhhxL.jpg',
+    thumb: '/images/books/deming-profound-knowledge.jpg',
     thumbStyle: {},
   },
   {
     id: 'phoenix-project',
     title: 'The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win',
     meta: 'Gene Kim, Kevin Behr, George Spafford \u00B7 DevOps, Three Ways, IT Operations \u00B7 Researched by Alec',
-    thumb: 'https://m.media-amazon.com/images/I/81TjR42WZjL.jpg',
+    thumb: '/images/books/phoenix-project.jpg',
     thumbStyle: {},
   },
   {
     id: 'the-goal',
     title: 'The Goal: A Process of Ongoing Improvement',
     meta: 'Eliyahu Goldratt \u00B7 Theory of Constraints, bottlenecks, systems thinking \u00B7 Researched by Alec',
-    thumb: 'https://m.media-amazon.com/images/I/71uX71IlUiL._SL1308_.jpg',
+    thumb: '/images/books/the-goal.jpg',
     thumbStyle: {},
   },
   {
     id: 'vibe-coding',
     title: 'Vibe Coding: Building Production-Grade Software With GenAI',
     meta: 'Gene Kim & Steve Yegge \u00B7 AI-assisted coding, GenAI, developer productivity \u00B7 Researched by Alec',
-    thumb: 'https://images.booksense.com/images/026/280/9781966280026.jpg',
+    thumb: '/images/books/vibe-coding.jpg',
     thumbStyle: {},
   },
 ]
@@ -104,7 +104,7 @@ function DePositioning({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="https://m.media-amazon.com/images/I/81Aiu7XCKzL._SL1500_.jpg" alt="De-Positioning cover" />
+        <img className="book-cover" src="/images/books/de-positioning.jpg" alt="De-Positioning cover" />
         <div>
           <h2>De-Positioning</h2>
           <div className="meta"><strong>Author:</strong> Todd Irwin &nbsp;|&nbsp; <strong>Topic:</strong> B2B Brand Strategy &nbsp;|&nbsp; <strong>Researched by:</strong> Sage 🎯 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>
@@ -354,7 +354,7 @@ function DigitalExhaustion({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="https://images4.penguinrandomhouse.com/cover/9780593851234" alt="Digital Exhaustion cover" />
+        <img className="book-cover" src="/images/books/digital-exhaustion.jpg" alt="Digital Exhaustion cover" />
         <div>
           <h2>Digital Exhaustion: Simple Rules for Reclaiming Your Life</h2>
           <div className="meta"><strong>Author:</strong> Paul Leonardi &nbsp;|&nbsp; <strong>Publisher:</strong> Penguin Random House &nbsp;|&nbsp; <strong>Researched by:</strong> Alec 🦞 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>
@@ -405,7 +405,7 @@ function DemingProfoundKnowledge({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="https://m.media-amazon.com/images/I/71avwVJhhxL.jpg" alt="Deming's Journey cover" />
+        <img className="book-cover" src="/images/books/deming-profound-knowledge.jpg" alt="Deming's Journey cover" />
         <div>
           <h2>Deming's Journey to Profound Knowledge</h2>
           <div className="meta"><strong>Author:</strong> John Willis (with Derek Lewis) &nbsp;|&nbsp; <strong>Publisher:</strong> IT Revolution Press (2023) &nbsp;|&nbsp; <strong>Researched by:</strong> Alec 🦞 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>
@@ -532,7 +532,7 @@ function TheGoal({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="https://m.media-amazon.com/images/I/71uX71IlUiL._SL1308_.jpg" alt="The Goal cover" />
+        <img className="book-cover" src="/images/books/the-goal.jpg" alt="The Goal cover" />
         <div>
           <h2>The Goal: A Process of Ongoing Improvement</h2>
           <div className="meta"><strong>Author:</strong> Eliyahu M. Goldratt &amp; Jeff Cox &nbsp;|&nbsp; <strong>First published:</strong> 1984 &nbsp;|&nbsp; <strong>Researched by:</strong> Alec 🦞 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>
@@ -679,7 +679,7 @@ function PhoenixProject({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="https://m.media-amazon.com/images/I/81TjR42WZjL.jpg" alt="The Phoenix Project cover" />
+        <img className="book-cover" src="/images/books/phoenix-project.jpg" alt="The Phoenix Project cover" />
         <div>
           <h2>The Phoenix Project</h2>
           <div className="meta"><strong>Authors:</strong> Gene Kim, Kevin Behr, George Spafford &nbsp;|&nbsp; <strong>Published:</strong> 2013 &nbsp;|&nbsp; <strong>Researched by:</strong> Alec 🦞 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>
@@ -817,7 +817,7 @@ function VibeCoding({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="https://images.booksense.com/images/026/280/9781966280026.jpg" alt="Vibe Coding cover" />
+        <img className="book-cover" src="/images/books/vibe-coding.jpg" alt="Vibe Coding cover" />
         <div>
           <h2>Vibe Coding: Building Production-Grade Software With GenAI</h2>
           <div className="meta"><strong>Authors:</strong> Gene Kim &amp; Steve Yegge &nbsp;|&nbsp; <strong>Foreword:</strong> Dario Amodei &nbsp;|&nbsp; <strong>Published:</strong> October 2025 &nbsp;|&nbsp; <strong>Researched by:</strong> Alec 🦞 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>
