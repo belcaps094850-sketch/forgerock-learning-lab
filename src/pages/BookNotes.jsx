@@ -45,6 +45,13 @@ const books = [
     thumb: 'https://m.media-amazon.com/images/I/71uX71IlUiL._SL1308_.jpg',
     thumbStyle: {},
   },
+  {
+    id: 'vibe-coding',
+    title: 'Vibe Coding: Building Production-Grade Software With GenAI',
+    meta: 'Gene Kim & Steve Yegge \u00B7 AI-assisted coding, GenAI, developer productivity \u00B7 Researched by Alec',
+    thumb: 'https://m.media-amazon.com/images/I/71kGGckEP3L._SL1500_.jpg',
+    thumbStyle: {},
+  },
 ]
 
 export default function BookNotes() {
@@ -83,6 +90,7 @@ export default function BookNotes() {
       {activeBook === 'deming-profound-knowledge' && <DemingProfoundKnowledge onBack={showIndex} />}
       {activeBook === 'phoenix-project' && <PhoenixProject onBack={showIndex} />}
       {activeBook === 'the-goal' && <TheGoal onBack={showIndex} />}
+      {activeBook === 'vibe-coding' && <VibeCoding onBack={showIndex} />}
     </div>
   )
 }
