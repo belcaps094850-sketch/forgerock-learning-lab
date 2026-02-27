@@ -9,7 +9,12 @@
     "lint": "eslint .",
     "format": "prettier --write \"src/**/*.{js,jsx,css}\"",
     "test": "vitest run",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "update:radar": "node scripts/update-react-radar.mjs",
+    "update:sre": "node scripts/update-sre-digest.mjs",
+    "update:brief": "node scripts/update-daily-brief.mjs",
+    "update:all": "npm run update:sre && npm run update:radar && npm run update:brief",
+    "add:book": "node scripts/add-book.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",
