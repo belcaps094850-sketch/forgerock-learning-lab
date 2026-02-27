@@ -1,43 +1,6 @@
 import { useState } from 'react'
+import useJsonData from '../hooks/useJsonData'
 import './PocPlayground.css'
-
-const pocs = [
-  {
-    status: 'poc',
-    title: 'Interactive Learning Paths Engine',
-    category: 'React',
-    desc: 'A guided learning path system that adapts to progress, serves quizzes, and tracks completion across IAM, SRE, and cloud topics.',
-    notes: 'Early prototype built. Exploring spaced-repetition integration and per-module scoring.',
-  },
-  {
-    status: 'poc',
-    title: 'Mission Control Command Center',
-    category: 'React',
-    desc: 'A NASA-style dark command center dashboard for real-time agent monitoring — radar sweep, orbital rings, and glowing status nodes.',
-    notes: 'Card view and command center view working. DiceBear Personas avatars integrated.',
-  },
-  {
-    status: 'researching',
-    title: 'Self-Funded Health Plan Cost Simulator',
-    category: 'MSL',
-    desc: 'A calculator comparing fully-insured vs self-funded + stop loss costs for mid-market employers, surfacing break-even points and risk profiles.',
-    notes: 'Market primer complete ($30B+ market). Gathering carrier rate structures and claim distribution data.',
-  },
-  {
-    status: 'researching',
-    title: 'Real-Time Agent Monitoring Dashboard',
-    category: 'AI',
-    desc: 'Live dashboard showing agent heartbeat, task queue depth, token usage, and error rates across the OpenClaw agent fleet.',
-    notes: 'Evaluating data sources — agent logs, cron output, and system metrics.',
-  },
-  {
-    status: 'spark',
-    title: 'Multi-Model Agent Benchmark',
-    category: 'AI',
-    desc: 'Compare agent task completion rates, latency, and cost across Claude Opus 4.6, Sonnet 4.5, and open-source models on standardized coding tasks.',
-    notes: 'Inspired by Opus 4.6 launch benchmarks. Need to define task suite and evaluation criteria.',
-  },
-]
 
 const badgeClass = {
   spark: 'badge-spark',
@@ -48,6 +11,10 @@ const badgeClass = {
 
 export default function PocPlayground() {
   const [filter, setFilter] = useState('all')
+  const { data: pocs, error, loading } = useJsonData('/data/pocs.json')
+
+  if (loading) return <div className="content"><p>Loading...</p></div>
+  if (error) return <div className="content"><p>Error: {error}</p></div>
 
   const filtered = filter === 'all' ? pocs : pocs.filter(p => p.status === filter)
 

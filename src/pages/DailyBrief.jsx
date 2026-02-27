@@ -1,123 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import useJsonData from '../hooks/useJsonData'
 import './DailyBrief.css'
-
-const briefs = [
-  {
-    id: '2026-02-19',
-    date: '2026-02-19',
-    pocHighlight: {
-      title: 'Agent Command Center Dashboard',
-      summary: 'Built a NASA-style dark command center for the agent team \u2014 radar sweep, orbital rings, glowing nodes. Could evolve into a real-time agent monitoring system.',
-      category: 'AI',
-    },
-    categories: {
-      AI: {
-        topPick: 'Anthropic Under the Microscope \u2014 Identity Crisis or Transparency?',
-        summary: 'NPR and New Yorker both published deep dives into whether Anthropic truly understands Claude. Pentagon contract standoff over military use.',
-        digest: 'Heavy Anthropic news day. NPR asks "Do the builders understand what they\'ve created?" featuring writer Gideon Lewis-Kraus. The New Yorker published "What Is Claude? Anthropic Doesn\'t Know, Either" \u2014 deep dive into interpretability research examining Claude\'s neurons from the inside. Meanwhile, a $200M Pentagon contract is at stake as Anthropic resists military demands for Claude usage. On the positive side, Anthropic published a manifesto declaring Claude will stay permanently ad-free. Separately, a roundup of 6 AI breakthroughs defining 2026 highlights agent interoperability, self-verification, and persistent memory as key themes.',
-      },
-      SRE: {
-        topPick: 'Clean Security Scan \u2014 All Systems Green',
-        summary: 'Sentinel daily scan: firewall enabled, zero open ports, zero npm vulnerabilities. 8 brew packages outdated (low risk).',
-        digest: 'Another clean day. macOS firewall enabled, no listening TCP ports detected, npm audit shows 0 vulnerabilities across all 3 repos. ~/.openclaw and ~/.ssh permissions locked down at 700. 8 brew packages outdated (ffmpeg, gh, uv, etc.) but none with urgent security patches needed.',
-      },
-      React: {
-        topPick: 'Mission Control Team Page \u2014 Full Redesign',
-        summary: 'Redesigned the Team page with card view (DiceBear avatars) and a NASA-style Command Center view with radar sweep and orbital agent layout.',
-        digest: 'Major UI work on Mission Control today. Team page got two view modes: Cards (redesigned with full-body DiceBear Personas avatars) and Command Center (dark theme with animated radar sweep, two orbital rings for Opus vs Llama agents, connection network lines, glowing active-task nodes, and tooltips with engagement status). Toggle between views with segmented control at top.',
-      },
-      Security: {
-        topPick: 'Pentagon vs Anthropic \u2014 Military AI Ethics in Focus',
-        summary: '$200M contract at stake as Anthropic draws a line on military use of Claude.',
-        digest: 'The Pentagon-Anthropic standoff is the security story of the day. A $200M contract hangs in the balance as Anthropic resists Pentagon demands over how Claude can be used in military contexts. This is a significant test of whether AI safety commitments hold up against major government contracts. Worth watching as it could set precedent for the entire industry.',
-      },
-      MSL: {
-        topPick: 'No MSL Updates Today',
-        summary: 'Quiet day on the MSL front. Focus was on team tooling and book research.',
-        digest: 'No new MSL developments today. The team was focused on infrastructure improvements and UI work.',
-      },
-    },
-  },
-  {
-    id: '2026-02-15',
-    date: '2026-02-15',
-    pocHighlight: {
-      title: 'Claude Opus 4.6 Agentic Coding Benchmark',
-      summary: "Anthropic's Opus 4.6 leads in agentic coding and tool use \u2014 build a POC comparing agent task completion rates across models.",
-      category: 'AI',
-    },
-    categories: {
-      AI: {
-        topPick: 'Claude Opus 4.6 Released \u2014 Industry-Leading Agentic Model',
-        summary: "Anthropic's strongest model yet, leading in agentic coding, computer use, tool use, search, and finance.",
-        digest: "Claude Opus 4.6 launched Feb 5 \u2014 Anthropic's most capable model, leading across agentic coding, computer use, tool use, search, and finance benchmarks. Already running on Bel's OpenClaw setup. Anthropic also committed to keeping Claude permanently ad-free (3,028 upvotes on r/ClaudeAI). OpenAI shipping aggressively but facing community skepticism. Open-source AI shifting East per Yann LeCun at Davos. Government AI security remains concerning \u2014 acting cyber chief uploaded sensitive files to public ChatGPT.",
-      },
-      SRE: {
-        topPick: 'System Health Monitoring Automation',
-        summary: 'All systems healthy \u2014 disk 15%, no swap, no zombies. Two outdated brew packages flagged.',
-        digest: "Scout's daily briefing shows clean system health across all metrics. Load averages normal (1.23/1.29/1.30), 6.8GB active memory, all 6 agent workspaces intact. Minor items: mission-control has uncommitted changes to public/data.json, llhttp and summarize brew packages outdated. All ports localhost-only. SSH and OpenClaw configs properly permissioned.",
-      },
-      React: {
-        topPick: 'React Radar Timeout \u2014 Brave API Key Missing',
-        summary: "Pixel's React Radar cron timed out due to missing Brave API key, falling back to slow web_fetch.",
-        digest: 'The React Radar job (4 AM daily) failed with timeout. Root cause: missing Brave Search API key on the uidev agent workspace, causing fallback to slow sequential web_fetch calls. Fix: configure BRAVE_API_KEY for Pixel and bump job timeout to 600s. No React ecosystem news was captured today as a result.',
-      },
-      Security: {
-        topPick: 'Security Scan Clean \u2014 No Critical Issues',
-        summary: 'Sentinel reports clean scan. macOS firewall enabled, no listening TCP ports, proper file permissions.',
-        digest: "Sentinel's security scan came back clean. macOS firewall confirmed enabled (State=1). No listening TCP ports detected. All sensitive directories (/.openclaw, /.ssh) have correct permissions (700/600). No SSH private keys on machine. Only action item: optionally upgrade llhttp and summarize brew packages.",
-      },
-      MSL: {
-        topPick: 'Medical Stop Loss Market Overview \u2014 $30B+ Market',
-        summary: 'Comprehensive MSL primer: self-funding enabler, key carriers (Sun Life, HM Insurance, Voya), and market dynamics.',
-        digest: "Nova's MSL overview covers the full landscape. Stop loss insurance enables self-funded health plans by capping catastrophic risk at individual (specific) and aggregate (plan) levels. Market is $30-35B+ in annual premium, growing 8-12% annually as self-funding moves downmarket. Key carriers: Sun Life, HM Insurance Group, Voya, Berkshire Hathaway Specialty, Tokio Marine HCC. Emerging trends: gene/cell therapy and GLP-1 drugs reshaping risk profiles. Distribution heavily influenced by major brokers (Marsh, Aon, WTW, Lockton).",
-      },
-    },
-  },
-  {
-    id: '2026-02-14',
-    date: '2026-02-14',
-    pocHighlight: {
-      title: 'Self-Funded Health Plan Cost Simulator',
-      summary: 'Build a calculator comparing fully-insured vs self-funded + stop loss costs for mid-market employers.',
-      category: 'MSL',
-    },
-    categories: {
-      AI: {
-        topPick: 'AI News Roundup \u2014 Opus 4.6, Ad-Free Claude, Open Source Shifting East',
-        summary: "Major AI developments: Opus 4.6 launch, Anthropic's ad-free commitment, LeCun on Chinese open models.",
-        digest: "Radar's comprehensive AI digest covering Jan 15 \u2013 Feb 14. Headlines: Claude Opus 4.6 released (Feb 5), Anthropic commits to ad-free Claude forever, OpenAI in aggressive shipping mode but facing skepticism, Yann LeCun says best open models now come from China, government AI security concerns (sensitive files uploaded to public ChatGPT). The Maciejewska quote about AI doing laundry not art hit 30K+ upvotes \u2014 philosophical pushback growing.",
-      },
-      SRE: {
-        topPick: 'System Baseline Established \u2014 All Green',
-        summary: 'Disk at 10%, low load averages, zero swap, all agent workspaces intact.',
-        digest: "Valentine's Day system check: disk 10% (11Gi/228Gi), load 0.49/0.56/0.59, zero swapouts. All 6 agent workspaces healthy with SOUL.md present. One minor flag: macOS firewall status couldn't be read. One world-writable file found (uv cache lock \u2014 low risk). Summarize brew package outdated.",
-      },
-      React: {
-        topPick: 'No React digest available',
-        summary: 'React Radar job not yet configured for this date.',
-        digest: 'No React ecosystem news was captured for this date. The React Radar cron job was set up on Feb 15.',
-      },
-      Security: {
-        topPick: 'Government AI Security Failures',
-        summary: "Acting CISA director uploaded sensitive government files to public ChatGPT \u2014 DHS damage assessment triggered.",
-        digest: 'Two concerning government AI incidents: White House posted digitally altered image of arrested protester (1,075 upvotes on r/artificial), and Trump\'s interim CISA director uploaded sensitive government files to public ChatGPT, triggering DHS-level damage assessment (1,044 upvotes). Highlights ongoing gaps in AI security awareness at highest government levels.',
-      },
-      MSL: {
-        topPick: 'MSL Market Primer \u2014 Carriers, Distribution, Trends',
-        summary: 'Nova delivered comprehensive stop loss overview: $30B+ market, top carriers, self-funding trends.',
-        digest: 'Full market overview delivered. Key insight: stop loss is the financial enabler that makes self-funded health plans viable for mid-market employers. Without it, only Fortune 500-scale companies could absorb the claim volatility. The market is consolidating around Tier 1 carriers while InsurTech players (Ringmaster, AccuRisk) modernize distribution.',
-      },
-    },
-  },
-]
 
 const categoryIcons = { AI: '\uD83E\uDD16', SRE: '\uD83D\uDD27', React: '\u269B\uFE0F', Security: '\uD83D\uDD12', MSL: '\uD83C\uDFE5' }
 const categoryOrder = ['AI', 'SRE', 'React', 'Security', 'MSL']
 
 export default function DailyBrief() {
-  const [selectedDate, setSelectedDate] = useState(briefs[0].id)
+  const { data: briefs, error, loading } = useJsonData('/data/briefs.json')
+  const [selectedDate, setSelectedDate] = useState(null)
   const [openDigests, setOpenDigests] = useState({})
+
+  useEffect(() => {
+    if (briefs && !selectedDate) {
+      setSelectedDate(briefs[0].id)
+    }
+  }, [briefs, selectedDate])
+
+  if (loading) return <div className="content"><p>Loading...</p></div>
+  if (error) return <div className="content"><p>Error: {error}</p></div>
 
   const brief = briefs.find(b => b.id === selectedDate) || briefs[0]
 
@@ -132,7 +32,7 @@ export default function DailyBrief() {
 
       <div className="date-selector">
         <label htmlFor="brief-date">Date:</label>
-        <select id="brief-date" value={selectedDate} onChange={e => { setSelectedDate(e.target.value); setOpenDigests({}) }}>
+        <select id="brief-date" value={selectedDate || ''} onChange={e => { setSelectedDate(e.target.value); setOpenDigests({}) }}>
           {briefs.map(b => <option key={b.id} value={b.id}>{b.date}</option>)}
         </select>
       </div>

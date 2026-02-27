@@ -1,94 +1,15 @@
+import useJsonData from '../hooks/useJsonData'
 import './Changelog.css'
-
-const versions = [
-  {
-    number: 'v1.2.0',
-    date: 'February 11, 2026',
-    type: 'minor',
-    categories: [
-      {
-        icon: '✨',
-        title: 'New Features',
-        items: [
-          'AI Study Buddy "Alex" with personalized learning guidance',
-          'Interactive chat interface with pre-defined Q&A',
-          'Beautiful landing page with glassmorphism design',
-          'Navigation system connecting all platform features',
-          'Coming soon previews for upcoming features',
-        ],
-      },
-      {
-        icon: '🎨',
-        title: 'Design Improvements',
-        items: [
-          'Enhanced UI with glowing animations and effects',
-          'Improved mobile responsiveness across all pages',
-          'Added floating logo animation on landing page',
-          'Professional gradient backgrounds and card layouts',
-        ],
-      },
-      {
-        icon: '🔧',
-        title: 'Technical',
-        items: [
-          'Preserved original ForgeRock demo as separate page',
-          'Improved file organization and navigation structure',
-          'Enhanced localStorage persistence for user data',
-        ],
-      },
-    ],
-  },
-  {
-    number: 'v1.1.0',
-    date: 'February 11, 2026',
-    type: 'minor',
-    categories: [
-      {
-        icon: '✨',
-        title: 'New Features',
-        items: [
-          'Comprehensive learning hub with 6 learning paths',
-          'Interactive daily challenges and quiz system',
-          'Personal notes system with tagging',
-          'Achievement and streak tracking',
-          'Progress analytics with visual charts',
-        ],
-      },
-      {
-        icon: '🎨',
-        title: 'Design',
-        items: [
-          'Salesforce Lightning Design System implementation',
-          'Modern card-based layouts',
-          'Professional color scheme and typography',
-        ],
-      },
-    ],
-  },
-  {
-    number: 'v1.0.0',
-    date: 'February 11, 2026',
-    type: 'major',
-    categories: [
-      {
-        icon: '🚀',
-        title: 'Initial Release',
-        items: [
-          'ForgeRock IAM learning simulation',
-          'Interactive authentication chain demos',
-          'Multi-factor authentication scenarios',
-          'Educational concepts and tutorials',
-          'Responsive web design',
-        ],
-      },
-    ],
-  },
-]
 
 const typeClass = { major: 'type-major', minor: 'type-minor', patch: 'type-patch' }
 const typeLabel = { major: 'Major Release', minor: 'Minor Release', patch: 'Patch' }
 
 export default function Changelog() {
+  const { data: versions, error, loading } = useJsonData('/data/changelog.json')
+
+  if (loading) return <div className="content"><p>Loading...</p></div>
+  if (error) return <div className="content"><p>Error: {error}</p></div>
+
   return (
     <div className="content">
       <h1 className="page-title">Changelog</h1>

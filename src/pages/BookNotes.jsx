@@ -1,60 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import useJsonData from '../hooks/useJsonData'
 import './BookNotes.css'
 
-const books = [
-  {
-    id: 'de-positioning',
-    title: 'De-Positioning: The Secret Brand Strategy for Creating Competitive Advantage',
-    meta: 'Todd Irwin \u00B7 B2B brand strategy \u00B7 Researched by Sage',
-    thumb: '/images/books/de-positioning.jpg',
-    thumbStyle: {},
-  },
-  {
-    id: 'b2b-cx',
-    title: 'B2B Customer Experience \u2014 Deep Dive Research',
-    meta: 'Multi-source research \u00B7 B2B CX strategy & frameworks \u00B7 Researched by Sage',
-    thumb: '/images/books/de-positioning.jpg',
-    thumbStyle: { opacity: 0.4, filter: 'grayscale(1)' },
-  },
-  {
-    id: 'digital-exhaustion',
-    title: 'Digital Exhaustion: Simple Rules for Reclaiming Your Life',
-    meta: 'Paul Leonardi \u00B7 Digital wellness & productivity \u00B7 Researched by Alec',
-    thumb: '/images/books/digital-exhaustion.jpg',
-    thumbStyle: {},
-  },
-  {
-    id: 'deming-profound-knowledge',
-    title: "Deming's Journey to Profound Knowledge",
-    meta: 'John Willis \u00B7 Quality, systems thinking, Lean/Agile/DevOps roots \u00B7 Researched by Alec',
-    thumb: '/images/books/deming-profound-knowledge.jpg',
-    thumbStyle: {},
-  },
-  {
-    id: 'phoenix-project',
-    title: 'The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win',
-    meta: 'Gene Kim, Kevin Behr, George Spafford \u00B7 DevOps, Three Ways, IT Operations \u00B7 Researched by Alec',
-    thumb: '/images/books/phoenix-project.jpg',
-    thumbStyle: {},
-  },
-  {
-    id: 'the-goal',
-    title: 'The Goal: A Process of Ongoing Improvement',
-    meta: 'Eliyahu Goldratt \u00B7 Theory of Constraints, bottlenecks, systems thinking \u00B7 Researched by Alec',
-    thumb: '/images/books/the-goal.jpg',
-    thumbStyle: {},
-  },
-  {
-    id: 'vibe-coding',
-    title: 'Vibe Coding: Building Production-Grade Software With GenAI',
-    meta: 'Gene Kim & Steve Yegge \u00B7 AI-assisted coding, GenAI, developer productivity \u00B7 Researched by Alec',
-    thumb: '/images/books/vibe-coding.jpg',
-    thumbStyle: {},
-  },
-]
-
 export default function BookNotes() {
+  const { data: books, error, loading } = useJsonData('/data/books.json')
   const [activeBook, setActiveBook] = useState(null)
   const location = useLocation()
 
@@ -64,6 +14,9 @@ export default function BookNotes() {
   }, [location.hash])
 
   const showIndex = () => setActiveBook(null)
+
+  if (loading) return <div className="content"><p>Loading...</p></div>
+  if (error) return <div className="content"><p>Error: {error}</p></div>
 
   return (
     <div className="content">
