@@ -49,7 +49,7 @@ const books = [
     id: 'vibe-coding',
     title: 'Vibe Coding: Building Production-Grade Software With GenAI',
     meta: 'Gene Kim & Steve Yegge \u00B7 AI-assisted coding, GenAI, developer productivity \u00B7 Researched by Alec',
-    thumb: 'https://m.media-amazon.com/images/I/71kGGckEP3L._SL1500_.jpg',
+    thumb: 'https://images.booksense.com/images/026/280/9781966280026.jpg',
     thumbStyle: {},
   },
 ]
@@ -817,7 +817,7 @@ function VibeCoding({ onBack }) {
     <div>
       <BackLink onBack={onBack} />
       <div className="book-header">
-        <img className="book-cover" src="https://m.media-amazon.com/images/I/71kGGckEP3L._SL1500_.jpg" alt="Vibe Coding cover" />
+        <img className="book-cover" src="https://images.booksense.com/images/026/280/9781966280026.jpg" alt="Vibe Coding cover" />
         <div>
           <h2>Vibe Coding: Building Production-Grade Software With GenAI</h2>
           <div className="meta"><strong>Authors:</strong> Gene Kim &amp; Steve Yegge &nbsp;|&nbsp; <strong>Foreword:</strong> Dario Amodei &nbsp;|&nbsp; <strong>Published:</strong> October 2025 &nbsp;|&nbsp; <strong>Researched by:</strong> Alec 🦞 &nbsp;|&nbsp; <strong>Date:</strong> February 2026</div>
