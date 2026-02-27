@@ -28,7 +28,7 @@ jobs:
           node-version: 20
 
       - name: Install script dependencies
-        run: cd scripts && npm ci
+        run: cd scripts && npm install
 
       - name: Update SRE Digest
         if: ${{ github.event_name == 'schedule' || inputs.target == 'all' || inputs.target == 'sre' }}
