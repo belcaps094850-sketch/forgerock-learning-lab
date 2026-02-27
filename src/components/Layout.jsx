@@ -66,7 +66,6 @@ export default function Layout({ children }) {
               <Link to="/sre-digest">SRE Digest</Link>
             </div>
           </li>
-          <li><Link to="/changelog" className={isActive('/changelog') ? 'active' : ''}>Changelog</Link></li>
         </ul>
         <button className={`hamburger ${mobileOpen ? 'open' : ''}`} onClick={() => setMobileOpen(!mobileOpen)}>
           <span /><span /><span />
@@ -82,8 +81,6 @@ export default function Layout({ children }) {
           <Link to="/daily-brief" className={isActive('/daily-brief') ? 'active' : ''}>Daily Brief</Link>
           <Link to="/react-radar" className={isActive('/react-radar') ? 'active' : ''}>React Radar</Link>
           <Link to="/sre-digest" className={isActive('/sre-digest') ? 'active' : ''}>SRE Digest</Link>
-          <div className="mobile-section-label">Meta</div>
-          <Link to="/changelog" className={isActive('/changelog') ? 'active' : ''}>Changelog</Link>
         </div>
       </nav>
 

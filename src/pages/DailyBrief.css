@@ -103,17 +103,18 @@
 
 .digest-toggle {
   font-size: 13px;
-  color: #2B5F4E;
-  background: none;
+  color: #fff;
+  background: #2B5F4E;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
-  padding: 0;
+  padding: 6px 14px;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .digest-toggle:hover {
-  text-decoration: underline;
+  background: #234D3F;
 }
 
 .digest-content {

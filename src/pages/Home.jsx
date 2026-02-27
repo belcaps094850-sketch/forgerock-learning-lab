@@ -71,17 +71,6 @@ export default function Home() {
             </div>
           </Link>
         </div>
-
-        <div className="section-label">Tools &amp; Meta</div>
-        <div className="link-grid">
-          <Link to="/changelog" className="link-card">
-            <span className="lc-icon">📝</span>
-            <div>
-              <div className="lc-title">Changelog</div>
-              <div className="lc-desc">Version history &amp; updates</div>
-            </div>
-          </Link>
-        </div>
       </div>
     </>
   )

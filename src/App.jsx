@@ -10,7 +10,6 @@ const ReactRadar = React.lazy(() => import('./pages/ReactRadar'))
 const SreDigest = React.lazy(() => import('./pages/SreDigest'))
 const AuthFlows = React.lazy(() => import('./pages/AuthFlows'))
 const ForgeRockDemo = React.lazy(() => import('./pages/ForgeRockDemo'))
-const Changelog = React.lazy(() => import('./pages/Changelog'))
 const NotFound = React.lazy(() => import('./pages/NotFound'))
 
 export default function App() {
@@ -26,7 +25,6 @@ export default function App() {
           <Route path="/sre-digest" element={<SreDigest />} />
           <Route path="/auth-flows" element={<AuthFlows />} />
           <Route path="/iam-demo" element={<ForgeRockDemo />} />
-          <Route path="/changelog" element={<Changelog />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

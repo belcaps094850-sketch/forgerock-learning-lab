@@ -353,10 +353,6 @@ ul.plain li::before { content: '\2022\0020'; color: #2B5F4E; }
 
 p { font-size: 15px; }
 
-a[href] {
-  color: #2B5F4E;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   body { padding: 16px; }
