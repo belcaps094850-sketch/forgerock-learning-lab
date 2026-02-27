@@ -3,7 +3,6 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { fetchMultipleSubreddits } from './lib/reddit.mjs'
-import { summarizeWithClaude } from './lib/claude.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DATA_DIR = resolve(__dirname, '../public/data')
@@ -12,7 +11,7 @@ const POCS_PATH = resolve(DATA_DIR, 'pocs.json')
 const MAX_ENTRIES = 30
 
 const now = new Date()
-const isoDate = now.toISOString().split('T')[0] // "2026-02-27"
+const isoDate = now.toISOString().split('T')[0]
 
 const CATEGORY_SUBS = {
   AI: ['artificial', 'MachineLearning'],
@@ -39,12 +38,6 @@ const pocHighlight = {
   category: poc.category,
 }
 
-const FALLBACK = {
-  topPick: 'No updates today',
-  summary: 'No significant developments surfaced from community sources.',
-  digest: 'Quiet day — nothing noteworthy to report in this category.',
-}
-
 const categories = {}
 
 for (const [category, subs] of Object.entries(CATEGORY_SUBS)) {
@@ -53,38 +46,23 @@ for (const [category, subs] of Object.entries(CATEGORY_SUBS)) {
 
   if (posts.length === 0) {
     console.warn(`No posts for ${category} — using fallback`)
-    categories[category] = { ...FALLBACK }
+    categories[category] = {
+      topPick: 'No updates today',
+      summary: 'No significant developments surfaced from community sources.',
+      digest: 'Quiet day — nothing noteworthy to report in this category.',
+    }
     continue
   }
 
-  const postSummary = posts
-    .slice(0, 15)
-    .map((p, i) => `${i + 1}. [${p.score} pts] ${p.title}\n   URL: ${p.url}\n   ${p.selftext ? `Text: ${p.selftext}` : ''}`)
-    .join('\n\n')
-
-  console.log(`Summarizing ${category} with Claude...`)
-  const result = await summarizeWithClaude(
-    `You write a daily brief for the "${category}" category. Given Reddit posts, produce a JSON object:
-
-{"topPick": "One-line headline", "summary": "1-2 sentence summary", "digest": "3-5 sentence detailed analysis"}
-
-Rules:
-- topPick: the most important/interesting headline of the day
-- summary: brief overview suitable for a card preview
-- digest: deeper analysis explaining trends, implications, and context
-- Return ONLY the JSON object, no markdown fences or extra text`,
-    `Today is ${isoDate}. Here are the current hot posts:\n\n${postSummary}`,
-  )
-
-  if (result && result.topPick) {
-    categories[category] = result
-  } else {
-    console.warn(`Claude failed for ${category} — using fallback`)
-    categories[category] = { ...FALLBACK }
+  const top = posts[0]
+  categories[category] = {
+    topPick: top.title,
+    summary: top.selftext ? top.selftext.slice(0, 200) + (top.selftext.length > 200 ? '...' : '') : `${top.score} pts · ${top.numComments} comments`,
+    digest: posts.slice(0, 3).map((p) => `• ${p.title} (${p.score} pts)`).join('\n'),
   }
 
-  // 3s delay between category API calls
-  await new Promise((r) => setTimeout(r, 3000))
+  // 2s delay between categories
+  await new Promise((r) => setTimeout(r, 2000))
 }
 
 const brief = { id: isoDate, date: isoDate, pocHighlight, categories }
