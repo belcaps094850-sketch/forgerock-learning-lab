@@ -37,7 +37,7 @@ export default function PocPlayground() {
 
       <div>
         {filtered.map((poc, i) => (
-          <div key={i} className="poc-card">
+          <div key={i} className="u-card poc-card">
             <div className="poc-header">
               <span className="poc-title">{poc.title}</span>
               <span className={`badge ${badgeClass[poc.status]}`}>{poc.status.toUpperCase()}</span>

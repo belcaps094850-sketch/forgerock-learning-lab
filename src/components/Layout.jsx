@@ -41,7 +41,8 @@ export default function Layout({ children }) {
             <button
               className={`nav-dropdown-trigger ${learningOpen ? 'open' : ''} ${isLearningActive ? 'active' : ''}`}
               onClick={(e) => { e.stopPropagation(); setLearningOpen(!learningOpen); setBriefsOpen(false) }}
-              style={isLearningActive ? { color: '#2B5F4E' } : undefined}
+              aria-expanded={learningOpen}
+              aria-haspopup="true"
             >
               Learning <span className="arrow">&#9662;</span>
             </button>
@@ -56,7 +57,8 @@ export default function Layout({ children }) {
             <button
               className={`nav-dropdown-trigger ${briefsOpen ? 'open' : ''} ${isBriefsActive ? 'active' : ''}`}
               onClick={(e) => { e.stopPropagation(); setBriefsOpen(!briefsOpen); setLearningOpen(false) }}
-              style={isBriefsActive ? { color: '#2B5F4E' } : undefined}
+              aria-expanded={briefsOpen}
+              aria-haspopup="true"
             >
               Briefs <span className="arrow">&#9662;</span>
             </button>
@@ -67,7 +69,12 @@ export default function Layout({ children }) {
             </div>
           </li>
         </ul>
-        <button className={`hamburger ${mobileOpen ? 'open' : ''}`} onClick={() => setMobileOpen(!mobileOpen)}>
+        <button
+          className={`hamburger ${mobileOpen ? 'open' : ''}`}
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
+        >
           <span /><span /><span />
         </button>
         <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>

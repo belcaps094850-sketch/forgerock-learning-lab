@@ -310,8 +310,9 @@ function LoginSimulator({ chain, onComplete }) {
 
       <div className="login-form">
         <div className="input-group">
-          <label>Username</label>
+          <label htmlFor="fr-username">Username</label>
           <input
+            id="fr-username"
             className="fr-input"
             type="text"
             placeholder="Try: demo, admin, suspicious"
@@ -320,8 +321,9 @@ function LoginSimulator({ chain, onComplete }) {
           />
         </div>
         <div className="input-group">
-          <label>Password</label>
+          <label htmlFor="fr-password">Password</label>
           <input
+            id="fr-password"
             className="fr-input"
             type="password"
             placeholder="Use: demo123"
@@ -332,8 +334,9 @@ function LoginSimulator({ chain, onComplete }) {
 
         {chain === 'sms_mfa' && (
           <div className="input-group">
-            <label>SMS Code</label>
+            <label htmlFor="fr-sms-code">SMS Code</label>
             <input
+              id="fr-sms-code"
               className="fr-input"
               type="text"
               placeholder="Enter: 123456"
@@ -346,8 +349,9 @@ function LoginSimulator({ chain, onComplete }) {
         {chain === 'totp_mfa' && (
           <>
             <div className="input-group">
-              <label>TOTP Code (Authenticator App)</label>
+              <label htmlFor="fr-totp-code">TOTP Code (Authenticator App)</label>
               <input
+                id="fr-totp-code"
                 className="fr-input"
                 type="text"
                 placeholder="6-digit TOTP code"
@@ -356,8 +360,9 @@ function LoginSimulator({ chain, onComplete }) {
               />
             </div>
             <div className="input-group">
-              <label>Backup Recovery Code (Optional)</label>
+              <label htmlFor="fr-backup-code">Backup Recovery Code (Optional)</label>
               <input
+                id="fr-backup-code"
                 className="fr-input"
                 type="text"
                 placeholder="Use: backup123 if no TOTP"
@@ -367,11 +372,12 @@ function LoginSimulator({ chain, onComplete }) {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '12px 0' }}>
               <input
+                id="fr-trust-device-totp"
                 type="checkbox"
                 checked={formData.trustDevice}
                 onChange={e => setFormData(prev => ({ ...prev, trustDevice: e.target.checked }))}
               />
-              <label style={{ color: 'var(--slds-text-default)', fontWeight: 500 }}>Trust this device</label>
+              <label htmlFor="fr-trust-device-totp" style={{ color: 'var(--slds-text-default)', fontWeight: 500 }}>Trust this device</label>
             </div>
           </>
         )}
@@ -379,8 +385,9 @@ function LoginSimulator({ chain, onComplete }) {
         {(chain === 'adaptive' || chain === 'step_up') && (
           <>
             <div className="input-group">
-              <label>Location Context</label>
+              <label htmlFor="fr-location">Location Context</label>
               <select
+                id="fr-location"
                 className="fr-input"
                 value={formData.location}
                 onChange={e => setFormData(prev => ({ ...prev, location: e.target.value }))}
@@ -392,8 +399,9 @@ function LoginSimulator({ chain, onComplete }) {
               </select>
             </div>
             <div className="input-group">
-              <label>MFA Code (if required)</label>
+              <label htmlFor="fr-mfa-code">MFA Code (if required)</label>
               <input
+                id="fr-mfa-code"
                 className="fr-input"
                 type="text"
                 placeholder="6-digit code"
@@ -403,11 +411,12 @@ function LoginSimulator({ chain, onComplete }) {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '12px 0' }}>
               <input
+                id="fr-trust-device-adaptive"
                 type="checkbox"
                 checked={formData.trustDevice}
                 onChange={e => setFormData(prev => ({ ...prev, trustDevice: e.target.checked }))}
               />
-              <label style={{ color: 'var(--slds-text-default)', fontWeight: 500 }}>Trusted device</label>
+              <label htmlFor="fr-trust-device-adaptive" style={{ color: 'var(--slds-text-default)', fontWeight: 500 }}>Trusted device</label>
             </div>
           </>
         )}

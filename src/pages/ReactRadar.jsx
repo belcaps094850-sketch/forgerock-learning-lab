@@ -17,7 +17,7 @@ export default function ReactRadar() {
           <div key={i} className="rr-date-section">
             <h2>{day.date}</h2>
             {day.topics.map((t, j) => (
-              <div key={j} className="topic-card">
+              <div key={j} className="u-card topic-card">
                 <h3><a href={t.url} target="_blank" rel="noreferrer">{t.title}</a></h3>
                 <div className="rr-meta">{t.meta}</div>
                 <div className="rr-summary">{t.summary}</div>

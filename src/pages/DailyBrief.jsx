@@ -38,7 +38,7 @@ export default function DailyBrief() {
       </div>
 
       <div className="db-section-label">POC Highlight</div>
-      <div className="card poc-highlight">
+      <div className="u-card u-accent card poc-highlight">
         <div className="card-title">{brief.pocHighlight.title}</div>
         <div className="card-desc">{brief.pocHighlight.summary}</div>
         <span className="poc-category">{brief.pocHighlight.category}</span>
@@ -51,12 +51,13 @@ export default function DailyBrief() {
         return (
           <div key={cat} className="category-section">
             <div className="db-section-label">{icon} {cat}</div>
-            <div className="card">
+            <div className="u-card card">
               <div className="top-pick">{data.topPick}</div>
               <div className="db-summary">{data.summary}</div>
               <button
                 className="digest-toggle"
                 onClick={() => toggleDigest(cat)}
+                aria-expanded={!!openDigests[cat]}
               >
                 {openDigests[cat] ? 'Hide full digest \u25B2' : 'Show full digest \u25BC'}
               </button>
