@@ -1,5 +1,41 @@
 [
   {
+    "id": "2026-03-01",
+    "date": "2026-03-01",
+    "pocHighlight": {
+      "title": "Interactive Learning Paths Engine",
+      "summary": "A guided learning path system that adapts to progress, serves quizzes, and tracks completion across IAM, SRE, and cloud topics.",
+      "category": "React"
+    },
+    "categories": {
+      "AI": {
+        "topPick": "Anthropic rejects latest Pentagon offer: ‘We cannot in good conscience accede to their request’",
+        "summary": "911 pts · 53 comments",
+        "digest": "• Anthropic rejects latest Pentagon offer: ‘We cannot in good conscience accede to their request’ (911 pts)\n• Anthropic says it will challenge Pentagon's supply chain risk designation in court (387 pts)\n• Anthropic CEO Dario Amodei: 'Disagreeing with the government is the most American thing in the world' (185 pts)"
+      },
+      "SRE": {
+        "topPick": "Interviewed somebody today; lots of skills, not much person",
+        "summary": "I interviewed a person today for a DevOps role. His resume was very thick with technical things. Software he's used, frameworks, programming languages, security and compliance regulations, standards, ...",
+        "digest": "• Interviewed somebody today; lots of skills, not much person (244 pts)\n• Multi cloud was supposed to save us from vendor lock in but now we're just locked into two vendors (132 pts)\n• Cloud Engineer roadmap check: Networking + Linux completed, next steps? (104 pts)"
+      },
+      "React": {
+        "topPick": "With the new React 'Forget' compiler handling memoization automatically, do useMemo and useCallback become completely obsolete in 2026?",
+        "summary": "The promise of the **React Compiler** was simple: \"React should automatically memoize components and values so you don't have to.\" Now that we are in 2026 and the compiler is a staple in most modern R...",
+        "digest": "• With the new React 'Forget' compiler handling memoization automatically, do useMemo and useCallback become completely obsolete in 2026? (58 pts)\n• Collection of animated UI components built with React + Shadcn + Framer Motion (19 pts)\n• How do you show a React Frontend Architecture in Diagram presentations? (18 pts)"
+      },
+      "Security": {
+        "topPick": "A new California law says all operating systems, including Linux, need to have some form of age verification at account setup",
+        "summary": "1427 pts · 619 comments",
+        "digest": "• A new California law says all operating systems, including Linux, need to have some form of age verification at account setup (1427 pts)\n• This sub is demoralizing (556 pts)\n• Researchers discover massive Wi-Fi vulnerability affecting multiple access points — AirSnitch lets attackers on the same network intercept data and launch machine-in-the-middle attacks (414 pts)"
+      },
+      "MSL": {
+        "topPick": "Our no-show rate was 23% and what moved it",
+        "summary": "Managing IT for a multi-site primary care group (6 locations, \\~18K active patients). No-show rate had been stuck at 22-24% for two years. Leadership kept asking IT to \"fix it.\"\n\nWe tested this and wh...",
+        "digest": "• Our no-show rate was 23% and what moved it (115 pts)\n• HIPAA was more about discipline than security for us (26 pts)\n• Experience integrating with EPIC using their FHIR APIs (20 pts)"
+      }
+    }
+  },
+  {
     "id": "2026-02-27",
     "date": "2026-02-27",
     "pocHighlight": {

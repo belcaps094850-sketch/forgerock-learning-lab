@@ -1,5 +1,46 @@
 [
   {
+    "date": "March 1, 2026",
+    "topics": [
+      {
+        "title": "React hooks immutability with useRef",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rhvnnc/react_hooks_immutability_with_useref/",
+        "meta": "r/reactjs · 11 pts · Needs Help",
+        "summary": "I'm currently fixing some eslint errors and I cannot understand this one:\n\n  \n  `const [isPlaying, setIsPlaying] = useState(false);`  \n\n`const isPlayingRef = useRef(isPlaying);`\n\n  `useEffect(() =&gt;..."
+      },
+      {
+        "title": "I'd love feedback on my portfolio website!",
+        "url": "https://www.reddit.com/r/reactjs/comments/1ri5kr6/id_love_feedback_on_my_portfolio_website/",
+        "meta": "r/reactjs · 3 pts · Portfolio Showoff Sunday",
+        "summary": "Hey everyone! I've had my personal portfolio up for a while now and would really appreciate some fresh eyes from this community.  \n  \nThe site is animated and showcases the projects I've worked on, as..."
+      },
+      {
+        "title": "Tried explaining how React 19 reduces useEffect usage — would appreciate feedback",
+        "url": "https://www.reddit.com/r/reactjs/comments/1ri0vkg/tried_explaining_how_react_19_reduces_useeffect/",
+        "meta": "r/reactjs · 3 pts",
+        "summary": "I’ve been trying to understand how React 19 changes async logic, especially around reducing the need for useEffect in data fetching and form actions.\n\n\n\nI put together a short 9-minute explanation cov..."
+      },
+      {
+        "title": "Question about serializable components warning",
+        "url": "https://www.reddit.com/r/reactjs/comments/1ri74kg/question_about_serializable_components_warning/",
+        "meta": "r/reactjs · 1 pts",
+        "summary": "Hi all, hopefully this question hasn't been asked a million times, but I was googling around and couldn't find a good answer.\n\nMy situation is this:\n\nI wrote a client component that accepts a method a..."
+      },
+      {
+        "title": "What’s your current approach for handling async data in React without overusing useEffect?",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rhostz/whats_your_current_approach_for_handling_async/",
+        "meta": "r/reactjs · 8 pts",
+        "summary": "I’ve been trying to structure async logic in React components without relying too heavily on useEffect for things like data fetching or form submissions.\n\nCurious what patterns or tools others are usi..."
+      },
+      {
+        "title": "[Project] ReactPrep | Built this tool for my own prep , but thought why not share it with others",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rhw2sm/project_reactprep_built_this_tool_for_my_own_prep/",
+        "meta": "r/reactjs · 0 pts · Resource",
+        "summary": "I finally got fed up with having lot of chrome tabs open every time I tried to study for a React interview.\n\nWe’ve all been there, bouncing between docs, blogs, and LeetCode, trying to track what we a..."
+      }
+    ]
+  },
+  {
     "date": "February 27, 2026",
     "topics": [
       {
