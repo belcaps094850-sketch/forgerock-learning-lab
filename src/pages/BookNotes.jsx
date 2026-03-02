@@ -10,6 +10,7 @@ import DemingProfoundKnowledge from './books/DemingProfoundKnowledge'
 import TheGoal from './books/TheGoal'
 import PhoenixProject from './books/PhoenixProject'
 import VibeCoding from './books/VibeCoding'
+import KubernetesLearning from './books/KubernetesLearning'
 import './BookNotes.css'
 
 const bookComponents = {
@@ -20,6 +21,7 @@ const bookComponents = {
   'the-goal': TheGoal,
   'phoenix-project': PhoenixProject,
   'vibe-coding': VibeCoding,
+  'kubernetes-learning': KubernetesLearning,
 }
 
 export default function BookNotes() {
