@@ -1,5 +1,41 @@
 [
   {
+    "id": "2026-03-02",
+    "date": "2026-03-02",
+    "pocHighlight": {
+      "title": "Mission Control Command Center",
+      "summary": "A NASA-style dark command center dashboard for real-time agent monitoring — radar sweep, orbital rings, and glowing status nodes.",
+      "category": "React"
+    },
+    "categories": {
+      "AI": {
+        "topPick": "Anthropic rejects latest Pentagon offer: ‘We cannot in good conscience accede to their request’",
+        "summary": "946 pts · 55 comments",
+        "digest": "• Anthropic rejects latest Pentagon offer: ‘We cannot in good conscience accede to their request’ (946 pts)\n• Anthropic says it will challenge Pentagon's supply chain risk designation in court (413 pts)\n• Claude hits No. 1 on App Store as ChatGPT users defect in show of support for Anthropic's Pentagon stance (288 pts)"
+      },
+      "SRE": {
+        "topPick": "Interviewed somebody today; lots of skills, not much person",
+        "summary": "I interviewed a person today for a DevOps role. His resume was very thick with technical things. Software he's used, frameworks, programming languages, security and compliance regulations, standards, ...",
+        "digest": "• Interviewed somebody today; lots of skills, not much person (248 pts)\n• Cloud Engineer roadmap check: Networking + Linux completed, next steps? (103 pts)\n• What is platform engineering exactly? (101 pts)"
+      },
+      "React": {
+        "topPick": "Can we solve all the AI bots that seem to keep flooding this sub?",
+        "summary": "Every time there is a post on this sub about pretty much any subject there seems to be an army of bots commenting random sweet nothings. \n\nIf it’s not bots, it’s a bunch of paid comments. \n\nSometimes ...",
+        "digest": "• Can we solve all the AI bots that seem to keep flooding this sub? (96 pts)\n• React hooks immutability with useRef (20 pts)\n• Collection of animated UI components built with React + Shadcn + Framer Motion (20 pts)"
+      },
+      "Security": {
+        "topPick": "The US government seems to want to use AI for civilian surveillance and autonomous weapons.",
+        "summary": "I can't even use AI to help me figure out why my ethernet isn't working. ",
+        "digest": "• The US government seems to want to use AI for civilian surveillance and autonomous weapons. (418 pts)\n• PHP 8 disable_functions bypass PoC (206 pts)\n• Twitch Ships Server-Side Eppo Keys in Its iOS App, Exposing Its Entire Product Roadmap (204 pts)"
+      },
+      "MSL": {
+        "topPick": "Our no-show rate was 23% and what moved it",
+        "summary": "Managing IT for a multi-site primary care group (6 locations, \\~18K active patients). No-show rate had been stuck at 22-24% for two years. Leadership kept asking IT to \"fix it.\"\n\nWe tested this and wh...",
+        "digest": "• Our no-show rate was 23% and what moved it (116 pts)\n• HIPAA was more about discipline than security for us (27 pts)\n• Experience integrating with EPIC using their FHIR APIs (24 pts)"
+      }
+    }
+  },
+  {
     "id": "2026-03-01",
     "date": "2026-03-01",
     "pocHighlight": {

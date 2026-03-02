@@ -1,5 +1,46 @@
 [
   {
+    "date": "March 2, 2026",
+    "topics": [
+      {
+        "title": "Can we solve all the AI bots that seem to keep flooding this sub?",
+        "url": "https://www.reddit.com/r/reactjs/comments/1ri9vbw/can_we_solve_all_the_ai_bots_that_seem_to_keep/",
+        "meta": "r/reactjs · 93 pts · Meta",
+        "summary": "Every time there is a post on this sub about pretty much any subject there seems to be an army of bots commenting random sweet nothings. \n\nIf it’s not bots, it’s a bunch of paid comments. \n\nSometimes ..."
+      },
+      {
+        "title": "Wired a Deep Agent to a live React UI - you can see it plan, search, write in real time",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rip58m/wired_a_deep_agent_to_a_live_react_ui_you_can_see/",
+        "meta": "r/reactjs · 1 pts · Show /r/reactjs",
+        "summary": "Hey everyone, I have been playing with LangChain Deep Agents again, this time for a research assistant.\n\nYou call `create_deep_agent(...)` and get a graph with built-in planning, sub-agent delegation ..."
+      },
+      {
+        "title": "What part of building React apps becomes difficult as the project grows?",
+        "url": "/r/react/comments/1rilxm0/what_part_of_building_react_apps_becomes/",
+        "meta": "r/reactjs · 1 pts · Show /r/reactjs",
+        "summary": ""
+      },
+      {
+        "title": "I'd love feedback on my portfolio website!",
+        "url": "https://www.reddit.com/r/reactjs/comments/1ri5kr6/id_love_feedback_on_my_portfolio_website/",
+        "meta": "r/reactjs · 10 pts · Portfolio Showoff Sunday",
+        "summary": "Hey everyone! I've had my personal portfolio up for a while now and would really appreciate some fresh eyes from this community.  \n  \nThe site is animated and showcases the projects I've worked on, as..."
+      },
+      {
+        "title": "[Instagram Graph API] Cannot get green checkmark for instagram_business_* scopes in App Review due to UI bug (API test calls remain 0)",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rik3hr/instagram_graph_api_cannot_get_green_checkmark/",
+        "meta": "r/reactjs · 0 pts · Meta",
+        "summary": "Hi everyone,\n\nI'm currently trying to submit my Meta App for App Review to get advanced access for the Messenger API for Instagram. My app is already business-verified and the use case (\"Manage messag..."
+      },
+      {
+        "title": "React hooks immutability with useRef",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rhvnnc/react_hooks_immutability_with_useref/",
+        "meta": "r/reactjs · 21 pts · Needs Help",
+        "summary": "I'm currently fixing some eslint errors and I cannot understand this one:\n\n  \n  `const [isPlaying, setIsPlaying] = useState(false);`  \n\n`const isPlayingRef = useRef(isPlaying);`\n\n  `useEffect(() =&gt;..."
+      }
+    ]
+  },
+  {
     "date": "March 1, 2026",
     "topics": [
       {
