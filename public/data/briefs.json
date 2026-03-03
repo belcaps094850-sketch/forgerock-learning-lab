@@ -1,5 +1,41 @@
 [
   {
+    "id": "2026-03-03",
+    "date": "2026-03-03",
+    "pocHighlight": {
+      "title": "Self-Funded Health Plan Cost Simulator",
+      "summary": "A calculator comparing fully-insured vs self-funded + stop loss costs for mid-market employers, surfacing break-even points and risk profiles.",
+      "category": "MSL"
+    },
+    "categories": {
+      "AI": {
+        "topPick": "Anthropic rejects latest Pentagon offer: ‘We cannot in good conscience accede to their request’",
+        "summary": "972 pts · 55 comments",
+        "digest": "• Anthropic rejects latest Pentagon offer: ‘We cannot in good conscience accede to their request’ (972 pts)\n• Anthropic says it will challenge Pentagon's supply chain risk designation in court (441 pts)\n• Claude hits No. 1 on App Store as ChatGPT users defect in show of support for Anthropic's Pentagon stance (336 pts)"
+      },
+      "SRE": {
+        "topPick": "Amazon cloud suffers outage after ‘objects’ hit UAE data 💀",
+        "summary": "One of Amazon's data centers in the UAE caught fire after being hit by 'objects' amid the Middle East conflict\n\nEC2,RDS,Dynamo DB Disrupted,  Slowness on API calls .\n\nhttps://health.aws.amazon.com/hea...",
+        "digest": "• Amazon cloud suffers outage after ‘objects’ hit UAE data 💀 (253 pts)\n• Interviewed somebody today; lots of skills, not much person (251 pts)\n• What is platform engineering exactly? (111 pts)"
+      },
+      "React": {
+        "topPick": "Can we solve all the AI bots that seem to keep flooding this sub?",
+        "summary": "Every time there is a post on this sub about pretty much any subject there seems to be an army of bots commenting random sweet nothings. \n\nIf it’s not bots, it’s a bunch of paid comments. \n\nSometimes ...",
+        "digest": "• Can we solve all the AI bots that seem to keep flooding this sub? (125 pts)\n• React Moves to the Linux Foundation With Launch of the React Foundation (33 pts)\n• React hooks immutability with useRef (21 pts)"
+      },
+      "Security": {
+        "topPick": "Claude-powered AI bot just compromised multiple GitHub repos autonomously",
+        "summary": "We’re officially in the AI-hacking-software era. \n\nAn autonomous bot powered by Claude scanned 47,000+ GitHub repos and successfully compromised several major projects by submitting malicious pull req...",
+        "digest": "• Claude-powered AI bot just compromised multiple GitHub repos autonomously (307 pts)\n• Florida wants its own CIA. That could lead to unchecked domestic surveillance (300 pts)\n• Google API Keys Weren't Secrets. But then Gemini Changed the Rules. (211 pts)"
+      },
+      "MSL": {
+        "topPick": "Our no-show rate was 23% and what moved it",
+        "summary": "Managing IT for a multi-site primary care group (6 locations, \\~18K active patients). No-show rate had been stuck at 22-24% for two years. Leadership kept asking IT to \"fix it.\"\n\nWe tested this and wh...",
+        "digest": "• Our no-show rate was 23% and what moved it (121 pts)\n• Congress Proposes New Cybersecurity Rules and Grants to Protect Hospitals from Cyberattacks (30 pts)\n• Experience integrating with EPIC using their FHIR APIs (27 pts)"
+      }
+    }
+  },
+  {
     "id": "2026-03-02",
     "date": "2026-03-02",
     "pocHighlight": {

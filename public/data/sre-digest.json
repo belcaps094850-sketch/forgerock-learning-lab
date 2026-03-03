@@ -1,5 +1,60 @@
 [
   {
+    "date": "March 3, 2026",
+    "entries": [
+      {
+        "title": "1. Amazon cloud suffers outage after ‘objects’ hit UAE data 💀",
+        "body": "One of Amazon's data centers in the UAE caught fire after being hit by 'objects' amid the Middle East conflict\n\nEC2,RDS,Dynamo DB Disrupted,  Slowness on API calls .\n\nhttps://health.aws.amazon.com/health/status\n\nhttps://www.businessinsider.com/amazon-web-services-data-center-fire-objects-middle-east...",
+        "links": [
+          {
+            "label": "Discussion",
+            "url": "https://www.reddit.com/r/devops/comments/1riln7i/amazon_cloud_suffers_outage_after_objects_hit_uae/"
+          }
+        ]
+      },
+      {
+        "title": "2. Interviewed somebody today; lots of skills, not much person",
+        "body": "I interviewed a person today for a DevOps role. His resume was very thick with technical things. Software he's used, frameworks, programming languages, security and compliance regulations, standards, etc. There was not much about how he worked with those things, what he did with them, which bits he ...",
+        "links": [
+          {
+            "label": "Discussion",
+            "url": "https://www.reddit.com/r/devops/comments/1rfr007/interviewed_somebody_today_lots_of_skills_not/"
+          }
+        ]
+      },
+      {
+        "title": "3. What is platform engineering exactly?",
+        "body": "Every time I tell someone what I like and how I think, they end up in some way or another recommending platform engineering.\n\nFor example I’ve always wanted to contribute to open source projects I liked but always thought I wasn’t technically there to help outside infra and cloud, which prompted ano...",
+        "links": [
+          {
+            "label": "Discussion",
+            "url": "https://www.reddit.com/r/devops/comments/1rhefsl/what_is_platform_engineering_exactly/"
+          }
+        ]
+      },
+      {
+        "title": "4. hackerbot-claw: An AI-Powered Bot Actively Exploiting GitHub Actions - Microsoft, DataDog, and CNCF Projects Hit So Far",
+        "body": "[https://www.stepsecurity.io/blog/hackerbot-claw-github-actions-exploitation#attack-6-aquasecuritytrivy---evidence-cleared](https://www.stepsecurity.io/blog/hackerbot-claw-github-actions-exploitation#attack-6-aquasecuritytrivy---evidence-cleared)\n\n trivy repo was empty.... [https://web.archive.org/w...",
+        "links": [
+          {
+            "label": "Discussion",
+            "url": "https://www.reddit.com/r/devops/comments/1ri4nwu/hackerbotclaw_an_aipowered_bot_actively/"
+          }
+        ]
+      },
+      {
+        "title": "5. Cloud Engineer roadmap check: Networking + Linux completed, next steps?",
+        "body": "I’m transitioning to Cloud Engineering from scratch. I’ve completed basic networking (TCP/IP, DNS, subnetting) and Linux fundamentals (CLI, file permissions, processes). I’m currently learning Git and GitHub. My goal is to get a junior cloud role in 6–9 months. What should I focus on next.",
+        "links": [
+          {
+            "label": "Discussion",
+            "url": "https://www.reddit.com/r/devops/comments/1rezupb/cloud_engineer_roadmap_check_networking_linux/"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "date": "March 2, 2026",
     "entries": [
       {
