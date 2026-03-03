@@ -11,6 +11,7 @@ import TheGoal from './books/TheGoal'
 import PhoenixProject from './books/PhoenixProject'
 import VibeCoding from './books/VibeCoding'
 import KubernetesLearning from './books/KubernetesLearning'
+import Accelerate from './books/Accelerate'
 import './BookNotes.css'
 
 const bookComponents = {
@@ -22,6 +23,7 @@ const bookComponents = {
   'phoenix-project': PhoenixProject,
   'vibe-coding': VibeCoding,
   'kubernetes-learning': KubernetesLearning,
+  'accelerate': Accelerate,
 }
 
 export default function BookNotes() {

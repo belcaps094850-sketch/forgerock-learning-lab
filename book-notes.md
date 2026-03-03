@@ -212,3 +212,65 @@ Luke Burton (nearly two decades at Apple, including technical readiness for Swif
 - **The Unicorn Project** — Gene Kim
 - **The DevOps Handbook** — Gene Kim, Jez Humble, Patrick Debois, John Willis
 - **Accelerate** — Nicole Forsgren, Jez Humble, Gene Kim
+
+---
+
+## Accelerate: The Science of Lean Software and DevOps
+- **Authors:** Nicole Forsgren, Jez Humble, Gene Kim
+- **Publisher:** IT Revolution Press
+- **Published:** March 27, 2018
+- **Pages:** 288
+- **ISBN:** 9781942788331
+- **Award:** Shingo Publication Award
+- **Added:** 2026-03-03
+- **Status:** Notes Complete
+
+### Summary
+The research behind the DevOps movement. Through four years of rigorous statistical analysis — including State of DevOps reports with Puppet — the authors proved what high-performing teams do differently. Introduced the DORA metrics (now part of Google Cloud), the industry standard for measuring software delivery performance.
+
+### The DORA Four Key Metrics
+| Metric | What It Measures | Elite | Low |
+|--------|-----------------|-------|-----|
+| Deployment Frequency | How often you deploy | Multiple/day | Monthly to 6-monthly |
+| Lead Time for Changes | Commit to production | < 1 hour | 1–6 months |
+| Change Failure Rate | % deployments causing failure | 0–15% | 46–60% |
+| Mean Time to Recovery | Time to restore service | < 1 hour | 1 week to 1 month |
+
+**Key insight:** Speed and stability are NOT tradeoffs. Elite teams have both.
+
+### 24 Key Capabilities (5 categories)
+**Continuous Delivery:** Version control, deployment automation, CI, trunk-based dev, test automation, test data management, shift-left security, continuous delivery
+**Architecture:** Loosely coupled, empowered teams
+**Product & Process:** Customer feedback, value stream visibility, small batches, team experimentation
+**Lean Management:** Lightweight change approval (not CAB), monitoring, proactive alerting, WIP limits, visual management
+**Culture:** Westrum generative culture, learning culture, collaboration, job satisfaction, transformational leadership
+
+### Westrum Organizational Culture
+| | Pathological | Bureaucratic | Generative |
+|--|-------------|-------------|------------|
+| Information | Hidden | Ignored | Actively sought |
+| Messengers | Shot | Neglected | Trained |
+| Failure | Scapegoating | Justice | Inquiry |
+| Novelty | Crushed | Problems | Implemented |
+
+**Culture is the strongest predictor of delivery performance, org performance, AND employee satisfaction.**
+
+### Myths Busted
+- Speed vs stability is a false tradeoff — high performers have both
+- Change Advisory Boards slow delivery without improving stability
+- Maturity models are flawed — use capability models instead
+- More senior engineers ≠ better performance — practices matter more
+
+### Key Quotes
+- "Throughput and stability move together."
+- "If it hurts, do it more often, and bring the pain forward."
+- "Burnout can be prevented or reversed. It is not the price you pay for high performance."
+- "There is no tradeoff between speed and stability. None."
+
+### Action Items
+- Measure your DORA metrics — start with deployment frequency and lead time
+- Assess culture with Westrum typology — are messengers shot or trained?
+- Automate deployment pipeline — make deploying boring
+- Replace heavyweight CAB with peer review
+- Limit WIP, merge daily, shift security left
+- Build a learning culture — blameless postmortems, psychological safety

@@ -57,5 +57,12 @@
     "meta": "Hands-on Labs by Alec · Container orchestration, K8s fundamentals · Researched by Alec",
     "thumb": "/images/books/kubernetes-learning.jpg",
     "thumbStyle": {}
+  },
+  {
+    "id": "accelerate",
+    "title": "Accelerate: The Science of Lean Software and DevOps",
+    "meta": "Nicole Forsgren, Jez Humble, Gene Kim · DevOps metrics, software delivery performance, DORA · Researched by Alec",
+    "thumb": "/images/books/accelerate.jpg",
+    "thumbStyle": {}
   }
 ]
