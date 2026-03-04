@@ -1,5 +1,41 @@
 [
   {
+    "id": "2026-03-04",
+    "date": "2026-03-04",
+    "pocHighlight": {
+      "title": "Real-Time Agent Monitoring Dashboard",
+      "summary": "Live dashboard showing agent heartbeat, task queue depth, token usage, and error rates across the OpenClaw agent fleet.",
+      "category": "AI"
+    },
+    "categories": {
+      "AI": {
+        "topPick": "Anthropic says it will challenge Pentagon's supply chain risk designation in court",
+        "summary": "447 pts · 21 comments",
+        "digest": "• Anthropic says it will challenge Pentagon's supply chain risk designation in court (447 pts)\n• Claude hits No. 1 on App Store as ChatGPT users defect in show of support for Anthropic's Pentagon stance (350 pts)\n• OpenAI eyes global domination with $110B Amazon and NVIDIA raise, value hits $840B (239 pts)"
+      },
+      "SRE": {
+        "topPick": "Amazon cloud suffers outage after ‘objects’ hit UAE data 💀",
+        "summary": "One of Amazon's data centers in the UAE caught fire after being hit by 'objects' amid the Middle East conflict\n\nEC2,RDS,Dynamo DB Disrupted,  Slowness on API calls .\n\nhttps://health.aws.amazon.com/hea...",
+        "digest": "• Amazon cloud suffers outage after ‘objects’ hit UAE data 💀 (271 pts)\n• Interviewed somebody today; lots of skills, not much person (256 pts)\n• Ehh, put up a maintenance page and snooze the alert until tomorrow (179 pts)"
+      },
+      "React": {
+        "topPick": "React Moves to the Linux Foundation With Launch of the React Foundation",
+        "summary": "170 pts · 12 comments",
+        "digest": "• React Moves to the Linux Foundation With Launch of the React Foundation (170 pts)\n• Can we solve all the AI bots that seem to keep flooding this sub? (128 pts)\n• Remember the UX game \"Can't unsee\"? A similar concept but for react props. (36 pts)"
+      },
+      "Security": {
+        "topPick": "2,863 Google API keys on public websites now silently authenticate to Gemini. One developer was billed $82,314 in 48 hours. Google's initial response: \"Intended Behavior.\"",
+        "summary": "816 pts · 38 comments",
+        "digest": "• 2,863 Google API keys on public websites now silently authenticate to Gemini. One developer was billed $82,314 in 48 hours. Google's initial response: \"Intended Behavior.\" (816 pts)\n• LexisNexis confirms breach of some internal and customer data (345 pts)\n• Israel hacked Iran’s traffic cameras to pinpoint Khamenei (226 pts)"
+      },
+      "MSL": {
+        "topPick": "Our no-show rate was 23% and what moved it",
+        "summary": "Managing IT for a multi-site primary care group (6 locations, \\~18K active patients). No-show rate had been stuck at 22-24% for two years. Leadership kept asking IT to \"fix it.\"\n\nWe tested this and wh...",
+        "digest": "• Our no-show rate was 23% and what moved it (123 pts)\n• Congress Proposes New Cybersecurity Rules and Grants to Protect Hospitals from Cyberattacks (37 pts)\n• Experience integrating with EPIC using their FHIR APIs (27 pts)"
+      }
+    }
+  },
+  {
     "id": "2026-03-03",
     "date": "2026-03-03",
     "pocHighlight": {

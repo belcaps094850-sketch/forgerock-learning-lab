@@ -1,5 +1,46 @@
 [
   {
+    "date": "March 4, 2026",
+    "topics": [
+      {
+        "title": "Remember the UX game \"Can't unsee\"? A similar concept but for react props.",
+        "url": "https://cant-maintain.saschb2b.com/",
+        "meta": "r/reactjs · 36 pts · Show /r/reactjs",
+        "summary": "For the last few years I had the honor of teaching junior devs and try to steer them in the right direction. While typescript, eslint rules and pointing to documentation or blogposts help, games seem ..."
+      },
+      {
+        "title": "React Moves to the Linux Foundation With Launch of the React Foundation",
+        "url": "https://linuxiac.com/react-moves-to-the-linux-foundation-with-launch-of-the-react-foundation/?utm_source=insidestack&amp;utm_medium=social",
+        "meta": "r/reactjs · 166 pts · News",
+        "summary": ""
+      },
+      {
+        "title": "My First npm Package: Miku Cursor Kit - Animated Cursor for React &amp; Next.js",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rkgz13/my_first_npm_package_miku_cursor_kit_animated/",
+        "meta": "r/reactjs · 1 pts · Show /r/reactjs",
+        "summary": "I recently built and published my first npm package called **Miku Cursor Kit**.\n\nalthough ik , it is a small package but is is a big thing for me as it is my first package.\n\nIt’s a small React compone..."
+      },
+      {
+        "title": "Hook Call Error React + Vite",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rkgl3c/hook_call_error_react_vite/",
+        "meta": "r/reactjs · 1 pts · Needs Help",
+        "summary": "Hello I've been moving from React to React + Vite and I don't understand the error I'm getting.\n\nHere is my code:\n\n\n\n    import { StrictMode } from 'react'\n    import { createRoot } from 'react-dom/cl..."
+      },
+      {
+        "title": "Write \"use client\" in UI library",
+        "url": "/r/nextjs/comments/1rkfgyd/write_use_client_in_ui_library/",
+        "meta": "r/reactjs · 1 pts",
+        "summary": ""
+      },
+      {
+        "title": "I have been building a browser MMORPG for the last few months and I am looking for people to follow the project",
+        "url": "/r/MMORPG/comments/1rk3lbt/i_have_been_building_a_browser_mmorpg_for_the/",
+        "meta": "r/reactjs · 1 pts · Show /r/reactjs",
+        "summary": ""
+      }
+    ]
+  },
+  {
     "date": "March 3, 2026",
     "topics": [
       {

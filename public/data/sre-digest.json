@@ -1,5 +1,64 @@
 [
   {
+    "date": "March 4, 2026",
+    "entries": [
+      {
+        "title": "1. Amazon cloud suffers outage after ‘objects’ hit UAE data 💀",
+        "body": "One of Amazon's data centers in the UAE caught fire after being hit by 'objects' amid the Middle East conflict\n\nEC2,RDS,Dynamo DB Disrupted,  Slowness on API calls .\n\nhttps://health.aws.amazon.com/health/status\n\nhttps://www.businessinsider.com/amazon-web-services-data-center-fire-objects-middle-east...",
+        "links": [
+          {
+            "label": "Discussion",
+            "url": "https://www.reddit.com/r/devops/comments/1riln7i/amazon_cloud_suffers_outage_after_objects_hit_uae/"
+          }
+        ]
+      },
+      {
+        "title": "2. Interviewed somebody today; lots of skills, not much person",
+        "body": "I interviewed a person today for a DevOps role. His resume was very thick with technical things. Software he's used, frameworks, programming languages, security and compliance regulations, standards, etc. There was not much about how he worked with those things, what he did with them, which bits he ...",
+        "links": [
+          {
+            "label": "Discussion",
+            "url": "https://www.reddit.com/r/devops/comments/1rfr007/interviewed_somebody_today_lots_of_skills_not/"
+          }
+        ]
+      },
+      {
+        "title": "3. Ehh, put up a maintenance page and snooze the alert until tomorrow",
+        "body": "",
+        "links": [
+          {
+            "label": "Discussion",
+            "url": "https://www.reddit.com/r/sre/comments/1rjck3f/ehh_put_up_a_maintenance_page_and_snooze_the/"
+          },
+          {
+            "label": "Article",
+            "url": "https://i.redd.it/ege9qly5mqmg1.jpeg"
+          }
+        ]
+      },
+      {
+        "title": "4. Whatever happened to tech discussion!",
+        "body": "It's very rare nowadays that I see a thoughtful discussion/post here. We are getting bombarded with following:\n\n1. 60 % AI is gonna boom or doom us\n\n2. 20 % cloud cloud and job market s\\*cks\n\n3. 10% I made a new tool because I discovered AI and it will change your life\n\n4. 5% I want to switch to Dev...",
+        "links": [
+          {
+            "label": "Discussion",
+            "url": "https://www.reddit.com/r/devops/comments/1rjnqec/whatever_happened_to_tech_discussion/"
+          }
+        ]
+      },
+      {
+        "title": "5. What is platform engineering exactly?",
+        "body": "Every time I tell someone what I like and how I think, they end up in some way or another recommending platform engineering.\n\nFor example I’ve always wanted to contribute to open source projects I liked but always thought I wasn’t technically there to help outside infra and cloud, which prompted ano...",
+        "links": [
+          {
+            "label": "Discussion",
+            "url": "https://www.reddit.com/r/devops/comments/1rhefsl/what_is_platform_engineering_exactly/"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "date": "March 3, 2026",
     "entries": [
       {
