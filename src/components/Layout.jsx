@@ -1,8 +1,11 @@
 import { useState, useRef, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
 export default function Layout({ children }) {
   const location = useLocation()
+  const navigate = useNavigate()
+  const { user, logout } = useAuth()
   const [learningOpen, setLearningOpen] = useState(false)
   const [briefsOpen, setBriefsOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -71,7 +74,17 @@ export default function Layout({ children }) {
               <Link to="/sre-digest">SRE Digest</Link>
             </div>
           </li>
+          <li><Link to="/reports" className={isActive('/reports') ? 'active' : ''}>Reports 🔒</Link></li>
         </ul>
+        <div className="nav-auth">
+          {user ? (
+            <button className="nav-auth-btn" onClick={async () => { await logout(); navigate('/') }}>
+              Sign Out
+            </button>
+          ) : (
+            <Link to="/login" className="nav-auth-btn">Sign In</Link>
+          )}
+        </div>
         <button
           className={`hamburger ${mobileOpen ? 'open' : ''}`}
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -91,6 +104,16 @@ export default function Layout({ children }) {
           <Link to="/daily-brief" className={isActive('/daily-brief') ? 'active' : ''}>Daily Brief</Link>
           <Link to="/react-radar" className={isActive('/react-radar') ? 'active' : ''}>React Radar</Link>
           <Link to="/sre-digest" className={isActive('/sre-digest') ? 'active' : ''}>SRE Digest</Link>
+          <div className="mobile-section-label">Research</div>
+          <Link to="/reports" className={isActive('/reports') ? 'active' : ''}>Reports 🔒</Link>
+          <div className="mobile-section-label">Account</div>
+          {user ? (
+            <button className="mobile-auth-btn" onClick={async () => { await logout(); navigate('/') }}>
+              Sign Out ({user.email})
+            </button>
+          ) : (
+            <Link to="/login" className={isActive('/login') ? 'active' : ''}>Sign In</Link>
+          )}
         </div>
       </nav>
 

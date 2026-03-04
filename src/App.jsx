@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import ErrorBoundary from './components/ErrorBoundary'
 import LoadingSkeleton from './components/LoadingSkeleton'
+import ProtectedRoute from './components/ProtectedRoute'
 
 const Home = React.lazy(() => import('./pages/Home'))
 const BookNotes = React.lazy(() => import('./pages/BookNotes'))
@@ -12,6 +13,8 @@ const ReactRadar = React.lazy(() => import('./pages/ReactRadar'))
 const SreDigest = React.lazy(() => import('./pages/SreDigest'))
 const AuthFlows = React.lazy(() => import('./pages/AuthFlows'))
 const ForgeRockDemo = React.lazy(() => import('./pages/ForgeRockDemo'))
+const Login = React.lazy(() => import('./pages/Login'))
+const Reports = React.lazy(() => import('./pages/Reports'))
 const NotFound = React.lazy(() => import('./pages/NotFound'))
 
 export default function App() {
@@ -28,6 +31,12 @@ export default function App() {
             <Route path="/sre-digest" element={<SreDigest />} />
             <Route path="/auth-flows" element={<AuthFlows />} />
             <Route path="/iam-demo" element={<ForgeRockDemo />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/reports" element={
+              <ProtectedRoute>
+                <Reports />
+              </ProtectedRoute>
+            } />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

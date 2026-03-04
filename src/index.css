@@ -219,6 +219,37 @@ nav {
   padding: 12px 0 4px;
 }
 
+.mobile-auth-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  padding: 8px 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* Nav auth button */
+.nav-auth {
+  margin-left: auto;
+}
+
+.nav-auth-btn {
+  font-size: 13px;
+  padding: 6px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+}
+
+.nav-auth-btn:hover {
+  border-color: #333;
+}
+
 /* Content area */
 .content {
   padding: 40px 48px 48px;
