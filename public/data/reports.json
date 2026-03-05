@@ -34,5 +34,50 @@
     "category": "Data Analysis",
     "icon": "📈",
     "file": "reports/smb-std-ltd-claims-data.md"
+  },
+  {
+    "id": "deep-dive-comparison-portal",
+    "title": "Deep Dive: SMB Benefits Comparison Portal",
+    "description": "Full business case — Kayak for group insurance. $320B TAM, 12.4x LTV:CAC, 16-week MVP for $325K. Recommendation: GO.",
+    "date": "2026-03-05",
+    "category": "Business Case",
+    "icon": "🔍",
+    "file": "reports/deep-dive-benefits-comparison-portal.md"
+  },
+  {
+    "id": "deep-dive-claims-concierge",
+    "title": "Deep Dive: Claims Concierge Service",
+    "description": "Full business case — third-party claims advocacy. $4.5B TAM, tech+human hybrid model, break-even mid-Year 3. Recommendation: GO.",
+    "date": "2026-03-05",
+    "category": "Business Case",
+    "icon": "🤝",
+    "file": "reports/deep-dive-claims-concierge.md"
+  },
+  {
+    "id": "deep-dive-benefits-copilot",
+    "title": "Deep Dive: Benefits Copilot (AI Advisor)",
+    "description": "Full business case — AI-powered benefits consultant for SMBs. $18B TAM, $29-49/mo SaaS, 72% gross margin. Recommendation: GO.",
+    "date": "2026-03-05",
+    "category": "Business Case",
+    "icon": "🧠",
+    "file": "reports/deep-dive-benefits-copilot.md"
+  },
+  {
+    "id": "deep-dive-benefits-in-a-box",
+    "title": "Deep Dive: Benefits in a Box (Turnkey Stack)",
+    "description": "Full business case — Shopify for Benefits targeting 2-25 employee companies. 5.4M addressable businesses, $18.2M ARR by Year 3. Recommendation: GO.",
+    "date": "2026-03-05",
+    "category": "Business Case",
+    "icon": "📦",
+    "file": "reports/deep-dive-benefits-in-a-box.md"
+  },
+  {
+    "id": "deep-dive-claimtrack",
+    "title": "Deep Dive: ClaimTrack (Claims Tracker)",
+    "description": "Full business case — Domino's pizza tracker for insurance claims. 75M annual claims, auto-escalation engine, $22M ARR by Year 3. Recommendation: Conditional GO.",
+    "date": "2026-03-05",
+    "category": "Business Case",
+    "icon": "📍",
+    "file": "reports/deep-dive-claimtrack.md"
   }
 ]
