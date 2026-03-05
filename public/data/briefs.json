@@ -1,5 +1,41 @@
 [
   {
+    "id": "2026-03-05",
+    "date": "2026-03-05",
+    "pocHighlight": {
+      "title": "Multi-Model Agent Benchmark",
+      "summary": "Compare agent task completion rates, latency, and cost across Claude Opus 4.6, Sonnet 4.5, and open-source models on standardized coding tasks.",
+      "category": "AI"
+    },
+    "categories": {
+      "AI": {
+        "topPick": "ChatGPT Uninstalls Surge 295% After OpenAI’s DoD Deal Sparks Backlash",
+        "summary": "162 pts · 49 comments",
+        "digest": "• ChatGPT Uninstalls Surge 295% After OpenAI’s DoD Deal Sparks Backlash (162 pts)\n• Scientists made AI agents ruder — and they performed better at complex reasoning tasks (127 pts)\n• [D] A mathematical proof from an anonymous Korean forum: The essence of Attention is fundamentally a d^2 problem, not n^2. (PDF included) (115 pts)"
+      },
+      "SRE": {
+        "topPick": "Amazon cloud suffers outage after ‘objects’ hit UAE data 💀",
+        "summary": "One of Amazon's data centers in the UAE caught fire after being hit by 'objects' amid the Middle East conflict\n\nEC2,RDS,Dynamo DB Disrupted,  Slowness on API calls .\n\nhttps://health.aws.amazon.com/hea...",
+        "digest": "• Amazon cloud suffers outage after ‘objects’ hit UAE data 💀 (280 pts)\n• Ehh, put up a maintenance page and snooze the alert until tomorrow (203 pts)\n• Whatever happened to tech discussion! (143 pts)"
+      },
+      "React": {
+        "topPick": "React Moves to the Linux Foundation With Launch of the React Foundation",
+        "summary": "186 pts · 14 comments",
+        "digest": "• React Moves to the Linux Foundation With Launch of the React Foundation (186 pts)\n• Remember the UX game \"Can't unsee\"? A similar concept but for react props. (63 pts)\n• I built an open-source rich-text editor for React with 20+ plugins, AI, drag &amp; drop, collaboration, exports, and you can even build a website builder with it (36 pts)"
+      },
+      "Security": {
+        "topPick": "Cybersecurity professionals are burning out on extra hours every week",
+        "summary": "Cybersecurity professionals in the U.S. are working an average of 10.8 extra hours per week beyond their contracted schedules. That figure effectively adds a sixth working day to the standard week for...",
+        "digest": "• Cybersecurity professionals are burning out on extra hours every week (552 pts)\n• To every manager who thinks they have AI under control, think again (510 pts)\n• 'Mysterious' leaked US government tool is breaking into iPhones (453 pts)"
+      },
+      "MSL": {
+        "topPick": "Our no-show rate was 23% and what moved it",
+        "summary": "Managing IT for a multi-site primary care group (6 locations, \\~18K active patients). No-show rate had been stuck at 22-24% for two years. Leadership kept asking IT to \"fix it.\"\n\nWe tested this and wh...",
+        "digest": "• Our no-show rate was 23% and what moved it (123 pts)\n• Congress Proposes New Cybersecurity Rules and Grants to Protect Hospitals from Cyberattacks (36 pts)\n• Experience integrating with EPIC using their FHIR APIs (26 pts)"
+      }
+    }
+  },
+  {
     "id": "2026-03-04",
     "date": "2026-03-04",
     "pocHighlight": {

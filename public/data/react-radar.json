@@ -1,5 +1,46 @@
 [
   {
+    "date": "March 5, 2026",
+    "topics": [
+      {
+        "title": "Windows XP simulator",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rldivy/windows_xp_simulator/",
+        "meta": "r/reactjs · 8 pts · Show /r/reactjs",
+        "summary": "Heyo, i wanted to post this project I’ve been working on https://xp.ahmadjalil.com/ its the most complete simulator i can find everything runs client side only there is no server, but you can upload f..."
+      },
+      {
+        "title": "Is it good practice to refetch data after a CRUD action in React?",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rl9ogd/is_it_good_practice_to_refetch_data_after_a_crud/",
+        "meta": "r/reactjs · 9 pts",
+        "summary": "Hi, I’m building a small React CRUD app (a library system).\n\nWhen a user borrows or returns a book, my flow is:\n\n1. Send a request to the backend API\n2. If the request succeeds, I call my fetch functi..."
+      },
+      {
+        "title": "What is the state of form libraries in 2026?",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rl1ozl/what_is_the_state_of_form_libraries_in_2026/",
+        "meta": "r/reactjs · 19 pts · Discussion",
+        "summary": "There are some newer forms out but curious if the real issues are actually solved yet. Multi step forms, async validation, dynamic fields seem to be handled in all of them now.\n\nWhat do they still not..."
+      },
+      {
+        "title": "Tool that captures any website component and generates a structured prompt for AI tools (React + Tailwind aware)",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rlbs8v/tool_that_captures_any_website_component_and/",
+        "meta": "r/reactjs · 3 pts",
+        "summary": "How many of you are using AI tools to build UI from reference sites? I've been doing it a lot — see a component I like, try to describe it to Claude Code, go back and forth until it's close enough.\n\nI..."
+      },
+      {
+        "title": "React app not updating after new build in Chrome — users still see old UI/functionality",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rlemh2/react_app_not_updating_after_new_build_in_chrome/",
+        "meta": "r/reactjs · 1 pts",
+        "summary": "Hi everyone,\n\nIn my recent React project, whenever we deploy a new build or version of the web app, some users using Chrome still see the old UI or old functionality. The latest changes are not reflec..."
+      },
+      {
+        "title": "UX/Product designer seeking honest portfolio feedback + networking",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rld4eo/uxproduct_designer_seeking_honest_portfolio/",
+        "meta": "r/reactjs · 1 pts · Needs Help",
+        "summary": "Hi Reddit! 👋\n\nI’m a UX/Product Designer with a background in architecture. I’m finishing my Master’s in UX (graduating May 2026) and actively looking for full-time roles in the USA as an F1 student.\n..."
+      }
+    ]
+  },
+  {
     "date": "March 4, 2026",
     "topics": [
       {
