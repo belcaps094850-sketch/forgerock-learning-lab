@@ -284,18 +284,140 @@
 }
 
 /* Mobile */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .reports-page {
+    padding: 1rem 0.75rem;
+  }
+
+  .reports-header {
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .reports-header h1 {
+    font-size: 1.35rem;
+  }
+
+  .reports-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .report-card {
+    padding: 1rem;
+  }
+
+  .report-back {
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .report-meta {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .report-meta-icon {
+    font-size: 1.5rem;
+  }
+
+  .report-meta h2 {
+    font-size: 1.05rem;
+  }
+
+  .report-meta p {
+    font-size: 0.75rem;
+  }
+
   .report-content {
-    padding: 1.25rem;
-    font-size: 0.9rem;
+    padding: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    max-height: none;
+    border-radius: 6px;
+  }
+
+  .report-content .rc-h1 {
+    font-size: 1.25rem;
+  }
+
+  .report-content .rc-h2 {
+    font-size: 1.1rem;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  .report-content .rc-h3 {
+    font-size: 1rem;
+    margin: 1.25rem 0 0.4rem;
+  }
+
+  .report-content .rc-h4 {
+    font-size: 0.925rem;
+  }
+
+  .report-content ul,
+  .report-content ol {
+    padding-left: 1.25rem;
+  }
+
+  /* Tables: scroll horizontally on mobile */
+  .rc-table-wrap {
+    margin: 0.75rem -1rem;
+    padding: 0 1rem;
   }
 
   .rc-table {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    min-width: 500px;
   }
 
   .rc-table th,
   .rc-table td {
     padding: 0.4rem 0.5rem;
+  }
+
+  /* Code blocks scroll */
+  .rc-code-block {
+    font-size: 0.75rem;
+    padding: 0.75rem;
+    margin: 0.75rem -1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .rc-blockquote {
+    margin: 0.75rem 0;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .rc-hr {
+    margin: 1.25rem 0;
+  }
+
+  /* Links: break long URLs */
+  .report-content a {
+    word-break: break-all;
+  }
+}
+
+@media (max-width: 400px) {
+  .reports-page {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .report-content {
+    padding: 0.75rem;
+    font-size: 0.825rem;
+  }
+
+  .report-content .rc-h1 {
+    font-size: 1.15rem;
+  }
+
+  .report-content .rc-h2 {
+    font-size: 1rem;
   }
 }
