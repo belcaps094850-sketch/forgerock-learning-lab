@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ReactMarkdown from 'react-markdown'
 import { useAuth } from '../contexts/AuthContext'
 import './Reports.css'
 
@@ -73,7 +74,34 @@ export default function Reports() {
               <p>{selectedReport.date} · {selectedReport.category}</p>
             </div>
           </div>
-          <pre className="report-content">{content}</pre>
+          <div className="report-content">
+            <ReactMarkdown
+              components={{
+                h1: ({ children }) => <h1 className="rc-h1">{children}</h1>,
+                h2: ({ children }) => <h2 className="rc-h2">{children}</h2>,
+                h3: ({ children }) => <h3 className="rc-h3">{children}</h3>,
+                h4: ({ children }) => <h4 className="rc-h4">{children}</h4>,
+                table: ({ children }) => (
+                  <div className="rc-table-wrap">
+                    <table className="rc-table">{children}</table>
+                  </div>
+                ),
+                a: ({ href, children }) => (
+                  <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>
+                ),
+                code: ({ inline, children }) =>
+                  inline
+                    ? <code className="rc-inline-code">{children}</code>
+                    : <pre className="rc-code-block"><code>{children}</code></pre>,
+                blockquote: ({ children }) => (
+                  <blockquote className="rc-blockquote">{children}</blockquote>
+                ),
+                hr: () => <hr className="rc-hr" />,
+              }}
+            >
+              {content}
+            </ReactMarkdown>
+          </div>
         </div>
       )}
     </div>

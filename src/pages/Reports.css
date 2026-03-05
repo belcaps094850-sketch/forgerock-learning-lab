@@ -31,6 +31,7 @@
   color: #666;
 }
 
+/* Report cards grid */
 .reports-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -131,17 +132,170 @@
   color: #666;
 }
 
+/* Rendered markdown content */
 .report-content {
-  background: #fafafa;
+  background: #fff;
   border: 1px solid #eee;
   border-radius: 8px;
-  padding: 1.5rem;
-  font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
-  font-size: 0.85rem;
-  line-height: 1.6;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  overflow-x: auto;
-  max-height: 70vh;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #222;
+  max-height: 75vh;
   overflow-y: auto;
+}
+
+.report-content .rc-h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eee;
+}
+
+.report-content .rc-h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid #eee;
+}
+
+.report-content .rc-h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.report-content .rc-h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.4rem;
+}
+
+.report-content p {
+  margin: 0 0 1rem;
+}
+
+.report-content ul,
+.report-content ol {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.report-content li {
+  margin-bottom: 0.35rem;
+}
+
+.report-content strong {
+  font-weight: 700;
+  color: #111;
+}
+
+.report-content em {
+  font-style: italic;
+  color: #555;
+}
+
+/* Links */
+.report-content a {
+  color: #1a73e8;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.report-content a:hover {
+  text-decoration: underline;
+}
+
+/* Tables */
+.rc-table-wrap {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.rc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.rc-table th {
+  background: #f7f7f7;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.rc-table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #eee;
+  vertical-align: top;
+}
+
+.rc-table tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* Code */
+.rc-inline-code {
+  background: #f5f5f5;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'SF Mono', 'Menlo', monospace;
+  font-size: 0.85em;
+  color: #d63384;
+}
+
+.rc-code-block {
+  background: #f8f8f8;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'SF Mono', 'Menlo', monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+}
+
+/* Blockquotes */
+.rc-blockquote {
+  border-left: 3px solid #ddd;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  color: #555;
+  background: #fafafa;
+  border-radius: 0 6px 6px 0;
+}
+
+.rc-blockquote p {
+  margin: 0;
+}
+
+/* Horizontal rules */
+.rc-hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 2rem 0;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .report-content {
+    padding: 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .rc-table {
+    font-size: 0.8rem;
+  }
+
+  .rc-table th,
+  .rc-table td {
+    padding: 0.4rem 0.5rem;
+  }
 }
