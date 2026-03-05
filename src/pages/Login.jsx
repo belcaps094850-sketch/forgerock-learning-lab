@@ -36,8 +36,9 @@ export default function Login() {
   async function handleGoogle() {
     setError('')
     try {
-      await loginWithGoogle()
-      // Redirect-based: page will reload after Google auth, no navigate needed
+      const result = await loginWithGoogle()
+      if (result) navigate(from, { replace: true })
+      // If no result, redirect flow will handle it on page reload
     } catch (err) {
       setError(friendlyError(err.code))
     }

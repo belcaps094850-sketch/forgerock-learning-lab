@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react'
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signInWithRedirect,
   getRedirectResult,
   createUserWithEmailAndPassword,
@@ -31,7 +32,18 @@ export function AuthProvider({ children }) {
   }, [])
 
   const login = (email, password) => signInWithEmailAndPassword(auth, email, password)
-  const loginWithGoogle = () => signInWithRedirect(auth, googleProvider)
+  const loginWithGoogle = async () => {
+    try {
+      // Try popup first (works on desktop, some mobile)
+      return await signInWithPopup(auth, googleProvider)
+    } catch (err) {
+      // Fallback to redirect (mobile browsers that block popups)
+      if (err.code === 'auth/popup-blocked' || err.code === 'auth/popup-closed-by-user') {
+        return signInWithRedirect(auth, googleProvider)
+      }
+      throw err
+    }
+  }
   const register = (email, password) => createUserWithEmailAndPassword(auth, email, password)
   const logout = () => signOut(auth)
 
