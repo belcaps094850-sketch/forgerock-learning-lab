@@ -7,5 +7,14 @@
     "category": "Market Research",
     "icon": "📊",
     "file": "reports/smb-group-insurance-research.md"
+  },
+  {
+    "id": "smb-cx-pain-points",
+    "title": "SMB Group Insurance: Customer Experience Pain Points & Opportunities",
+    "description": "Real customer complaints from Reddit and social media about group insurance carriers. What SMBs actually want and where every carrier is failing.",
+    "date": "2026-03-05",
+    "category": "Customer Research",
+    "icon": "🔥",
+    "file": "reports/smb-group-insurance-cx-pain-points.md"
   }
 ]
