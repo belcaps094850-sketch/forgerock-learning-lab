@@ -23,7 +23,7 @@ export default function Reports() {
     setSelectedReport(report)
     setContent('Loading...')
     try {
-      const res = await fetch(`/data/reports/${report.file}`)
+      const res = await fetch(`/data/${report.file}`)
       const text = await res.text()
       setContent(text)
     } catch {

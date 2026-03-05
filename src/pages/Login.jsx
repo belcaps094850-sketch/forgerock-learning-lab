@@ -37,7 +37,7 @@ export default function Login() {
     setError('')
     try {
       await loginWithGoogle()
-      navigate(from, { replace: true })
+      // Redirect-based: page will reload after Google auth, no navigate needed
     } catch (err) {
       setError(friendlyError(err.code))
     }

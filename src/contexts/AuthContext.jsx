@@ -2,7 +2,8 @@ import { createContext, useContext, useState, useEffect } from 'react'
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
-  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   createUserWithEmailAndPassword,
   signOut,
 } from 'firebase/auth'
@@ -21,6 +22,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    getRedirectResult(auth).catch(() => {})
     const unsubscribe = onAuthStateChanged(auth, (u) => {
       setUser(u)
       setLoading(false)
@@ -29,7 +31,7 @@ export function AuthProvider({ children }) {
   }, [])
 
   const login = (email, password) => signInWithEmailAndPassword(auth, email, password)
-  const loginWithGoogle = () => signInWithPopup(auth, googleProvider)
+  const loginWithGoogle = () => signInWithRedirect(auth, googleProvider)
   const register = (email, password) => createUserWithEmailAndPassword(auth, email, password)
   const logout = () => signOut(auth)
 
