@@ -16,5 +16,14 @@
     "category": "Customer Research",
     "icon": "🔥",
     "file": "reports/smb-group-insurance-cx-pain-points.md"
+  },
+  {
+    "id": "smb-solutions-framework",
+    "title": "SMB Group Insurance: Solutions & Innovation Framework",
+    "description": "11 solution concepts for the SMB market — traditional approaches and creative/innovative ideas. Includes recommended deep dives.",
+    "date": "2026-03-05",
+    "category": "Strategy",
+    "icon": "💡",
+    "file": "reports/smb-group-insurance-solutions.md"
   }
 ]

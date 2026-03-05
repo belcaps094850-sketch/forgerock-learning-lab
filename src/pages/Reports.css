@@ -91,6 +91,7 @@
 /* Report viewer */
 .report-viewer {
   max-width: 900px;
+  overflow-x: hidden;
 }
 
 .report-back {
@@ -142,8 +143,9 @@
   font-size: 0.95rem;
   line-height: 1.7;
   color: #222;
-  max-height: 75vh;
-  overflow-y: auto;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .report-content .rc-h1 {
@@ -364,15 +366,20 @@
   /* Tables: scroll horizontally on mobile */
   .rc-table-wrap {
     margin: 0.75rem -1rem;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .rc-table {
     font-size: 0.75rem;
-    min-width: 500px;
+    min-width: 400px;
   }
 
-  .rc-table th,
+  .rc-table th {
+    white-space: normal;
+    padding: 0.4rem 0.5rem;
+  }
+
   .rc-table td {
     padding: 0.4rem 0.5rem;
   }
