@@ -25,5 +25,14 @@
     "category": "Strategy",
     "icon": "💡",
     "file": "reports/smb-group-insurance-solutions.md"
+  },
+  {
+    "id": "smb-std-ltd-claims",
+    "title": "STD/LTD Claims Volume & Trends for SMB Markets",
+    "description": "Disability claims data: 616K STD and 75K LTD claims annually. Incidence rates, costs per claim, industry breakdowns, and what it means for SMBs.",
+    "date": "2026-03-05",
+    "category": "Data Analysis",
+    "icon": "📈",
+    "file": "reports/smb-std-ltd-claims-data.md"
   }
 ]
