@@ -28,6 +28,7 @@ export function AuthProvider({ children }) {
   // Auto-approved admin emails
   const ADMIN_EMAILS = [
     'belcaps094850@gmail.com',
+    'belcapistrano@gmail.com',
   ]
 
   async function checkApproval(u) {
