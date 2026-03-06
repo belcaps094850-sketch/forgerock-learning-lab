@@ -1,5 +1,41 @@
 [
   {
+    "id": "2026-03-06",
+    "date": "2026-03-06",
+    "pocHighlight": {
+      "title": "Interactive Learning Paths Engine",
+      "summary": "A guided learning path system that adapts to progress, serves quizzes, and tracks completion across IAM, SRE, and cloud topics.",
+      "category": "React"
+    },
+    "categories": {
+      "AI": {
+        "topPick": "[D] A mathematical proof from an anonymous Korean forum: The essence of Attention is fundamentally a d^2 problem, not n^2. (PDF included)",
+        "summary": "\nHello, r/MachineLearning . I am just a regular user from a Korean AI community (\"The Singularity Gallery\"). I recently came across an anonymous post with a paper attached. I felt that the mathematica...",
+        "digest": "• [D] A mathematical proof from an anonymous Korean forum: The essence of Attention is fundamentally a d^2 problem, not n^2. (PDF included) (213 pts)\n• ChatGPT Uninstalls Surge 295% After OpenAI’s DoD Deal Sparks Backlash (169 pts)\n• Pentagon Formally Labels Anthropic Supply-Chain Risk, Escalating Conflict (168 pts)"
+      },
+      "SRE": {
+        "topPick": "Amazon cloud suffers outage after ‘objects’ hit UAE data 💀",
+        "summary": "One of Amazon's data centers in the UAE caught fire after being hit by 'objects' amid the Middle East conflict\n\nEC2,RDS,Dynamo DB Disrupted,  Slowness on API calls .\n\nhttps://health.aws.amazon.com/hea...",
+        "digest": "• Amazon cloud suffers outage after ‘objects’ hit UAE data 💀 (282 pts)\n• Ehh, put up a maintenance page and snooze the alert until tomorrow (212 pts)\n• Whatever happened to tech discussion! (152 pts)"
+      },
+      "React": {
+        "topPick": "I built an open-source rich-text editor for React with 20+ plugins, AI, drag &amp; drop, collaboration, exports, and you can even build a website builder with it",
+        "summary": "Hey guys, I've been working on Yoopta Editor for a while - it's a headless, plugin-based rich-text editor for React [https://yoopta.dev/examples](https://yoopta.dev/examples)\n\nWhat's included:\n\n\\- 20+...",
+        "digest": "• I built an open-source rich-text editor for React with 20+ plugins, AI, drag &amp; drop, collaboration, exports, and you can even build a website builder with it (39 pts)\n• What is the state of form libraries in 2026? (27 pts)\n• Is it good practice to refetch data after a CRUD action in React? (23 pts)"
+      },
+      "Security": {
+        "topPick": "Proton Mail Helped FBI Unmask Anonymous ‘Stop Cop City’ Protester",
+        "summary": "843 pts · 93 comments",
+        "digest": "• Proton Mail Helped FBI Unmask Anonymous ‘Stop Cop City’ Protester (843 pts)\n• 'Mysterious' leaked US government tool is breaking into iPhones (588 pts)\n• we at codeant found a bug in pac4j-jwt (auth bypass) (213 pts)"
+      },
+      "MSL": {
+        "topPick": "Our no-show rate was 23% and what moved it",
+        "summary": "Managing IT for a multi-site primary care group (6 locations, \\~18K active patients). No-show rate had been stuck at 22-24% for two years. Leadership kept asking IT to \"fix it.\"\n\nWe tested this and wh...",
+        "digest": "• Our no-show rate was 23% and what moved it (125 pts)\n• Congress Proposes New Cybersecurity Rules and Grants to Protect Hospitals from Cyberattacks (36 pts)\n• Experience integrating with EPIC using their FHIR APIs (26 pts)"
+      }
+    }
+  },
+  {
     "id": "2026-03-05",
     "date": "2026-03-05",
     "pocHighlight": {

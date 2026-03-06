@@ -1,5 +1,46 @@
 [
   {
+    "date": "March 6, 2026",
+    "topics": [
+      {
+        "title": "What skills helped you become job-ready as a React developer?",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rm5i10/what_skills_helped_you_become_jobready_as_a_react/",
+        "meta": "r/reactjs · 16 pts",
+        "summary": "Hi everyone,\n\n\n\nI’m a React and JavaScript developer building projects to improve my practical experience.\n\n\n\nI have been working on small projects and now moving towards building larger full stack ap..."
+      },
+      {
+        "title": "Best way to translate a website?",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rma7vz/best_way_to_translate_a_website/",
+        "meta": "r/reactjs · 2 pts · Discussion",
+        "summary": "Hello there I'm doing a web project and I want to implement a translation process (French and English only) and I don't know if I should do it on my backend and just call the right variable or do it o..."
+      },
+      {
+        "title": "What are your main takeaways from this year's State of React survey? Did anything surprise you?",
+        "url": "/r/react/comments/1rlelnm/what_are_your_main_takeaways_from_this_years/",
+        "meta": "r/reactjs · 1 pts · Discussion",
+        "summary": ""
+      },
+      {
+        "title": "I built a runtime state auditor for React that detects architectural debt by treating hooks as signals - v0.6.1",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rlvudy/i_built_a_runtime_state_auditor_for_react_that/",
+        "meta": "r/reactjs · 9 pts · Show /r/reactjs",
+        "summary": "Hey, wanted to share an updated overview of a project I've been building for a few months.\n\n**What it does**\n\nIt runs at dev time only. Instead of reading your code, it watches *when* hooks update and..."
+      },
+      {
+        "title": "How I Started Contributing to Open Mercato (My Practical Approach)",
+        "url": "https://dev.to/kozerkarol/how-i-started-contributing-to-open-mercato-my-practical-approach-4meb",
+        "meta": "r/reactjs · 0 pts · Resource",
+        "summary": ""
+      },
+      {
+        "title": "Vite/React PWA caching",
+        "url": "https://www.reddit.com/r/reactjs/comments/1rlqjlc/vitereact_pwa_caching/",
+        "meta": "r/reactjs · 7 pts · Resource",
+        "summary": "I’ve built a functional (yet unpolished) app in react, using react router and Vite for build/bundling.  I’ve decided to refactor it to make it a PWA.  I created a manifest and a service worker which p..."
+      }
+    ]
+  },
+  {
     "date": "March 5, 2026",
     "topics": [
       {
