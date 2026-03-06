@@ -5,7 +5,7 @@
     "description": "Market analysis of U.S. SMB group insurance (~$110B), key players, Prudential Financial's competitive standing, and strategic implications.",
     "date": "2026-03-04",
     "category": "Market Research",
-    "icon": "📊",
+    "icon": "\ud83d\udcca",
     "file": "reports/smb-group-insurance-research.md"
   },
   {
@@ -14,16 +14,16 @@
     "description": "Real customer complaints from Reddit and social media about group insurance carriers. What SMBs actually want and where every carrier is failing.",
     "date": "2026-03-05",
     "category": "Customer Research",
-    "icon": "🔥",
+    "icon": "\ud83d\udd25",
     "file": "reports/smb-group-insurance-cx-pain-points.md"
   },
   {
     "id": "smb-solutions-framework",
     "title": "SMB Group Insurance: Solutions & Innovation Framework",
-    "description": "11 solution concepts for the SMB market — traditional approaches and creative/innovative ideas. Includes recommended deep dives.",
+    "description": "11 solution concepts for the SMB market \u2014 traditional approaches and creative/innovative ideas. Includes recommended deep dives.",
     "date": "2026-03-05",
     "category": "Strategy",
-    "icon": "💡",
+    "icon": "\ud83d\udca1",
     "file": "reports/smb-group-insurance-solutions.md"
   },
   {
@@ -32,52 +32,70 @@
     "description": "Disability claims data: 616K STD and 75K LTD claims annually. Incidence rates, costs per claim, industry breakdowns, and what it means for SMBs.",
     "date": "2026-03-05",
     "category": "Data Analysis",
-    "icon": "📈",
+    "icon": "\ud83d\udcc8",
     "file": "reports/smb-std-ltd-claims-data.md"
   },
   {
     "id": "deep-dive-comparison-portal",
     "title": "Deep Dive: SMB Benefits Comparison Portal",
-    "description": "Full business case — Kayak for group insurance. $320B TAM, 12.4x LTV:CAC, 16-week MVP for $325K. Recommendation: GO.",
+    "description": "Full business case \u2014 Kayak for group insurance. $320B TAM, 12.4x LTV:CAC, 16-week MVP for $325K. Recommendation: GO.",
     "date": "2026-03-05",
     "category": "Business Case",
-    "icon": "🔍",
+    "icon": "\ud83d\udd0d",
     "file": "reports/deep-dive-benefits-comparison-portal.md"
   },
   {
     "id": "deep-dive-claims-concierge",
     "title": "Deep Dive: Claims Concierge Service",
-    "description": "Full business case — third-party claims advocacy. $4.5B TAM, tech+human hybrid model, break-even mid-Year 3. Recommendation: GO.",
+    "description": "Full business case \u2014 third-party claims advocacy. $4.5B TAM, tech+human hybrid model, break-even mid-Year 3. Recommendation: GO.",
     "date": "2026-03-05",
     "category": "Business Case",
-    "icon": "🤝",
+    "icon": "\ud83e\udd1d",
     "file": "reports/deep-dive-claims-concierge.md"
   },
   {
     "id": "deep-dive-benefits-copilot",
     "title": "Deep Dive: Benefits Copilot (AI Advisor)",
-    "description": "Full business case — AI-powered benefits consultant for SMBs. $18B TAM, $29-49/mo SaaS, 72% gross margin. Recommendation: GO.",
+    "description": "Full business case \u2014 AI-powered benefits consultant for SMBs. $18B TAM, $29-49/mo SaaS, 72% gross margin. Recommendation: GO.",
     "date": "2026-03-05",
     "category": "Business Case",
-    "icon": "🧠",
+    "icon": "\ud83e\udde0",
     "file": "reports/deep-dive-benefits-copilot.md"
   },
   {
     "id": "deep-dive-benefits-in-a-box",
     "title": "Deep Dive: Benefits in a Box (Turnkey Stack)",
-    "description": "Full business case — Shopify for Benefits targeting 2-25 employee companies. 5.4M addressable businesses, $18.2M ARR by Year 3. Recommendation: GO.",
+    "description": "Full business case \u2014 Shopify for Benefits targeting 2-25 employee companies. 5.4M addressable businesses, $18.2M ARR by Year 3. Recommendation: GO.",
     "date": "2026-03-05",
     "category": "Business Case",
-    "icon": "📦",
+    "icon": "\ud83d\udce6",
     "file": "reports/deep-dive-benefits-in-a-box.md"
   },
   {
     "id": "deep-dive-claimtrack",
     "title": "Deep Dive: ClaimTrack (Claims Tracker)",
-    "description": "Full business case — Domino's pizza tracker for insurance claims. 75M annual claims, auto-escalation engine, $22M ARR by Year 3. Recommendation: Conditional GO.",
+    "description": "Full business case \u2014 Domino's pizza tracker for insurance claims. 75M annual claims, auto-escalation engine, $22M ARR by Year 3. Recommendation: Conditional GO.",
     "date": "2026-03-05",
     "category": "Business Case",
-    "icon": "📍",
+    "icon": "\ud83d\udccd",
     "file": "reports/deep-dive-claimtrack.md"
+  },
+  {
+    "id": "ai-testing-lunch-learn",
+    "title": "AI in Software Testing \u2014 Lunch & Learn Guide",
+    "description": "8 use cases with case studies from Google, Meta, Microsoft, IBM, Accenture. Includes tools landscape, metrics, and discussion questions.",
+    "date": "2026-03-06",
+    "category": "Research",
+    "icon": "\ud83e\udd16",
+    "file": "reports/ai-software-testing-lunch-learn.md"
+  },
+  {
+    "id": "ai-testing-claude-playbook",
+    "title": "AI Testing with Claude \u2014 Practical Playbook",
+    "description": "Step-by-step guide: exact prompts for using Claude in all 8 testing use cases. Copy-paste ready.",
+    "date": "2026-03-06",
+    "category": "Playbook",
+    "icon": "\ud83d\udccb",
+    "file": "reports/ai-testing-with-claude-playbook.md"
   }
 ]
