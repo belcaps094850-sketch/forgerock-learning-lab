@@ -1,0 +1,524 @@
+.cp-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.cp-header h1 {
+  font-family: Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.cp-header p {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 0 0 2rem;
+}
+
+/* Option sections */
+.cp-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cp-option {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.cp-option-header {
+  padding: 1.25rem 1.5rem 0;
+}
+
+.cp-option-num {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
+}
+
+.cp-option-header h2 {
+  font-family: Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0.25rem 0 0.25rem;
+}
+
+.cp-option-header p {
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.cp-option-demo {
+  padding: 1.5rem;
+}
+
+.cp-option-result {
+  padding: 0.75rem 1.5rem;
+  background: #f9f9f9;
+  border-top: 1px solid #eee;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* ============ Option 1: Tier Cards ============ */
+.cp-tier-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.cp-tier-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1.25rem 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  font-family: inherit;
+}
+
+.cp-tier-card:hover {
+  border-color: #999;
+}
+
+.cp-tier-card.selected {
+  border-color: #333;
+  background: #fafafa;
+}
+
+.cp-tier-card.popular {
+  border-color: #bbb;
+}
+
+.cp-tier-badge {
+  position: absolute;
+  top: -10px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  background: #333;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cp-tier-icon {
+  font-size: 1.5rem;
+}
+
+.cp-tier-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.cp-tier-amount {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.cp-tier-multi {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.cp-tier-monthly {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.cp-tier-desc {
+  font-size: 0.7rem;
+  color: #999;
+  text-align: center;
+}
+
+.cp-tier-custom {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.cp-custom-link {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: inherit;
+}
+
+.cp-custom-link:hover {
+  color: #333;
+}
+
+.cp-custom-input-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+}
+
+.cp-custom-input-row span {
+  color: #888;
+  font-size: 1rem;
+}
+
+.cp-custom-input-row input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 140px;
+  font-family: inherit;
+}
+
+.cp-custom-cancel {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  font-size: 1rem;
+}
+
+/* ============ Option 2: Stepper ============ */
+.cp-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.cp-step-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  color: #333;
+}
+
+.cp-step-btn:hover:not(:disabled) {
+  border-color: #333;
+  background: #f5f5f5;
+}
+
+.cp-step-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.cp-step-display {
+  text-align: center;
+  min-width: 180px;
+}
+
+.cp-step-amount {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.cp-step-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.25rem;
+}
+
+/* ============ Option 3: Pills ============ */
+.cp-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.cp-pill {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 24px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.cp-pill:hover {
+  border-color: #999;
+}
+
+.cp-pill.selected {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+/* ============ Option 4: Dropdown ============ */
+.cp-dropdown-wrap {
+  max-width: 420px;
+}
+
+.cp-dropdown {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  appearance: auto;
+}
+
+.cp-dropdown:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.cp-dropdown-detail {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: #f9f9f9;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* ============ Option 5: Calculator ============ */
+.cp-calc {
+  max-width: 400px;
+}
+
+.cp-calc-field {
+  margin-bottom: 1rem;
+}
+
+.cp-calc-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  color: #444;
+}
+
+.cp-calc-input {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+}
+
+.cp-calc-input span {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.cp-calc-input input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+  font-family: inherit;
+}
+
+.cp-calc-suffix {
+  white-space: nowrap;
+}
+
+.cp-calc-result {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+.cp-calc-label {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.cp-calc-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.cp-calc-breakdown {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.cp-calc-btn {
+  padding: 0.6rem 1.5rem;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.cp-calc-btn:hover {
+  background: #111;
+}
+
+/* ============ Option 6: Visual Scale ============ */
+.cp-scale {
+  padding: 2rem 1rem 1rem;
+}
+
+.cp-scale-track {
+  position: relative;
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  margin: 0 20px;
+}
+
+.cp-scale-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #333;
+  border-radius: 2px;
+  transition: width 0.2s ease;
+}
+
+.cp-scale-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s;
+  padding: 0;
+}
+
+.cp-scale-dot.filled {
+  border-color: #333;
+}
+
+.cp-scale-dot.active {
+  border-color: #333;
+  background: #333;
+  width: 24px;
+  height: 24px;
+  box-shadow: 0 0 0 4px rgba(51, 51, 51, 0.15);
+}
+
+.cp-scale-label {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: #888;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.cp-scale-dot.active .cp-scale-label {
+  color: #333;
+  font-weight: 600;
+}
+
+.cp-scale-tip {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  color: #555;
+  padding: 0.5rem 1rem;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
+
+/* ============ Mobile ============ */
+@media (max-width: 640px) {
+  .cp-page {
+    padding: 1rem 0.75rem;
+  }
+
+  .cp-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .cp-tier-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cp-stepper {
+    gap: 0.75rem;
+  }
+
+  .cp-step-amount {
+    font-size: 1.5rem;
+  }
+
+  .cp-step-display {
+    min-width: 120px;
+  }
+
+  .cp-pills {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+
+  .cp-pill {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .cp-calc-amount {
+    font-size: 1.5rem;
+  }
+
+  .cp-scale {
+    padding: 2rem 0.5rem 1rem;
+  }
+
+  .cp-option-demo {
+    padding: 1rem;
+  }
+}

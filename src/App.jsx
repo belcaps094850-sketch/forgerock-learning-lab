@@ -16,6 +16,7 @@ const ForgeRockDemo = React.lazy(() => import('./pages/ForgeRockDemo'))
 const Login = React.lazy(() => import('./pages/Login'))
 const Reports = React.lazy(() => import('./pages/Reports'))
 const K8sLearningPath = React.lazy(() => import('./pages/K8sLearningPath'))
+const CoveragePicker = React.lazy(() => import('./pages/CoveragePicker'))
 const NotFound = React.lazy(() => import('./pages/NotFound'))
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
             <Route path="/iam-demo" element={<ForgeRockDemo />} />
             <Route path="/login" element={<Login />} />
             <Route path="/k8s" element={<K8sLearningPath />} />
+            <Route path="/coverage-picker" element={<CoveragePicker />} />
             <Route path="/reports" element={
               <ProtectedRoute>
                 <Reports />
