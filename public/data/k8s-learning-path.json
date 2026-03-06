@@ -1,0 +1,315 @@
+{
+  "title": "Kubernetes + Open Liberty Learning Path",
+  "description": "From zero to production-ready. A structured path to learn containers, Kubernetes, and Open Liberty deployment.",
+  "lastUpdated": "2026-03-05",
+  "phases": [
+    {
+      "id": "phase-1",
+      "title": "Phase 1: Containers & Docker",
+      "duration": "Week 1–2",
+      "icon": "🐳",
+      "description": "Understand containerization before jumping into orchestration. Docker is the foundation everything else builds on.",
+      "topics": [
+        {
+          "id": "t1-1",
+          "title": "Docker Fundamentals",
+          "type": "learn",
+          "description": "Images, containers, layers, registries. How a Dockerfile works.",
+          "resources": [
+            { "title": "Docker Getting Started (official)", "url": "https://docs.docker.com/get-started/", "type": "docs" },
+            { "title": "Docker in 100 Seconds — Fireship", "url": "https://www.youtube.com/watch?v=Gjnup-PuquQ", "type": "video" }
+          ]
+        },
+        {
+          "id": "t1-2",
+          "title": "Write Your First Dockerfile",
+          "type": "exercise",
+          "description": "Create a Dockerfile for a simple Java/Liberty app. Build it, run it, see it work.",
+          "steps": [
+            "Install Docker Desktop",
+            "Create a basic Dockerfile using `FROM icr.io/appcafe/open-liberty:kernel-slim-java17-openj9-ubi`",
+            "Copy a simple `server.xml` and WAR file",
+            "Run `docker build -t my-liberty-app .`",
+            "Run `docker run -p 9080:9080 my-liberty-app`",
+            "Open http://localhost:9080 — you're running Liberty in a container"
+          ]
+        },
+        {
+          "id": "t1-3",
+          "title": "Container Networking & Volumes",
+          "type": "learn",
+          "description": "How containers talk to each other. How data persists (or doesn't).",
+          "resources": [
+            { "title": "Docker Networking Overview", "url": "https://docs.docker.com/network/", "type": "docs" },
+            { "title": "Docker Volumes Explained", "url": "https://docs.docker.com/storage/volumes/", "type": "docs" }
+          ]
+        },
+        {
+          "id": "t1-4",
+          "title": "Push to a Registry",
+          "type": "exercise",
+          "description": "Tag your image and push it to Docker Hub or GitHub Container Registry.",
+          "steps": [
+            "Create a free Docker Hub account (or use GitHub Container Registry)",
+            "Tag your image: `docker tag my-liberty-app yourusername/my-liberty-app:v1`",
+            "Push it: `docker push yourusername/my-liberty-app:v1`",
+            "Pull it on another machine or delete local and re-pull to verify"
+          ]
+        },
+        {
+          "id": "t1-5",
+          "title": "Multi-stage Builds",
+          "type": "learn",
+          "description": "Build your app AND package it in one Dockerfile. Keeps images small and secure.",
+          "resources": [
+            { "title": "Multi-stage builds (Docker docs)", "url": "https://docs.docker.com/build/building/multi-stage/", "type": "docs" }
+          ]
+        }
+      ],
+      "checkpoint": "You can containerize a Liberty app, run it locally, and push to a registry."
+    },
+    {
+      "id": "phase-2",
+      "title": "Phase 2: Kubernetes Fundamentals",
+      "duration": "Week 3–4",
+      "icon": "☸️",
+      "description": "Learn Kubernetes core concepts. This is where the VS Code Kubernetes extension becomes your best friend.",
+      "topics": [
+        {
+          "id": "t2-1",
+          "title": "Set Up a Local Cluster",
+          "type": "exercise",
+          "description": "Get a K8s cluster running on your machine.",
+          "steps": [
+            "Option A: Enable Kubernetes in Docker Desktop (Settings → Kubernetes → Enable)",
+            "Option B: Install Minikube (`brew install minikube` on Mac)",
+            "Install kubectl: `brew install kubectl`",
+            "Verify: `kubectl cluster-info` and `kubectl get nodes`",
+            "Install the VS Code Kubernetes extension — see your cluster in the sidebar"
+          ]
+        },
+        {
+          "id": "t2-2",
+          "title": "Pods, Deployments, Services",
+          "type": "learn",
+          "description": "The three objects you'll use 90% of the time. Pod = container(s). Deployment = manages pods. Service = exposes pods.",
+          "resources": [
+            { "title": "Kubernetes Basics Tutorial (official)", "url": "https://kubernetes.io/docs/tutorials/kubernetes-basics/", "type": "docs" },
+            { "title": "Kubernetes in 100 Seconds — Fireship", "url": "https://www.youtube.com/watch?v=PziYflu8cB8", "type": "video" },
+            { "title": "KillerCoda Interactive Labs", "url": "https://killercoda.com/playgrounds/scenario/kubernetes", "type": "lab" }
+          ]
+        },
+        {
+          "id": "t2-3",
+          "title": "Deploy Your First App",
+          "type": "exercise",
+          "description": "Write YAML manifests and deploy your Liberty app to K8s.",
+          "steps": [
+            "Create `deployment.yaml` — define a Deployment with 2 replicas of your Liberty image",
+            "Create `service.yaml` — expose it with a NodePort or LoadBalancer",
+            "Apply: `kubectl apply -f deployment.yaml -f service.yaml`",
+            "Watch pods come up: `kubectl get pods -w` (or use VS Code extension)",
+            "Access your app via the Service URL",
+            "Scale it: `kubectl scale deployment liberty-app --replicas=3`",
+            "Watch the new pod spin up in VS Code's K8s tree"
+          ]
+        },
+        {
+          "id": "t2-4",
+          "title": "Essential kubectl Commands",
+          "type": "learn",
+          "description": "The commands you'll use every day.",
+          "resources": [
+            { "title": "kubectl Cheat Sheet (official)", "url": "https://kubernetes.io/docs/reference/kubectl/cheatsheet/", "type": "docs" }
+          ]
+        },
+        {
+          "id": "t2-5",
+          "title": "Debugging a Failing Pod",
+          "type": "exercise",
+          "description": "Intentionally break something, then fix it using K8s tools.",
+          "steps": [
+            "Deploy with a wrong image name — watch it go `ImagePullBackOff`",
+            "Run `kubectl describe pod <name>` — read the Events section",
+            "Fix the image, re-apply, watch it recover",
+            "Check logs: `kubectl logs <pod-name>` or use VS Code log viewer",
+            "Exec into a running pod: `kubectl exec -it <pod-name> -- /bin/bash`"
+          ]
+        },
+        {
+          "id": "t2-6",
+          "title": "Namespaces & Context Switching",
+          "type": "learn",
+          "description": "Organize resources into namespaces. Switch between clusters/namespaces.",
+          "resources": [
+            { "title": "Namespaces Walkthrough (official)", "url": "https://kubernetes.io/docs/tasks/administer-cluster/namespaces-walkthrough/", "type": "docs" }
+          ]
+        }
+      ],
+      "checkpoint": "You can deploy, scale, debug, and manage apps on a local K8s cluster."
+    },
+    {
+      "id": "phase-3",
+      "title": "Phase 3: Open Liberty on Kubernetes",
+      "duration": "Week 5–6",
+      "icon": "🏗️",
+      "description": "Apply K8s concepts specifically to Open Liberty. This is where it gets practical for your team's work.",
+      "topics": [
+        {
+          "id": "t3-1",
+          "title": "Liberty Container Best Practices",
+          "type": "learn",
+          "description": "Official guidance on running Liberty in containers — image selection, features, configuration.",
+          "resources": [
+            { "title": "Open Liberty Container Guide", "url": "https://openliberty.io/guides/containerize.html", "type": "docs" },
+            { "title": "Open Liberty Docker Images", "url": "https://github.com/OpenLiberty/ci.docker", "type": "docs" },
+            { "title": "Deploying to Kubernetes (Open Liberty guide)", "url": "https://openliberty.io/guides/kubernetes-intro.html", "type": "docs" }
+          ]
+        },
+        {
+          "id": "t3-2",
+          "title": "Health Checks & Probes",
+          "type": "exercise",
+          "description": "Wire up Liberty's MicroProfile Health endpoints to K8s readiness/liveness probes.",
+          "steps": [
+            "Add `mpHealth-4.0` feature to server.xml",
+            "Create a custom health check class implementing `HealthCheck`",
+            "Add readiness probe to deployment YAML: `httpGet /health/ready port 9080`",
+            "Add liveness probe: `httpGet /health/live port 9080`",
+            "Deploy and verify: `kubectl describe pod` shows probe status",
+            "Kill the DB connection — watch K8s restart the pod automatically"
+          ]
+        },
+        {
+          "id": "t3-3",
+          "title": "Externalize Configuration",
+          "type": "exercise",
+          "description": "Use ConfigMaps and Secrets to manage server.xml and credentials without rebuilding images.",
+          "steps": [
+            "Create a ConfigMap from your server.xml: `kubectl create configmap liberty-config --from-file=server.xml`",
+            "Mount it as a volume in your Deployment",
+            "Create a Secret for DB password: `kubectl create secret generic db-creds --from-literal=password=mypass`",
+            "Reference the Secret as an env var in your container spec",
+            "Use MicroProfile Config to read env vars in your Java code",
+            "Change the ConfigMap → restart pods → see config change without rebuilding"
+          ]
+        },
+        {
+          "id": "t3-4",
+          "title": "Open Liberty Operator",
+          "type": "learn",
+          "description": "The operator automates Liberty deployments — handles routing, TLS, scaling, and day-2 operations.",
+          "resources": [
+            { "title": "Open Liberty Operator Guide", "url": "https://github.com/OpenLiberty/open-liberty-operator", "type": "docs" },
+            { "title": "Deploying with the Operator (guide)", "url": "https://openliberty.io/guides/cloud-openshift-operator.html", "type": "docs" }
+          ]
+        },
+        {
+          "id": "t3-5",
+          "title": "Rolling Updates & Zero-Downtime Deploys",
+          "type": "exercise",
+          "description": "Update your app version without dropping requests.",
+          "steps": [
+            "Build v2 of your Liberty app with a visible change",
+            "Push to registry with new tag",
+            "Update Deployment image tag",
+            "Watch the rolling update: old pods terminate as new ones become ready",
+            "Verify with `kubectl rollout status deployment/liberty-app`",
+            "Rollback if needed: `kubectl rollout undo deployment/liberty-app`"
+          ]
+        }
+      ],
+      "checkpoint": "You can deploy Liberty with proper health checks, externalized config, and zero-downtime updates."
+    },
+    {
+      "id": "phase-4",
+      "title": "Phase 4: Production Patterns",
+      "duration": "Week 7–8",
+      "icon": "🚀",
+      "description": "The patterns that separate a demo from a production deployment. Resource management, autoscaling, observability.",
+      "topics": [
+        {
+          "id": "t4-1",
+          "title": "Resource Limits & Requests",
+          "type": "learn",
+          "description": "Tell K8s how much CPU and memory your Liberty app needs. Prevents noisy neighbors and OOM kills.",
+          "resources": [
+            { "title": "Managing Resources (official)", "url": "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/", "type": "docs" }
+          ]
+        },
+        {
+          "id": "t4-2",
+          "title": "Horizontal Pod Autoscaler",
+          "type": "exercise",
+          "description": "Auto-scale your Liberty deployment based on CPU usage.",
+          "steps": [
+            "Install metrics-server (if using Minikube: `minikube addons enable metrics-server`)",
+            "Set resource requests in your Deployment (e.g., `cpu: 200m`)",
+            "Create HPA: `kubectl autoscale deployment liberty-app --cpu-percent=50 --min=2 --max=10`",
+            "Generate load (use `hey` or `ab` tool)",
+            "Watch pods scale up: `kubectl get hpa -w`",
+            "Stop load — watch it scale back down"
+          ]
+        },
+        {
+          "id": "t4-3",
+          "title": "Ingress & TLS",
+          "type": "learn",
+          "description": "Route external traffic to your services with proper HTTPS.",
+          "resources": [
+            { "title": "Ingress (official)", "url": "https://kubernetes.io/docs/concepts/services-networking/ingress/", "type": "docs" },
+            { "title": "NGINX Ingress Controller", "url": "https://kubernetes.github.io/ingress-nginx/", "type": "docs" }
+          ]
+        },
+        {
+          "id": "t4-4",
+          "title": "Helm Charts",
+          "type": "exercise",
+          "description": "Package your entire Liberty deployment as a reusable Helm chart.",
+          "steps": [
+            "Install Helm: `brew install helm`",
+            "Create a chart: `helm create liberty-app`",
+            "Customize templates for your Liberty deployment, service, configmap",
+            "Add values.yaml for environment-specific config (dev/staging/prod)",
+            "Install: `helm install my-app ./liberty-app`",
+            "Upgrade: `helm upgrade my-app ./liberty-app --set image.tag=v2`"
+          ]
+        },
+        {
+          "id": "t4-5",
+          "title": "Observability: Logs, Metrics, Traces",
+          "type": "learn",
+          "description": "Monitor your Liberty apps in K8s — MicroProfile Metrics, JSON logging, distributed tracing.",
+          "resources": [
+            { "title": "MicroProfile Metrics Guide", "url": "https://openliberty.io/guides/microprofile-metrics.html", "type": "docs" },
+            { "title": "Liberty JSON Logging", "url": "https://openliberty.io/docs/latest/log-trace-configuration.html", "type": "docs" }
+          ]
+        },
+        {
+          "id": "t4-6",
+          "title": "CI/CD Pipeline",
+          "type": "learn",
+          "description": "Automate build → test → deploy with GitHub Actions or Jenkins.",
+          "resources": [
+            { "title": "GitHub Actions + K8s Tutorial", "url": "https://docs.github.com/en/actions/use-cases-and-examples/deploying/deploying-to-kubernetes", "type": "docs" }
+          ]
+        }
+      ],
+      "checkpoint": "You can run Liberty in production with autoscaling, monitoring, TLS, and automated deployments."
+    }
+  ],
+  "tools": [
+    { "name": "Docker Desktop", "url": "https://www.docker.com/products/docker-desktop/", "description": "Container runtime + optional K8s cluster" },
+    { "name": "kubectl", "url": "https://kubernetes.io/docs/tasks/tools/", "description": "K8s command-line tool" },
+    { "name": "VS Code Kubernetes Extension", "url": "https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools", "description": "Cluster browser, logs, exec, YAML intellisense" },
+    { "name": "VS Code Liberty Tools", "url": "https://marketplace.visualstudio.com/items?itemName=Open-Liberty.liberty-dev-vscode-ext", "description": "Dev mode, hot reload, run/debug Liberty" },
+    { "name": "Helm", "url": "https://helm.sh/", "description": "K8s package manager" },
+    { "name": "Minikube", "url": "https://minikube.sigs.k8s.io/", "description": "Local K8s cluster (alternative to Docker Desktop)" },
+    { "name": "KillerCoda", "url": "https://killercoda.com/", "description": "Free browser-based K8s labs — no local setup needed" }
+  ],
+  "books": [
+    { "title": "Kubernetes in Action", "author": "Marko Lukša", "description": "The best comprehensive K8s book. Covers everything from pods to operators." },
+    { "title": "The Kubernetes Book", "author": "Nigel Poulton", "description": "Shorter, more accessible intro. Great for getting started fast." },
+    { "title": "Cloud Native Java", "author": "Josh Long & Kenny Bastani", "description": "Java-specific cloud-native patterns including K8s deployment." }
+  ]
+}

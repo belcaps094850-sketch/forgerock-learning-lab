@@ -40,10 +40,10 @@ export default function Home() {
             <div className="mosaic-title">Auth Flows</div>
             <div className="mosaic-desc">Registration &amp; recovery patterns</div>
           </Link>
-          <Link to="/daily-brief" className="mosaic-card">
-            <span className="mosaic-icon">📊</span>
-            <div className="mosaic-title">Daily Brief</div>
-            <div className="mosaic-desc">Morning intelligence feed</div>
+          <Link to="/k8s" className="mosaic-card">
+            <span className="mosaic-icon">☸️</span>
+            <div className="mosaic-title">K8s + Liberty</div>
+            <div className="mosaic-desc">Kubernetes learning path</div>
           </Link>
         </div>
       </div>

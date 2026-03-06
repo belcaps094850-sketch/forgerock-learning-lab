@@ -15,6 +15,7 @@ const AuthFlows = React.lazy(() => import('./pages/AuthFlows'))
 const ForgeRockDemo = React.lazy(() => import('./pages/ForgeRockDemo'))
 const Login = React.lazy(() => import('./pages/Login'))
 const Reports = React.lazy(() => import('./pages/Reports'))
+const K8sLearningPath = React.lazy(() => import('./pages/K8sLearningPath'))
 const NotFound = React.lazy(() => import('./pages/NotFound'))
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
             <Route path="/auth-flows" element={<AuthFlows />} />
             <Route path="/iam-demo" element={<ForgeRockDemo />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/k8s" element={<K8sLearningPath />} />
             <Route path="/reports" element={
               <ProtectedRoute>
                 <Reports />
