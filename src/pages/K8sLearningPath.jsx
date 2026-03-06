@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 import usePageMeta from '../hooks/usePageMeta'
+import useProgress from '../hooks/useProgress'
 import './K8sLearningPath.css'
 
 export default function K8sLearningPath() {
   usePageMeta('Kubernetes + Open Liberty Learning Path', 'Structured path from containers to production K8s with Open Liberty')
   const [data, setData] = useState(null)
-  const [completed, setCompleted] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('k8s-progress') || '{}') } catch { return {} }
-  })
+  const { completed, toggle: toggleTopic, loading: progressLoading } = useProgress('k8s')
   const [expandedPhase, setExpandedPhase] = useState(null)
 
   useEffect(() => {
@@ -17,15 +16,7 @@ export default function K8sLearningPath() {
       .catch(() => {})
   }, [])
 
-  useEffect(() => {
-    localStorage.setItem('k8s-progress', JSON.stringify(completed))
-  }, [completed])
-
-  if (!data) return <div className="k8s-loading">Loading learning path...</div>
-
-  const toggleTopic = (id) => {
-    setCompleted(prev => ({ ...prev, [id]: !prev[id] }))
-  }
+  if (!data || progressLoading) return <div className="k8s-loading">Loading learning path...</div>
 
   const totalTopics = data.phases.reduce((sum, p) => sum + p.topics.length, 0)
   const completedCount = Object.values(completed).filter(Boolean).length
