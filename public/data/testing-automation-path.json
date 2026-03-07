@@ -1,0 +1,461 @@
+{
+  "title": "Test Automation with AI (Claude) Learning Path",
+  "description": "From manual testing to AI-powered automation. Learn Playwright, API testing, CI/CD, and how to use Claude as your testing co-pilot at every step.",
+  "lastUpdated": "2026-03-06",
+  "phases": [
+    {
+      "id": "phase-1",
+      "title": "Phase 1: Testing Foundations",
+      "duration": "Week 1–2",
+      "icon": "🧱",
+      "description": "Understand the testing pyramid, types of tests, and why automation matters. This is the foundation everything else builds on.",
+      "topics": [
+        {
+          "id": "ta1-1",
+          "title": "The Testing Pyramid",
+          "type": "learn",
+          "description": "Unit tests (fast, many) → Integration tests (medium) → E2E tests (slow, few). Why this shape matters for speed and reliability.",
+          "resources": [
+            { "title": "Testing Pyramid (Martin Fowler)", "url": "https://martinfowler.com/articles/practical-test-pyramid.html", "type": "docs" },
+            { "title": "Testing Pyramid in 100 Seconds", "url": "https://www.youtube.com/watch?v=UWdlmG7O0dQ", "type": "video" }
+          ]
+        },
+        {
+          "id": "ta1-2",
+          "title": "Types of Testing",
+          "type": "learn",
+          "description": "Unit, integration, E2E, API, visual regression, performance, security, accessibility. Know when to use each.",
+          "resources": [
+            { "title": "Types of Software Testing (ISTQB)", "url": "https://www.istqb.org/", "type": "docs" }
+          ]
+        },
+        {
+          "id": "ta1-3",
+          "title": "Write Your First Manual Test Cases",
+          "type": "exercise",
+          "description": "Before automating, learn to think like a tester. Write test cases for a login form.",
+          "claudePrompt": "Write comprehensive test cases for a login form that has email and password fields, a 'Remember Me' checkbox, a 'Forgot Password' link, and a 'Sign In' button. Include happy path, negative tests, edge cases, security tests, and accessibility tests. Format as a table with: ID, Scenario, Steps, Expected Result, Priority (P0/P1/P2).",
+          "steps": [
+            "Pick a feature you use daily (login, search, checkout)",
+            "Write 10 test cases covering happy path and edge cases",
+            "Ask Claude to review your test cases and suggest ones you missed",
+            "Compare your list vs Claude's — what did you miss? What patterns emerge?"
+          ]
+        },
+        {
+          "id": "ta1-4",
+          "title": "Test Case Design Techniques",
+          "type": "learn",
+          "description": "Equivalence partitioning, boundary value analysis, decision tables, state transition. The science behind good test cases.",
+          "claudePrompt": "Explain these test case design techniques with examples for an insurance claims form (claim type: STD/LTD, amount: $0-$50,000, date: within 90 days): 1) Equivalence Partitioning, 2) Boundary Value Analysis, 3) Decision Table Testing, 4) State Transition Testing. Show me the actual test cases each technique would generate.",
+          "resources": [
+            { "title": "Test Design Techniques (Guru99)", "url": "https://www.guru99.com/software-testing-techniques.html", "type": "docs" }
+          ]
+        },
+        {
+          "id": "ta1-5",
+          "title": "Understanding Test Coverage",
+          "type": "learn",
+          "description": "Line coverage, branch coverage, path coverage. What the numbers mean and what 'good enough' looks like.",
+          "claudePrompt": "Explain the difference between line coverage, branch coverage, and path coverage with a code example. If I have 80% line coverage but only 50% branch coverage, what does that mean? What's a realistic coverage target for: (a) critical business logic, (b) UI components, (c) utility functions?",
+          "resources": [
+            { "title": "Code Coverage Best Practices", "url": "https://testing.googleblog.com/2020/08/code-coverage-best-practices.html", "type": "docs" }
+          ]
+        }
+      ],
+      "checkpoint": "You can write comprehensive test cases, understand the testing pyramid, and know which test types apply to different scenarios."
+    },
+    {
+      "id": "phase-2",
+      "title": "Phase 2: JavaScript Testing with Jest",
+      "duration": "Week 3–4",
+      "icon": "⚡",
+      "description": "Start automating with unit tests. Jest is the most popular JS testing framework and the foundation for everything that follows.",
+      "topics": [
+        {
+          "id": "ta2-1",
+          "title": "Jest Setup & First Test",
+          "type": "exercise",
+          "description": "Install Jest, write your first test, run it, see green.",
+          "steps": [
+            "Create a new project: npm init -y && npm install --save-dev jest",
+            "Create sum.js: module.exports = (a, b) => a + b",
+            "Create sum.test.js: test('adds 1 + 2', () => expect(sum(1, 2)).toBe(3))",
+            "Run: npx jest",
+            "See the green checkmark — you're a tester now"
+          ],
+          "resources": [
+            { "title": "Jest Getting Started (official)", "url": "https://jestjs.io/docs/getting-started", "type": "docs" }
+          ]
+        },
+        {
+          "id": "ta2-2",
+          "title": "Jest Matchers & Assertions",
+          "type": "learn",
+          "description": "toBe, toEqual, toContain, toThrow, toMatch, toHaveProperty — the vocabulary of testing.",
+          "claudePrompt": "Show me every commonly used Jest matcher with a practical example for each. Group them by: equality, truthiness, numbers, strings, arrays/objects, exceptions, and async. Use a claims processing system as the example domain.",
+          "resources": [
+            { "title": "Jest Expect API", "url": "https://jestjs.io/docs/expect", "type": "docs" }
+          ]
+        },
+        {
+          "id": "ta2-3",
+          "title": "AI-Generated Unit Tests",
+          "type": "exercise",
+          "description": "Use Claude to generate tests from your code, then learn from what it produces.",
+          "claudePrompt": "Write comprehensive unit tests for this function using Jest:\n\n[PASTE YOUR FUNCTION HERE]\n\nRequirements:\n- Cover all branches and conditions\n- Include happy path, edge cases, boundary values, and error scenarios\n- Use descriptive test names that read like specifications\n- Group tests logically with describe blocks\n- Aim for >90% branch coverage",
+          "steps": [
+            "Write a utility function (validation, calculation, transformation)",
+            "Try writing tests yourself first — aim for 5-8 test cases",
+            "Ask Claude to generate tests for the same function",
+            "Compare: what did Claude catch that you missed?",
+            "Learn the patterns Claude uses — describe blocks, edge cases, naming conventions"
+          ]
+        },
+        {
+          "id": "ta2-4",
+          "title": "Mocking & Test Doubles",
+          "type": "learn",
+          "description": "Mocks, spies, stubs — how to isolate the code you're testing from its dependencies (APIs, databases, timers).",
+          "claudePrompt": "Explain Jest mocking with practical examples:\n1. jest.fn() — mock a callback function\n2. jest.mock() — mock an entire module (e.g., an API client)\n3. jest.spyOn() — spy on a method without changing its behavior\n4. Timer mocks — jest.useFakeTimers()\n5. Manual mocks — __mocks__ directory\n\nUse a claims service that calls an external API as the example.",
+          "resources": [
+            { "title": "Jest Mock Functions", "url": "https://jestjs.io/docs/mock-functions", "type": "docs" }
+          ]
+        },
+        {
+          "id": "ta2-5",
+          "title": "Testing React Components",
+          "type": "exercise",
+          "description": "Test your UI components with React Testing Library — test behavior, not implementation.",
+          "claudePrompt": "Write tests for a React LoginForm component using React Testing Library. The component has: email input, password input, submit button, error message display, and calls an onSubmit prop. Test: rendering, user typing, form submission, validation errors, loading state, and accessibility.",
+          "steps": [
+            "Install: npm install --save-dev @testing-library/react @testing-library/jest-dom",
+            "Write a test that renders your component and checks it appears",
+            "Write a test that simulates user interaction (type, click)",
+            "Write a test that checks error states",
+            "Ask Claude to review and suggest missing test scenarios"
+          ],
+          "resources": [
+            { "title": "React Testing Library", "url": "https://testing-library.com/docs/react-testing-library/intro/", "type": "docs" }
+          ]
+        },
+        {
+          "id": "ta2-6",
+          "title": "Code Coverage & Quality Gates",
+          "type": "exercise",
+          "description": "Set up Jest coverage reporting and establish minimum coverage thresholds.",
+          "steps": [
+            "Run: npx jest --coverage",
+            "Open coverage/lcov-report/index.html in your browser",
+            "Find the files with lowest branch coverage",
+            "Ask Claude: 'Analyze this coverage report and tell me the riskiest uncovered code paths'",
+            "Add coverage thresholds to jest.config.js: coverageThreshold: { global: { branches: 70, functions: 80 } }"
+          ]
+        }
+      ],
+      "checkpoint": "You can write unit tests with Jest, mock dependencies, test React components, and generate coverage reports."
+    },
+    {
+      "id": "phase-3",
+      "title": "Phase 3: Playwright for UI & API Testing",
+      "duration": "Week 5–7",
+      "icon": "🎭",
+      "description": "The main event. Playwright handles both UI automation and API testing in one framework — the industry standard for modern E2E testing.",
+      "topics": [
+        {
+          "id": "ta3-1",
+          "title": "Playwright Setup & First E2E Test",
+          "type": "exercise",
+          "description": "Install Playwright, write a test that opens a browser and verifies a page.",
+          "steps": [
+            "Run: npm init playwright@latest (choose TypeScript)",
+            "Explore the generated files: playwright.config.ts, tests/example.spec.ts",
+            "Run: npx playwright test — watch it execute",
+            "Run: npx playwright test --ui — see the visual test runner",
+            "Run: npx playwright show-report — see the HTML report",
+            "Modify the example test to visit your own app and verify something"
+          ],
+          "resources": [
+            { "title": "Playwright Getting Started", "url": "https://playwright.dev/docs/intro", "type": "docs" },
+            { "title": "Playwright in 100 Seconds", "url": "https://www.youtube.com/watch?v=wGMECnMt04U", "type": "video" }
+          ]
+        },
+        {
+          "id": "ta3-2",
+          "title": "Selectors & Locators",
+          "type": "learn",
+          "description": "getByRole, getByTestId, getByText, getByLabel — how to find elements reliably. Why data-testid beats CSS selectors.",
+          "claudePrompt": "Show me all Playwright locator strategies ranked by resilience:\n1. getByRole (best)\n2. getByLabel\n3. getByText\n4. getByTestId\n5. CSS selectors (fragile)\n6. XPath (worst)\n\nFor each, show an example and explain when to use it. Then show me how to refactor these fragile selectors into resilient ones:\n- page.click('#btn-submit')\n- page.click('.nav > ul > li:nth-child(3) > a')\n- page.click('//div[@class=\"form\"]/button[1]')",
+          "resources": [
+            { "title": "Playwright Locators", "url": "https://playwright.dev/docs/locators", "type": "docs" }
+          ]
+        },
+        {
+          "id": "ta3-3",
+          "title": "UI Test Automation with Claude",
+          "type": "exercise",
+          "description": "Use Claude to generate Playwright E2E tests from user stories.",
+          "claudePrompt": "Generate a Playwright E2E test for this user story:\n\nAs a user, I want to log in to the application so that I can access my dashboard.\n\nAcceptance criteria:\n- Enter valid email and password → redirected to /dashboard\n- Enter wrong password → see error message 'Invalid credentials'\n- Leave email empty → see validation 'Email is required'\n- Click 'Forgot Password' → navigated to /forgot-password\n\nUse TypeScript, getByRole/getByTestId locators, and follow Playwright best practices. Include setup, assertions, and cleanup.",
+          "steps": [
+            "Write a user story for a feature in your app",
+            "Ask Claude to generate the Playwright test",
+            "Run the test against your actual app",
+            "Fix any selector mismatches (real app vs generated test)",
+            "Add the test to your CI pipeline"
+          ]
+        },
+        {
+          "id": "ta3-4",
+          "title": "API Testing with Playwright",
+          "type": "exercise",
+          "description": "Use Playwright's APIRequestContext for REST API testing — no browser needed, shared auth with UI tests.",
+          "claudePrompt": "Write Playwright API tests for a CRUD REST API with these endpoints:\n- GET /api/claims — list all claims\n- GET /api/claims/:id — get one claim\n- POST /api/claims — create a claim (body: claimType, employeeId, amount)\n- PUT /api/claims/:id — update a claim\n- DELETE /api/claims/:id — delete a claim\n\nInclude: happy paths, error handling (400, 404, 401), data validation, response time checks, and a full CRUD lifecycle test. Use TypeScript and the request fixture.",
+          "steps": [
+            "Create tests/api/ directory for API tests",
+            "Configure baseURL in playwright.config.ts",
+            "Write a GET test that validates response structure",
+            "Write a POST test that creates and verifies a resource",
+            "Write a full CRUD lifecycle (create → read → update → delete → verify)",
+            "Write negative tests (invalid data, missing auth, not found)"
+          ],
+          "resources": [
+            { "title": "Playwright API Testing", "url": "https://playwright.dev/docs/api-testing", "type": "docs" }
+          ]
+        },
+        {
+          "id": "ta3-5",
+          "title": "Mixing API + UI Tests",
+          "type": "exercise",
+          "description": "Playwright's killer feature: create data via API (fast), verify in the browser (user-facing). Or vice versa.",
+          "claudePrompt": "Write a Playwright test that:\n1. Creates a claim via API (POST /api/claims) — this is fast setup\n2. Navigates to the claims list page in the browser\n3. Verifies the new claim appears in the UI\n4. Clicks into the claim detail page\n5. Verifies all fields match what the API returned\n6. Deletes the claim via API (cleanup)\n\nThis demonstrates the API+UI testing pattern.",
+          "steps": [
+            "Write a test that seeds data via API, then verifies it in the UI",
+            "Write a test that does an action in the UI, then verifies via API",
+            "Notice how much faster API setup is vs clicking through the UI",
+            "Refactor your slowest E2E tests to use API for setup/teardown"
+          ]
+        },
+        {
+          "id": "ta3-6",
+          "title": "Authentication & State Management",
+          "type": "learn",
+          "description": "Login once, reuse auth state across tests. Save minutes per test run.",
+          "claudePrompt": "Show me how to set up Playwright's storageState to login once and reuse the session across all tests. Include:\n1. Global setup file that logs in and saves state\n2. playwright.config.ts that uses the saved state\n3. A test that runs already-authenticated\n4. How to handle multiple users (admin vs regular user)",
+          "resources": [
+            { "title": "Playwright Authentication", "url": "https://playwright.dev/docs/auth", "type": "docs" }
+          ]
+        },
+        {
+          "id": "ta3-7",
+          "title": "Page Object Model",
+          "type": "exercise",
+          "description": "Organize your tests with the Page Object pattern — reusable, maintainable, and clean.",
+          "claudePrompt": "Create a Page Object Model for a claims management app with these pages:\n1. LoginPage — email, password, submit, error message\n2. ClaimsListPage — search, filter, claim cards, create button\n3. ClaimDetailPage — status, amount, dates, approve/deny buttons\n\nUse TypeScript, Playwright locators, and include helper methods for common actions. Show me how a test uses these page objects.",
+          "steps": [
+            "Create a pages/ directory",
+            "Extract selectors and actions from your tests into page classes",
+            "Refactor 3 existing tests to use page objects",
+            "Notice how much cleaner the tests read now"
+          ]
+        }
+      ],
+      "checkpoint": "You can write E2E tests, API tests, and mixed API+UI tests with Playwright. You use Page Objects and shared auth."
+    },
+    {
+      "id": "phase-4",
+      "title": "Phase 4: AI-Powered Testing with Claude",
+      "duration": "Week 8–9",
+      "icon": "🧠",
+      "description": "Level up your testing with AI. Use Claude for test generation, self-healing, security testing, data generation, and intelligent triage.",
+      "topics": [
+        {
+          "id": "ta4-1",
+          "title": "AI Test Generation from Code",
+          "type": "exercise",
+          "description": "Paste source code into Claude and get comprehensive test suites back in seconds.",
+          "claudePrompt": "Write comprehensive tests for this code:\n\n[PASTE CODE]\n\nRequirements:\n- Cover all branches, edge cases, and error paths\n- Use Jest for unit tests or Playwright for API/E2E\n- Include boundary values and negative scenarios\n- Name tests as specifications (should_X_when_Y)\n- Mock external dependencies",
+          "steps": [
+            "Pick 3 functions from your codebase with no tests",
+            "Ask Claude to generate tests for each",
+            "Run them — fix any issues",
+            "Compare the coverage before vs after",
+            "Document patterns you learned from Claude's test design"
+          ]
+        },
+        {
+          "id": "ta4-2",
+          "title": "AI Test Generation from Requirements",
+          "type": "exercise",
+          "description": "Give Claude a user story or spec document and get test cases + automation code.",
+          "claudePrompt": "Generate test cases AND Playwright automation for this user story:\n\n[PASTE USER STORY]\n\nProvide:\n1. Test case matrix (ID, scenario, steps, expected, priority)\n2. Happy path Playwright test\n3. Negative test cases\n4. Edge cases\n5. Accessibility tests",
+          "steps": [
+            "Take a user story from your current sprint",
+            "Ask Claude for the test plan before writing any code",
+            "Generate the Playwright tests",
+            "Review: did Claude think of scenarios you wouldn't have?",
+            "Run the tests against your actual feature"
+          ]
+        },
+        {
+          "id": "ta4-3",
+          "title": "Self-Healing Tests with Claude",
+          "type": "exercise",
+          "description": "When UI changes break your tests, use Claude to analyze failures and fix selectors automatically.",
+          "claudePrompt": "My Playwright test is failing after a UI update. Fix the test:\n\n## Failure Log:\n[PASTE ERROR]\n\n## Current Test Code:\n[PASTE TEST]\n\n## Current Page HTML:\n[PASTE HTML]\n\nInstructions:\n1. Identify broken selectors\n2. Find correct new selectors in the HTML\n3. Use resilient selectors (data-testid > role > CSS)\n4. Explain each change\n5. Flag if test LOGIC needs changing, not just selectors",
+          "steps": [
+            "Find a broken test in your suite (or intentionally break one)",
+            "Collect: error log, test code, and current HTML",
+            "Ask Claude to heal it",
+            "Review the fix — did it use resilient selectors?",
+            "Apply the pattern to prevent future breakage"
+          ]
+        },
+        {
+          "id": "ta4-4",
+          "title": "Synthetic Test Data Generation",
+          "type": "exercise",
+          "description": "Use Claude to generate realistic, compliant test data from your database schemas.",
+          "claudePrompt": "Generate test data for our database:\n\n[PASTE SCHEMA]\n\nGenerate 20 records including:\n- 10 happy path records (realistic, varied)\n- 5 boundary value records (min/max of every field)\n- 3 edge cases (null fields, max length strings, special characters)\n- 2 security payloads (SQL injection, XSS)\n\nOutput as [SQL INSERT / JSON / CSV].\nMark each record with its test scenario.",
+          "steps": [
+            "Export your database schema or API model",
+            "Ask Claude for test data targeting specific scenarios",
+            "Import the data into your test database",
+            "Write tests that use this data",
+            "Generate different datasets for different test environments"
+          ]
+        },
+        {
+          "id": "ta4-5",
+          "title": "AI Security Testing",
+          "type": "exercise",
+          "description": "Use Claude to review your code for OWASP Top 10 vulnerabilities and generate security-focused tests.",
+          "claudePrompt": "Perform a security review of this API endpoint. Focus on OWASP Top 10:\n\n[PASTE CODE]\n\nFor each finding:\n1. Vulnerability type\n2. Severity (Critical/High/Medium/Low)\n3. Proof of concept exploit\n4. Exact code fix\n5. Playwright test that verifies the fix",
+          "steps": [
+            "Pick your most exposed endpoint (login, file upload, search)",
+            "Ask Claude for a security review",
+            "Prioritize the findings by severity",
+            "Fix the top 3 issues",
+            "Write Playwright tests that verify the fixes",
+            "Add these security tests to your CI pipeline"
+          ]
+        },
+        {
+          "id": "ta4-6",
+          "title": "AI-Powered Test Triage",
+          "type": "exercise",
+          "description": "When CI fails with many errors, use Claude to cluster failures by root cause and identify flaky tests.",
+          "claudePrompt": "Our CI build failed with these test failures. Triage them:\n\n[PASTE CI OUTPUT]\n\nProvide:\n1. Root cause clusters (group related failures)\n2. Likely flaky tests (timing, race conditions)\n3. Real bugs (actual code defects)\n4. Priority fix order\n5. One-line summary for the team Slack",
+          "steps": [
+            "Save your next CI failure output",
+            "Ask Claude to triage it",
+            "Compare Claude's analysis vs your manual triage — how much time did it save?",
+            "Set up a team workflow: CI fails → paste to Claude → get triage → fix in order"
+          ]
+        }
+      ],
+      "checkpoint": "You can use Claude to generate tests, heal broken selectors, create test data, find security issues, and triage failures."
+    },
+    {
+      "id": "phase-5",
+      "title": "Phase 5: CI/CD & Production Quality",
+      "duration": "Week 10–12",
+      "icon": "🚀",
+      "description": "Put it all together. Automated tests in CI/CD, quality gates, monitoring, and a sustainable testing strategy.",
+      "topics": [
+        {
+          "id": "ta5-1",
+          "title": "GitHub Actions for Test Automation",
+          "type": "exercise",
+          "description": "Run your tests automatically on every push and pull request.",
+          "claudePrompt": "Create a GitHub Actions workflow that:\n1. Runs Jest unit tests\n2. Runs Playwright API tests\n3. Runs Playwright E2E tests (with browser install)\n4. Generates and uploads coverage reports\n5. Fails the PR if coverage drops below 70%\n6. Uploads Playwright trace on failure for debugging\n\nUse caching for node_modules and Playwright browsers.",
+          "steps": [
+            "Create .github/workflows/tests.yml",
+            "Start with just unit tests on push",
+            "Add Playwright API tests",
+            "Add Playwright E2E tests with browser install",
+            "Add coverage thresholds as quality gates",
+            "Test by pushing a PR with a failing test"
+          ],
+          "resources": [
+            { "title": "Playwright CI/CD Guide", "url": "https://playwright.dev/docs/ci-intro", "type": "docs" }
+          ]
+        },
+        {
+          "id": "ta5-2",
+          "title": "Quality Gates & Branch Protection",
+          "type": "exercise",
+          "description": "Enforce quality standards — no PR merges without passing tests and minimum coverage.",
+          "steps": [
+            "Set up branch protection rules on main (require status checks)",
+            "Configure required checks: unit tests, API tests, E2E tests",
+            "Add coverage threshold: fail if coverage drops",
+            "Add lint checks (ESLint, TypeScript strict mode)",
+            "Test it: try merging a PR with failing tests — it should block"
+          ]
+        },
+        {
+          "id": "ta5-3",
+          "title": "Visual Regression Testing",
+          "type": "learn",
+          "description": "Catch UI bugs that functional tests miss by comparing screenshots.",
+          "claudePrompt": "Show me how to set up Playwright visual regression testing:\n1. Take baseline screenshots with toHaveScreenshot()\n2. Compare on subsequent runs\n3. Handle expected visual changes (update baselines)\n4. Configure threshold for acceptable pixel differences\n5. Integrate with CI/CD (store screenshots as artifacts)\n\nInclude handling for: responsive breakpoints, dark mode, and different browsers.",
+          "resources": [
+            { "title": "Playwright Visual Comparisons", "url": "https://playwright.dev/docs/test-snapshots", "type": "docs" }
+          ]
+        },
+        {
+          "id": "ta5-4",
+          "title": "Test Reporting & Dashboards",
+          "type": "exercise",
+          "description": "Generate professional test reports the whole team can read.",
+          "steps": [
+            "Configure Playwright HTML reporter (built-in)",
+            "Run: npx playwright show-report after test execution",
+            "Set up Allure reporting for richer dashboards (optional)",
+            "Add test reports as CI artifacts (download from GitHub Actions)",
+            "Share weekly test health summaries with the team"
+          ]
+        },
+        {
+          "id": "ta5-5",
+          "title": "Performance Testing Basics",
+          "type": "learn",
+          "description": "Monitor API response times in your tests. Catch performance regressions before production.",
+          "claudePrompt": "Show me how to add performance assertions to Playwright tests:\n1. Measure API response times with Date.now()\n2. Assert response time < threshold\n3. Measure page load times with Performance API\n4. Track Core Web Vitals (LCP, FID, CLS) in Playwright\n5. Create a simple performance regression test suite",
+          "resources": [
+            { "title": "k6 for Load Testing", "url": "https://k6.io/docs/", "type": "docs" }
+          ]
+        },
+        {
+          "id": "ta5-6",
+          "title": "Building a Testing Strategy",
+          "type": "exercise",
+          "description": "Put it all together — create a testing strategy document for your team.",
+          "claudePrompt": "Help me create a testing strategy document for our team. Our tech stack is:\n- Frontend: React + TypeScript\n- Backend: Node.js / Open Liberty (Java)\n- Database: PostgreSQL\n- CI/CD: GitHub Actions\n- Testing tools: Jest, Playwright, Claude\n\nInclude:\n1. Testing pyramid breakdown (how many of each type)\n2. What to test at each level\n3. Coverage targets by module type\n4. AI-assisted testing workflow\n5. CI/CD pipeline design\n6. Quality gates\n7. Team responsibilities\n8. When to write tests (TDD vs test-after)",
+          "steps": [
+            "Audit your current test coverage and testing gaps",
+            "Ask Claude to generate a testing strategy template",
+            "Customize it for your team's stack and workflow",
+            "Present it at a team meeting",
+            "Iterate based on feedback and real-world results"
+          ]
+        }
+      ],
+      "checkpoint": "You have automated tests in CI/CD with quality gates, visual regression, performance monitoring, and a documented testing strategy."
+    }
+  ],
+  "tools": [
+    { "name": "Jest", "url": "https://jestjs.io/", "description": "JavaScript testing framework for unit & integration tests" },
+    { "name": "Playwright", "url": "https://playwright.dev/", "description": "E2E testing, API testing, and visual regression in one framework" },
+    { "name": "React Testing Library", "url": "https://testing-library.com/", "description": "Test React components by behavior, not implementation" },
+    { "name": "Claude", "url": "https://claude.ai/", "description": "AI co-pilot for test generation, code review, and triage" },
+    { "name": "GitHub Actions", "url": "https://github.com/features/actions", "description": "CI/CD pipeline for automated test execution" },
+    { "name": "VS Code Playwright Extension", "url": "https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright", "description": "Run, debug, and record Playwright tests in VS Code" },
+    { "name": "Allure Report", "url": "https://allurereport.org/", "description": "Rich test reporting dashboards" }
+  ],
+  "books": [
+    { "title": "The Art of Unit Testing", "author": "Roy Osherove", "description": "The definitive guide to writing maintainable, readable, and trustworthy unit tests." },
+    { "title": "Testing JavaScript Applications", "author": "Lucas da Costa", "description": "From unit tests to E2E, focused on the JavaScript ecosystem." },
+    { "title": "Continuous Testing for DevOps Professionals", "author": "Eran Kinsbruner", "description": "Testing in CI/CD pipelines, shift-left, and AI in testing." }
+  ]
+}

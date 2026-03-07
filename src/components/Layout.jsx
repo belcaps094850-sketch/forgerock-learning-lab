@@ -14,7 +14,7 @@ export default function Layout({ children }) {
 
   const isActive = (path) => location.pathname === path
 
-  const learningPaths = ['/poc-playground', '/iam-demo', '/auth-flows', '/books', '/k8s', '/coverage-picker']
+  const learningPaths = ['/poc-playground', '/iam-demo', '/auth-flows', '/books', '/k8s', '/test-automation', '/coverage-picker']
   const briefsPaths = ['/daily-brief', '/react-radar', '/sre-digest']
   const isLearningActive = learningPaths.some(p => location.pathname.startsWith(p))
   const isBriefsActive = briefsPaths.some(p => location.pathname.startsWith(p))
@@ -58,6 +58,7 @@ export default function Layout({ children }) {
               <Link to="/auth-flows">Auth Flows</Link>
               <Link to="/books">Book Notes</Link>
               <Link to="/k8s">K8s + Liberty ☸️</Link>
+              <Link to="/test-automation">Test Automation 🧪</Link>
               <Link to="/coverage-picker">Coverage Picker 💰</Link>
             </div>
           </li>
@@ -103,6 +104,7 @@ export default function Layout({ children }) {
           <Link to="/auth-flows" className={isActive('/auth-flows') ? 'active' : ''}>Auth Flows</Link>
           <Link to="/books" className={isActive('/books') ? 'active' : ''}>Book Notes</Link>
           <Link to="/k8s" className={isActive('/k8s') ? 'active' : ''}>K8s + Liberty ☸️</Link>
+          <Link to="/test-automation" className={isActive('/test-automation') ? 'active' : ''}>Test Automation 🧪</Link>
           <Link to="/coverage-picker" className={isActive('/coverage-picker') ? 'active' : ''}>Coverage Picker 💰</Link>
           <div className="mobile-section-label">Briefs</div>
           <Link to="/daily-brief" className={isActive('/daily-brief') ? 'active' : ''}>Daily Brief</Link>
