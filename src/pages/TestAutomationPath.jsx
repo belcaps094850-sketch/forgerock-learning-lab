@@ -97,40 +97,22 @@ export default function TestAutomationPath() {
                         </div>
 
                         {topic.claudePrompt && (
-                          <div style={{
-                            margin: '0.75rem 0 0 2rem',
-                            border: '1px solid #e8e0f0',
-                            borderRadius: 6,
-                            overflow: 'hidden',
-                          }}>
+                          <div className="k8s-prompt-wrap">
                             <button
+                              className="k8s-prompt-toggle"
                               onClick={() => setExpandedPrompt(expandedPrompt === topic.id ? null : topic.id)}
-                              style={{
-                                width: '100%', display: 'flex', justifyContent: 'space-between',
-                                alignItems: 'center', padding: '0.5rem 0.75rem',
-                                background: '#f9f7fc', border: 'none', cursor: 'pointer',
-                                fontFamily: 'inherit', fontSize: '0.78rem', fontWeight: 600, color: '#666'
-                              }}
                             >
                               <span>🧠 Claude Prompt</span>
                               <span>{expandedPrompt === topic.id ? '▲' : '▼'}</span>
                             </button>
                             {expandedPrompt === topic.id && (
-                              <div style={{ padding: '0.75rem', position: 'relative' }}>
-                                <pre style={{
-                                  background: '#f5f5f5', padding: '0.75rem', borderRadius: 4,
-                                  fontSize: '0.75rem', whiteSpace: 'pre-wrap', wordBreak: 'break-word',
-                                  lineHeight: 1.5, maxHeight: 300, overflow: 'auto'
-                                }}>
+                              <div className="k8s-prompt-body">
+                                <pre className="k8s-prompt-code">
                                   {topic.claudePrompt}
                                 </pre>
                                 <button
+                                  className="k8s-prompt-copy"
                                   onClick={() => copyPrompt(topic.claudePrompt)}
-                                  style={{
-                                    position: 'absolute', top: 12, right: 12,
-                                    background: '#fff', border: '1px solid #ddd', borderRadius: 4,
-                                    padding: '2px 8px', fontSize: '0.7rem', cursor: 'pointer'
-                                  }}
                                 >
                                   Copy
                                 </button>

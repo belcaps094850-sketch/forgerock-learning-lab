@@ -162,19 +162,64 @@
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
-    padding: 32px 24px 40px;
-    gap: 32px;
+    padding: 24px 16px 32px;
+    gap: 24px;
   }
 
-  .hero h1 { font-size: 32px; }
+  .hero h1 { font-size: 28px; }
+
+  .hero-desc { font-size: 14px; }
 
   .hero-text::before { display: none; }
 
   .hero-visual {
     flex: none;
     width: 100%;
-    max-width: 400px;
+    max-width: none;
   }
 
-  .sections { padding: 0 24px 36px; }
+  .hero-actions {
+    flex-wrap: wrap;
+  }
+
+  .btn-pill-group {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-ghost, .btn-solid {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .mosaic-card {
+    padding: 14px;
+  }
+
+  .mosaic-icon {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .mosaic-title {
+    font-size: 14px;
+  }
+
+  .mosaic-desc {
+    font-size: 11px;
+  }
+
+  .sections { padding: 0 16px 32px; }
+}
+
+@media (max-width: 380px) {
+  .hero h1 { font-size: 24px; }
+
+  .hero-visual {
+    grid-template-columns: 1fr;
+  }
+
+  .mosaic-card.tall {
+    grid-row: span 1;
+  }
 }
