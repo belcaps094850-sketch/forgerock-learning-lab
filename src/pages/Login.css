@@ -188,3 +188,37 @@
   color: #888 !important;
   margin-top: 1rem !important;
 }
+
+@media (max-width: 768px) {
+  .login-page {
+    padding: 1.5rem 1rem;
+    min-height: 50vh;
+  }
+
+  .login-card {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .login-card h1 {
+    font-size: 1.3rem;
+  }
+
+  .login-btn, .google-btn {
+    padding: 0.75rem;
+    min-height: 48px;
+  }
+
+  .login-card input {
+    padding: 0.7rem 0.75rem;
+    font-size: 16px;
+  }
+
+  .pending-approval {
+    padding: 1.5rem 1rem;
+  }
+
+  .pending-card {
+    padding: 2rem 1.5rem;
+  }
+}

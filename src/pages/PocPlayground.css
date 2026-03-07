@@ -90,6 +90,19 @@
 }
 
 @media (max-width: 768px) {
+  .filters {
+    gap: 6px;
+    padding-bottom: 4px;
+  }
+
+  .filter-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+    min-height: 36px;
+  }
+
   .poc-header { gap: 6px; }
-  .poc-card { padding: 14px; }
+  .poc-card { padding: 12px; }
+  .poc-title { font-size: 14px; }
+  .poc-desc { font-size: 13px; }
 }

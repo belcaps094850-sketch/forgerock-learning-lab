@@ -34,6 +34,10 @@
 .sre-topic a:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {
-  .digest-entry { padding: 14px; }
+  .sre-date-heading { font-size: 16px; margin: 20px 0 12px; }
+  .digest-entry { padding: 12px; }
+  .digest-entry h3 { font-size: 14px; }
   .sre-topic { padding: 10px; }
+  .sre-topic h3 { font-size: 14px; }
+  .sre-topic p { font-size: 13px; }
 }

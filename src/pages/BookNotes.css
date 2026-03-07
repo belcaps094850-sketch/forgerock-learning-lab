@@ -26,7 +26,10 @@
 .back-to-list:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {
-  .book-header { flex-direction: column; text-align: center; }
-  .book-cover { margin: 0 auto; }
-  .book-index-link { padding: 10px 12px; }
+  .book-header { flex-direction: column; text-align: center; gap: 12px; padding-bottom: 16px; }
+  .book-header h2 { font-size: 20px; }
+  .book-cover { margin: 0 auto; width: 64px; height: 90px; }
+  .book-index-link { padding: 10px 12px; font-size: 14px; }
+  .book-thumb { width: 36px; height: 50px; }
+  .back-to-list { font-size: 13px; }
 }

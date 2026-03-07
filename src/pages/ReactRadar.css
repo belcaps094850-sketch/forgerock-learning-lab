@@ -45,5 +45,8 @@
 }
 
 @media (max-width: 768px) {
-  .topic-card { padding: 14px; }
+  .rr-date-section h2 { font-size: 17px; }
+  .topic-card { padding: 12px; }
+  .topic-card h3 { font-size: 14px; }
+  .rr-summary { font-size: 13px; }
 }

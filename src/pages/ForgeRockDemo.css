@@ -456,12 +456,24 @@
 /* Responsive */
 @media (max-width: 768px) {
   .forgerock-demo .fr-container {
-    padding: var(--slds-spacing-medium);
+    padding: var(--slds-spacing-small);
+  }
+
+  .forgerock-demo .fr-header {
+    padding: var(--slds-spacing-large) var(--slds-spacing-medium);
+  }
+
+  .forgerock-demo .fr-subtitle {
+    font-size: 1rem;
   }
 
   .forgerock-demo .panel,
   .forgerock-demo .login-form {
-    padding: var(--slds-spacing-large);
+    padding: var(--slds-spacing-medium);
+  }
+
+  .forgerock-demo .panel h3 {
+    font-size: 1.15rem;
   }
 
   .forgerock-demo .auth-chain {
@@ -472,6 +484,7 @@
   .forgerock-demo .auth-module {
     min-width: auto;
     width: 100%;
+    padding: var(--slds-spacing-medium);
   }
 
   .forgerock-demo .chain-arrow {
@@ -484,5 +497,29 @@
 
   .forgerock-demo .tab {
     min-width: auto;
+    padding: var(--slds-spacing-medium);
+    min-height: 44px;
+  }
+
+  .forgerock-demo .concept-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .forgerock-demo .concept-card {
+    padding: var(--slds-spacing-medium);
+  }
+
+  .forgerock-demo .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .forgerock-demo .slds-section-header {
+    padding: var(--slds-spacing-small) var(--slds-spacing-medium);
+    font-size: 0.85rem;
+  }
+
+  .forgerock-demo .slds-section-content {
+    padding: var(--slds-spacing-medium);
   }
 }
