@@ -1,5 +1,41 @@
 [
   {
+    "id": "2026-03-07",
+    "date": "2026-03-07",
+    "pocHighlight": {
+      "title": "Mission Control Command Center",
+      "summary": "A NASA-style dark command center dashboard for real-time agent monitoring — radar sweep, orbital rings, and glowing status nodes.",
+      "category": "React"
+    },
+    "categories": {
+      "AI": {
+        "topPick": "No updates today",
+        "summary": "No significant developments surfaced from community sources.",
+        "digest": "Quiet day — nothing noteworthy to report in this category."
+      },
+      "SRE": {
+        "topPick": "No updates today",
+        "summary": "No significant developments surfaced from community sources.",
+        "digest": "Quiet day — nothing noteworthy to report in this category."
+      },
+      "React": {
+        "topPick": "No updates today",
+        "summary": "No significant developments surfaced from community sources.",
+        "digest": "Quiet day — nothing noteworthy to report in this category."
+      },
+      "Security": {
+        "topPick": "No updates today",
+        "summary": "No significant developments surfaced from community sources.",
+        "digest": "Quiet day — nothing noteworthy to report in this category."
+      },
+      "MSL": {
+        "topPick": "No updates today",
+        "summary": "No significant developments surfaced from community sources.",
+        "digest": "Quiet day — nothing noteworthy to report in this category."
+      }
+    }
+  },
+  {
     "id": "2026-03-06",
     "date": "2026-03-06",
     "pocHighlight": {
