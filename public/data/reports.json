@@ -97,5 +97,14 @@
     "category": "Playbook",
     "icon": "\ud83d\udccb",
     "file": "reports/ai-testing-with-claude-playbook.md"
+  },
+  {
+    "id": "playwright-api-testing",
+    "title": "API Testing with Playwright \u2014 Complete Guide",
+    "description": "Unified UI + API testing: CRUD operations, auth patterns, data-driven tests, CI/CD integration, and best practices. Includes comparison with Postman, SuperTest, REST Assured.",
+    "date": "2026-03-06",
+    "category": "Playbook",
+    "icon": "\ud83c\udfad",
+    "file": "reports/playwright-api-testing-guide.md"
   }
 ]
